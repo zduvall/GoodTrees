@@ -23,7 +23,7 @@ module.exports = {
         unique: true
       },
       coordinates: {
-        type: Sequelize.GEOGRAPHY,
+        type: Sequelize.STRING(255),
         unique: true
       },
       description: {

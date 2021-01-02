@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
       },
       coordinates: {
-        type: DataTypes.GEOGRAPHY,
+        type: DataTypes.STRING(255),
         unique: true,
       },
       description: {
