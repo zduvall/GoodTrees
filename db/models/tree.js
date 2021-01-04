@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Tree.associate = function (models) {
-    Tree.belongsTo(models.Users, { foreignKey: "adderId" });
+    Tree.belongsTo(models.User, { foreignKey: "adderId" });
     Tree.hasMany(models.Review, { foreignKey: "treeId" });
     Tree.belongsToMany(models.User, {
       through: "ForestConnection",

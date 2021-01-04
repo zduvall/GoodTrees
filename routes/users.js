@@ -16,12 +16,12 @@ router.get('/', function(req, res, next) {
 });
 
 // User sign-up
-router.get('/user/sign-up', csrfProtection, (req, res) => {
+router.get('/sign-up', csrfProtection, (req, res) => {
   const user = db.User.build()
-  res.render('/Users/sign-up', { title: 'Sign Up', user, csrfToken: req.csrfToken()})
+  res.render('Users/sign-up', { title: 'Sign Up', user, csrfToken: req.csrfToken()})
 });
 
-router.post('/user/register', csrfProtection, signUpValidators, asyncHandler(async (req, res) => {
+router.post('/sign-up', csrfProtection, signUpValidators, asyncHandler(async (req, res) => {
   const {
     username,
     email,
@@ -38,7 +38,7 @@ router.post('/user/register', csrfProtection, signUpValidators, asyncHandler(asy
     res.redirect('/');
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
-    res.render('/Users/sign-up', {
+    res.render('Users/sign-up', {
       title: 'Sign Up',
       user,
       errors,
