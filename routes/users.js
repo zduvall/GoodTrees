@@ -31,7 +31,7 @@ router.post('/sign-up', csrfProtection, signUpValidators, asyncHandler(async (re
   const user = db.User.build({username, email});
   const validatorErrors = validationResult(req);
 
-  if (validatiorErrors.isEmpty()) {
+  if (validatorErrors.isEmpty()) {
     const hashedPassword = await bcrypt.hash(password, 10);
     user.hashedPassword = hashedPassoword;
     await user.save();
