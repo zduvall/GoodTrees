@@ -1,0 +1,14 @@
+extends ../layout.pug
+
+include ../utils.pug
+
+block content
+  +validationErrorSummary(errors)
+  form(action="/users/login", method="post") Login
+    +csrfToken()
+    +field("email", "email", email, "email")
+    +field("password", "password", null, "password")
+    div
+      button(type="submit") Login
+  div
+    p: a(href="/users/sign-up") Create a new GoodTrees account

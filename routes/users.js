@@ -4,7 +4,9 @@ const { check, validationResult } = require("express-validator");
 
 const db = require("../db/models");
 
-const { csrfProtection, asyncHandler, signUpValidators } = require("./utils");
+const { csrfProtection, asyncHandler, signUpValidators, loginValidators } = require("./utils");
+
+const { loginUser } = require("../auth.js");
 
 var router = express.Router();
 
@@ -50,5 +52,42 @@ router.post(
     }
   })
 );
+
+//login
+router.get('/login', csrfProtection, (req, res) => {
+  res.render('Users/login', { csrfToken: req.csrfToken() });
+});
+
+//login POST
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  let errors = [];
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const user = await db.User.findOne({ where: { email } })
+
+    if (user !== null) {
+      const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString())
+
+      if (passwordMatch) {
+        loginUser(req, res, user);
+        return res.redirect(`/users/${user.id}`);
+      }
+    }
+
+    errors.push('No GoodTrees climber exists with provided email and/or password')
+  } else {
+    errors = validatorErrors.array().map(error => error.msg);
+  }
+
+  res.render('Users/login', {
+    email,
+    errors,
+    csrfToken: req.csrfToken()
+  });
+
+}));
 
 module.exports = router;
