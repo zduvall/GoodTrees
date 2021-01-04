@@ -31,19 +31,19 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Tree.associate = function (models) {
-    Tree.belongsTo(models.User, { foreignKey: "adderId" });
+    Tree.belongsTo(models.User, { foreignKey: "adderId", as: "user" });
     Tree.hasMany(models.Review, { foreignKey: "treeId" });
     Tree.belongsToMany(models.User, {
       through: "ForestConnection",
       otherKey: "userId",
       foreignKey: "treeId",
-      as: "forestTrees",
+      as: "forestUsers",
     });
     Tree.belongsToMany(models.User, {
       through: "Review",
       otherKey: "reviewerId",
       foreignKey: "treeId",
-      as: "reviewedTrees",
+      as: "reviewAuthors",
     });
   };
   return Tree;
