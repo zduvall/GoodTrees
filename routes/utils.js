@@ -1,6 +1,8 @@
 const csrf = require('csurf');
 
 const csrfProtection = csrf({cookie: true});
+const { check } = require('express-validator');
+
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch((err) => next(err));
 
@@ -11,7 +13,7 @@ const signUpValidators = [
       .isLength({ max: 20})
       .withMessage('Username must not be more than 20 characters long'),
     check('email')
-      .exist({ checkFalsy: true })
+      .exists({ checkFalsy: true })
       .withMessage('Please provide a value for email')
       .isLength({ max: 255})
       .withMessage('No email address longer than 255 characters can be registered on GoodTrees')
