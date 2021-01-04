@@ -11,14 +11,14 @@ var router = express.Router();
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
 // User sign-up
 router.get('/sign-up', csrfProtection, (req, res) => {
   const user = db.User.build()
-  res.render('Users/sign-up', { title: 'Sign Up', user, csrfToken: req.csrfToken()})
+  res.render('Users/sign-up', { title: 'Sign Up', user, csrfToken: req.csrfToken() })
 });
 
 router.post('/sign-up', csrfProtection, signUpValidators, asyncHandler(async (req, res) => {
@@ -28,7 +28,7 @@ router.post('/sign-up', csrfProtection, signUpValidators, asyncHandler(async (re
     password,
   } = req.body;
 
-  const user = db.User.build({username, email});
+  const user = db.User.build({ username, email });
   const validatorErrors = validationResult(req);
 
   if (validatiorErrors.isEmpty()) {
@@ -45,6 +45,11 @@ router.post('/sign-up', csrfProtection, signUpValidators, asyncHandler(async (re
       csrfToken: req.csrfToken(),
     });
   }
-}))
+}));
+
+//login
+router.get('/login', csrfProtection, (req, res) => {
+  res.render('Users/login', { csrfToken: req.csrfToken() });
+});
 
 module.exports = router;
