@@ -4,7 +4,9 @@ const { check, validationResult } = require("express-validator");
 
 const db = require("../db/models");
 
-const { csrfProtection, asyncHandler, signUpValidators } = require("./utils");
+const { csrfProtection, asyncHandler, signUpValidators, loginValidators } = require("./utils");
+
+const { loginUser } = require("../auth.js");
 
 var router = express.Router();
 
@@ -55,5 +57,26 @@ router.post(
 router.get('/login', csrfProtection, (req, res) => {
   res.render('Users/login', { csrfToken: req.csrfToken() });
 });
+
+//login POST
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const errors = [];
+  const validatorErrors = validationResult(req);
+
+  if (validatorErrors.isEmpty()) {
+    const user = db.User.findOne({ where: { email } })
+
+    if (user !== null) {
+      const passwordMatch = await bcrypt.compare(password, user.hashedPassword.string())
+
+      if (passwordMatch) {
+        loginUser(req, res, user)
+      }
+    }
+  }
+
+}));
 
 module.exports = router;
