@@ -33,7 +33,7 @@ router.post('/sign-up', csrfProtection, signUpValidators, asyncHandler(async (re
 
   if (validatorErrors.isEmpty()) {
     const hashedPassword = await bcrypt.hash(password, 10);
-    user.hashedPassword = hashedPassoword;
+    user.hashedPassword = hashedPassword;
     await user.save();
     res.redirect('/');
   } else {
