@@ -1,9 +1,9 @@
-extends layout.pug
+extends ../layout.pug
 include ../utils.pug
 
 block content
     +validationErrorSummary(errors)
-    form(action="/users/register")
+    form(action="/users/sign-up")
         input(type="hidden" name="_csrf" value=csrfToken)
         +field('Username', 'username', user.username)
         +field('Email', 'email', user.email)
