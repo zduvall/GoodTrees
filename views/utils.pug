@@ -15,3 +15,13 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
       select(id=fieldName name=fieldName class='form-select')
     else
       input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form-control')
+
+mixin treeListView(trees)
+  each tree in trees
+    div(class='tree-list__container')
+      div
+        a(href= "/trees/#{tree.id}")= tree.name
+      div
+        p= tree.cityState
+      div
+        a(href= "/users/#{tree.adderId}")= tree.user.username
