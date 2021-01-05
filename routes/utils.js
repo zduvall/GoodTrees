@@ -65,12 +65,12 @@ const loginValidators = [
     .withMessage("Email field cannot be empty"),
   check("password")
     .exists({ checkFalsy: true })
-    .withMessage("Password field cannot be empty")
-]
+    .withMessage("Password field cannot be empty"),
+];
 
 module.exports = {
   csrfProtection,
   asyncHandler,
   signUpValidators,
-  loginValidators
+  loginValidators,
 };
