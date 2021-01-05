@@ -1,8 +1,8 @@
-const db = require("./db/models")
+const db = require("./db/models");
 
 const loginUser = (req, res, user) => {
-  req.session.auth = { userId: user.id }
-}
+  req.session.auth = { userId: user.id };
+};
 
 const logoutUser = (req, res) => {
   delete req.session.auth;
@@ -10,7 +10,7 @@ const logoutUser = (req, res) => {
 
 const requireAuth = (req, res, next) => {
   if (!res.locals.authenticated) {
-    return res.redirect('/user/login');
+    return res.redirect("/user/login");
   }
   return next();
 };
@@ -42,12 +42,8 @@ const restoreUser = async (req, res, next) => {
 };
 
 module.exports = {
-    loginUser,
-    logoutUser,
-    requireAuth,
-    restoreUser,
+  loginUser,
+  logoutUser,
+  requireAuth,
+  restoreUser,
 };
-
-
-
-
