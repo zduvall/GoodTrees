@@ -14,7 +14,7 @@ html
         a(href="/" class="tree") trees
         if locals.authenticated
           p Welcome to Good Trees, #{user.username}!
-          a(href="/users/:id(\\d+)" class="navBar") My Forest
+          a(href=`/users/${locals.user.id}` class="navBar") My Forest
           a(href="/trees" class="navBar") Find Trees
           a(href="/users" class="navBar") Highest Climbers
           form(action="/users/logout" method="POST")
