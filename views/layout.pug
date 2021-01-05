@@ -5,6 +5,7 @@ html
       title="goodtrees"
       link(rel='stylesheet' href='/stylesheets/reset.css')
       link(href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap" rel="stylesheet")
+      link(rel='stylesheet' href='/stylesheets/index.css')
   body
 
     div(class="nav")
@@ -18,7 +19,7 @@ html
           a(href="/users" class="navBar") Highest Climbers
           form(action="/users/logout" method="POST")
             button(type="submit" class="logOut") Log Out
-        else 
+        else
           a(href="/" class="navBar") Home
           a(href="/users/login" class="navBar") Log In
           a(href="/users/sign-up") Sign Up
