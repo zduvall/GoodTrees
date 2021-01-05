@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     // associations can be defined here
     User.hasMany(models.Review, { foreignKey: 'reviewerId'});
-    User.hasMany(models.Tree, { foreignKey: 'treeId'});
+    User.hasMany(models.Tree, { foreignKey: 'adderId'});
     User.belongsToMany(models.Tree, {
       through: 'ForestConnection',
       otherKey: 'treeId',
