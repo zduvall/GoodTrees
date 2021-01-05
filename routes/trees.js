@@ -15,18 +15,17 @@ var router = express.Router();
 //GET all trees
 router.get('/', asyncHandler(async (req, res) => {
     const trees = await db.Tree.findAll({ include: ['user'], order: [["name"]] });
-    console.log(trees);
     res.render('Trees/trees-page', { trees })
 }));
 
-// //GET a specific tree
-// router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-//     const treeId = parseInt(req.params.id, 10);
+//GET a specific tree
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+    const treeId = parseInt(req.params.id, 10);
 
-//     const tree = await db.Tree.findByPk(treeId);
+    const tree = await db.Tree.findByPk(treeId);
 
-//     res.render('Trees/specific-tree', { tree });
-// }));
+    res.render('Trees/specific-tree', { tree });
+}));
 
 //Create Tree
 router.get('/new', csrfProtection, requireAuth, (req, res) => {
