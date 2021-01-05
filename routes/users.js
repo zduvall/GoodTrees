@@ -40,7 +40,14 @@ router.post(
       user.hashedPassword = hashedPassword;
       await user.save();
       console.log(user.id);
-      res.redirect(`/users/${user.id}`);
+      loginUser(req, res, user);
+      return req.session.save(err => {
+        if (err) {
+          next(err)
+        } else {
+          res.redirect(`/users/${user.id}`);
+        }
+      })
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("Users/sign-up", {
@@ -59,7 +66,7 @@ router.get('/login', csrfProtection, (req, res) => {
 });
 
 //login POST
-router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res) => {
+router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
 
   let errors = [];
@@ -73,7 +80,13 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
       if (passwordMatch) {
         loginUser(req, res, user);
-        return res.redirect(`/users/${user.id}`);
+        return req.session.save(err => {
+          if (err) {
+            next(err)
+          } else {
+            res.redirect(`/users/${user.id}`);
+          }
+        })
       }
     }
 
