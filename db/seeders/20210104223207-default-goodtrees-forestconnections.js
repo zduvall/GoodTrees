@@ -16,6 +16,9 @@ module.exports = {
      {climbStatus: true, favStatus: true, userId: 1, treeId: 1,
       createdAt: new Date(), updatedAt: new Date()
     },
+     {climbStatus: false, favStatus: true, userId: 1, treeId: 2,
+      createdAt: new Date(), updatedAt: new Date()
+     },
     {climbStatus: true, favStatus: false, userId: 2, treeId: 2,
       createdAt: new Date(), updatedAt: new Date()
     }
