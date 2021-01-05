@@ -18,14 +18,21 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
 
 mixin treeListView(trees)
   ul
+    li: div(class='tree-list__container')
+      div(class='tree-list__col')
+        p Tree Name
+      div(class='tree-list__col')
+        p Closest City/State
+      div(class='tree-list__col')
+        p Tree Creator
     each tree in trees
       li: div(class='tree-list__container')
         div(class='tree-list__col')
-          a(href= "/trees/#{tree.id}")= tree.name
+          a(href= '/trees/'+tree.id)= tree.name
         div(class='tree-list__col')
           p= tree.cityState
         div(class='tree-list__col')
-          a(href= "/users/#{tree.adderId}")= tree.user.username
+          a(href= '/users/'+tree.adderId)= tree.user.username
 
 mixin csrfToken()
   input(type='hidden' name='_csrf' value=csrfToken)
