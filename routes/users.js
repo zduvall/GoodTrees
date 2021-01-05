@@ -103,4 +103,16 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler(async (req, 
 
 }));
 
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const id = req.params.id
+  const user = await db.User.findByPk(id, {
+    include: {
+      model: db.Tree,
+      as: 'forestTrees',
+    }
+  });
+  res.json({ user });
+  // res.render('Users/single-user', { user });
+}))
+
 module.exports = router;
