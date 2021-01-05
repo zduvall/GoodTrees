@@ -1,14 +1,16 @@
-const createError = require("http-errors");
-const express = require("express");
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const logger = require("morgan");
-const { sequelize } = require("./db/models");
-const session = require("express-session");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const { restoreUser } = require("./auth");
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const { sequelize } = require('./db/models');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const treesRouter = require('./routes/trees');
+const { restoreUser } = require('./auth')
+
 
 const app = express();
 
@@ -38,8 +40,11 @@ app.use(restoreUser);
 // create Session table if it doesn't already exist
 store.sync();
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/trees', treesRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
