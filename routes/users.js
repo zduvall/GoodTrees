@@ -111,8 +111,10 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
       as: 'forestTrees',
     }
   });
-  res.json({ user });
-  // res.render('Users/single-user', { user });
+  const climbedTrees = user.forestTrees.filter(tree => tree.ForestConnection.climbStatus)
+  const wantToClimbTrees = user.forestTrees.filter(tree => !tree.ForestConnection.climbStatus)
+  // res.json(user.forestTrees[0].name);
+  res.render('Users/single-user', { user });
 }))
 
 module.exports = router;
