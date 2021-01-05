@@ -1,0 +1,12 @@
+extends ../layout.pug
+include ../utils.pug
+
+block content
+    +validationErrorSummary(errors)
+    form(action="/trees/new" method="post") Create Tree Form
+        +csrfToken()
+        +field('Name', 'name', tree.name)
+        +field('Closest City/State', 'cityState', tree.cityState)
+        +field('Detailed Location', 'detLocation', tree.detLocation, 'textarea')
+        +field('Description', 'description', tree.description, 'textarea')
+        button(type='submit') Create a new Tree

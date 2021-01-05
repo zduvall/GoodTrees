@@ -45,7 +45,6 @@ router.post(
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
-      console.log(user.id);
       loginUser(req, res, user);
       return req.session.save((err) => {
         if (err) {
