@@ -32,7 +32,7 @@
   align-items: center;
   width: 100%;
   font-family: "Raleway", sans-serif;
-  background-image: url("/leaf-background-vector.png");
+  /*background-image: url("/leaf-background-vector.png");*/
 }
 
 .nav-link {
