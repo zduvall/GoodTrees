@@ -3,9 +3,11 @@ const db = require("../db/models");
 const csrfProtection = csrf({ cookie: true });
 const { check } = require("express-validator");
 
+// asyncHandler
 const asyncHandler = (handler) => (req, res, next) =>
   handler(req, res, next).catch((err) => next(err));
 
+// validators below
 const signUpValidators = [
   check("username")
     .exists({ checkFalsy: true })

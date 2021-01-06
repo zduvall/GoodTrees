@@ -2,15 +2,21 @@ extends ../layout.pug
 include ../utils.pug
 
 block content
-  div
-    h1 #{user.username}'s Forest
-  div
-    h2 #{user.username}'s climber score:
-  div
-    h2 #{user.username}'s climbed trees:
-      div
-        +treeListView(wantToClimbTrees)
-  div
-    h2 #{user.username}'s trees to climb:
-      div
-        +treeListView(wantToClimbTrees)
+  h1.header #{user.username}'s Forest
+  .container
+    .sidebar
+      h2.sub-header Climber Score: 
+      .score #{climberScore}
+      h2.sub-header Trees in Forest: 
+      .score #{climbedTrees.length + wantToClimbTrees.length}
+    if climbedTrees.length || wantToClimbTrees.length
+      .container__main-content 
+        div
+          h2.sub-header Already Climbed:
+          div: +treeListView(climbedTrees)
+        div
+          h2.sub-header Want to Climb:
+          div: +treeListView(wantToClimbTrees)
+    else
+      .container__main-content
+        p <a href="/trees">Find trees</a> to add to your forest!

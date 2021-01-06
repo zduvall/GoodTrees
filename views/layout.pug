@@ -11,8 +11,8 @@ html
 
     div(class="nav")
       div(class="logo")
-        a(href="/" class="good") good
-        a(href="/" class="tree") trees
+        a(href="/" class="good goodTrees") good
+        a(href="/" class="tree goodTrees") trees
         if locals.authenticated
           p Welcome to Good Trees, #{user.username}!
           a(href=`/users/${locals.user.id}` class="navBar") My Forest
