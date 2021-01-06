@@ -28,6 +28,7 @@
   align-items: center;
   width: 80%;
   font-family: "Raleway", sans-serif;
+  background-image: url("/leaf-background-vector.png");
 }
 
 .nav-link {
@@ -64,8 +65,8 @@ h1 {
   color: #555555;
 }
 
-html {
-  background: #fff8f2;
+body {
+  background: #f8f6f3;
 }
 
 .homepage-link {
@@ -81,6 +82,11 @@ a:hover:not(.goodTrees){
   margin: auto;
   width: fit-content;
   padding: 1rem;
+}
+
+.nav {
+  background-image: url("/leaf-background-vector.png");
+  opacity: 0.5;
 }
 
 .container {

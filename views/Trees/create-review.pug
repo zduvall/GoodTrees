@@ -1,0 +1,30 @@
+extends ../layout.pug
+include ../utils.pug
+
+block content
+    +validationErrorSummary(errors)
+    form(class="form-review" method="POST" action="/reviews/new") 
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name="treeId" value=tree.id)
+        div: label(for="difficulty") Difficulty
+            select(name="difficulty" id="difficulty")
+                option(value=1) Easy
+                option(value=2) Medium
+                option(value=3) Hard
+                option(value=4) Danger Seeker 
+        div: label(for="funFactor") Fun Factor
+            select(name="funFactor" id="funFactor")
+                option(value=1) Boring
+                option(value=2) Okay
+                option(value=3) Enjoyable
+                option(value=4) Amazing
+        div: label(for="viewFromTop") View from Top
+            select(name="viewFromTop" id="viewFromTop")   
+                option(value=1) Dull
+                option(value=2) Good
+                option(value=3) Great
+                option(value=4) Mesmerizing 
+        div: label(for="reviewText") Tell us about it
+            textarea(name="reviewText" id="reviewText" cols="30" rows="10")
+        button(type="submit") Submit Review
+
