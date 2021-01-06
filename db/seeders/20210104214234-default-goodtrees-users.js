@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 const faker = require('faker');
 
-const numUsers;
+let numUsers;
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {

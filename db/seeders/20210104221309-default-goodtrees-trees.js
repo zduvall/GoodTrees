@@ -1,5 +1,7 @@
 'use strict';
 
+let numTrees;
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -13,7 +15,25 @@ module.exports = {
       }], {});
     */
 
-    
+    // create filler trees
+    const fillerTrees = [];
+    const numFillerTrees = 30; // edit this to edit the number of trees created
+    numTrees = numFillerTrees + 4; // this is adding 12 because we have 12 hardcoded trees
+
+    for (let i = 0; i < numFillerTrees; i++) {
+
+      const userName = faker.internet.userName();
+      const email = faker.internet.email();
+      const hashedPassword = await bcrypt.hash(userName + "234", 10);
+
+      fillerTrees.push({
+        username: userName,
+        email: email,
+        hashedPassword: hashedPassword,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      });
+    };
 
     return queryInterface.bulkInsert('Trees', [
       {
