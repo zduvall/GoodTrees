@@ -10,7 +10,7 @@ const db = require("../db/models");
 const {
   csrfProtection,
   asyncHandler,
-  createTreeValidators,
+  createReviewValidators,
 } = require("./utils");
 
 const router = express.Router();
@@ -29,18 +29,6 @@ router.get(
     });
   })
 );
-
-//GET a specific review
-// router.get(
-//   "/:id(\\d+)",
-//   asyncHandler(async (req, res) => {
-//     const reviewId = parseInt(req.params.id, 10);
-
-//     const review = await db.Review.findByPk(reviewId);
-
-//     res.render("Trees/create-review", { review });
-//   })
-// );
 
 router.post(
   "/new",
@@ -65,7 +53,7 @@ router.post(
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("/new", {
-        title: "Create A New Tree",
+        title: "Create A New Review",
         review,
         errors,
         csrfToken: req.csrfToken(),
