@@ -64,6 +64,7 @@ a:hover:not(.goodTrees){
 .sub-header {
   font-weight: 600;
   color: #873307;
+  padding-top: 20px;
 }
 
 .score {
@@ -81,4 +82,16 @@ a:hover:not(.goodTrees){
   width: 30%;
   text-align: center;
   vertical-align: middle;
+}
+
+.new-tree__button {
+    font-weight: 600;
+    color: #873307;
+    border: #873307 solid;
+    border-radius: 2px;
+}
+
+.tree-page__name {
+    display: flex;
+    justify-content: center;
 }

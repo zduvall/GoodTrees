@@ -3,4 +3,10 @@ extends ../layout.pug
 include ../utils.pug
 
 block content
-    h1 This will be the specific tree page!!
+    h1.tree-page__name= tree.name
+    .container
+        .sidebar
+            div.sub-header: a(href= "/trees/new").new-tree__button Add a new Tree!
+            div
+            div.sub-header: a(href= "/").new-tree__button Review this Tree!
+    h2.tree-page__subheader This Tree's Location:
