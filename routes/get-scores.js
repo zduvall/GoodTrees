@@ -1,5 +1,5 @@
 // get tree's avg score (make sure to include all reviews on any tree passed in)
-// for attribute, pass in a string of "difficulty", "funFactor", or "view from top"
+// for attribute, pass in a string of "difficulty", "funFactor", or "viewFromTop"
 const getTreeAvgScore = (tree, attribute) => {
   if(!tree.reviews.length) return 0
   
