@@ -52,6 +52,8 @@ a:hover:not(.goodTrees){
   border: #873307 solid;
   border-radius: 1rem;
   padding: .5rem 1rem;
+  position: sticky;
+  top: 1em;
 }
 
 .container__main-content {
