@@ -16,67 +16,61 @@ const {
 const router = express.Router();
 
 router.get(
-    "/",
-    asyncHandler(async (req, res) => {
-      const trees = await db.Tree.findAll({
-        include: ["user"],
-        order: [["name"]],
-      });
-      res.render("Trees/trees-page", { trees });
-    })
-  );
-  
-  //GET a specific tree
-  router.get(
-    "/:id(\\d+)",
-    asyncHandler(async (req, res) => {
-      const treeId = parseInt(req.params.id, 10);
-  
-      const tree = await db.Tree.findByPk(treeId);
-  
-      res.render("Trees/specific-tree", { tree });
-    })
-  );
-  
-  //Create Tree
-  router.get("/new", csrfProtection, requireAuth, (req, res) => {
-    const tree = db.Tree.build();
-    res.render("Trees/create-tree", {
-      title: "Create A New Tree",
+  "/:id(\\d+)/new",
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+    const review = db.Review.build();
+    const treeId = parseInt(req.params.id, 10);
+    const tree = await db.Tree.findByPk(treeId);
+    res.render("Trees/create-review", {
       tree,
+      review,
       csrfToken: req.csrfToken(),
     });
-  });
-  
-  router.post(
-    "/new",
-    csrfProtection,
-    createTreeValidators,
-    requireAuth,
-    asyncHandler(async (req, res) => {
-      const { name, cityState, detLocation, description } = req.body;
-  
-      const tree = db.Tree.build({
-        name,
-        cityState,
-        detLocation,
-        description,
-        adderId: res.locals.user.dataValues.id,
+  })
+);
+
+//GET a specific review
+// router.get(
+//   "/:id(\\d+)",
+//   asyncHandler(async (req, res) => {
+//     const reviewId = parseInt(req.params.id, 10);
+
+//     const review = await db.Review.findByPk(reviewId);
+
+//     res.render("Trees/create-review", { review });
+//   })
+// );
+
+router.post(
+  "/new",
+  csrfProtection,
+  createReviewValidators,
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const { difficulty, funFactor, viewFromTop, reviewText } = req.body;
+
+    const review = db.Review.build({
+      difficulty,
+      funFactor,
+      viewFromTop,
+      reviewText,
+      adderId: res.locals.user.dataValues.id,
+    });
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      await review.save();
+      return res.redirect(`/users/${user.id}`);
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("/new", {
+        title: "Create A New Tree",
+        review,
+        errors,
+        csrfToken: req.csrfToken(),
       });
-      const validatorErrors = validationResult(req);
-  
-      if (validatorErrors.isEmpty()) {
-        await tree.save();
-        return res.redirect(`/users/${user.id}`);
-      } else {
-        const errors = validatorErrors.array().map((error) => error.msg);
-        res.render("Trees/new", {
-          title: "Create A New Tree",
-          tree,
-          errors,
-          csrfToken: req.csrfToken(),
-        });
-      }
-    })
-  );
-  module.exports = router;
+    }
+  })
+);
+module.exports = router;

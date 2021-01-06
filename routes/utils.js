@@ -98,10 +98,28 @@ const createTreeValidators = [
     .withMessage("Please provide a description to help future goodtree climbers")
 ]
 
+const createReviewValidators = [
+  check("reviewText")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a review for the tree.")
+    .isLength({ max: 180 })
+    .withMessage("Please tell us about the tree in 180 characters or less."),
+  check("difficulty")
+    .exists({ checkFalsy: true })
+    .withMessage("Please tell us how difficult this tree is to climb."),
+ check("funFactor")
+    .exists({ checkFalsy: true })
+    .withMessage("Please tell us how fun this tree is."),
+  check("viewFromTop")
+    .exists({ checkFalsy: true })
+    .withMessage("Please tell us about the view.")
+]
+
 module.exports = {
   csrfProtection,
   asyncHandler,
   signUpValidators,
   loginValidators,
   createTreeValidators,
+  createReviewValidators
 };
