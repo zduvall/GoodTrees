@@ -1,6 +1,7 @@
 'use strict';
 
 const faker = require('faker');
+const numUsers = require('./20210104214234-default-goodtrees-users')
 
 let numTrees;
 
@@ -22,6 +23,7 @@ module.exports = {
     const numFillerTrees = 30; // edit this to edit the number of trees created
     numTrees = numFillerTrees + 13; // this is adding 13 because we have 13 hardcoded trees
 
+    // data for creating random trees
     const treeTypes = [
       'Arborvitae',
       'Black Ash',
@@ -101,22 +103,66 @@ module.exports = {
       'Tallest',
       'Young',
     ]
-    
+    const treeDesciptions1 = [
+      'This is one of the best trees out there.',
+      'My friend and I felt so lucky when we stumbled upon this tree, I\'m glad we get to share it.',
+      'I hope lots of people enjoy climbing this beauty just like I did.',
+      'It\'s easy to locate and quickly recognize.',
+      'I\'m excited to share this tree with all of you. It\'s beautiful to see and climb.',
+      'This tree is kind of hard to find, but it\'s worth the effort getting there.',
+      'I grew up minutes from this tree and climbed it every day as a child.',
+      'This is a historic tree for the location. Please climb with care.',
+      'There are so many trees out there, but few are as worthy of this one to be climbed.',
+      'This tree is a small but beautiful tree.',
+      'I grew up climbing this tree and was later proposed to under it.',
+    ]
+    const treeDescriptions2 = [
+      'Please leave a review!',
+      'Hope you have a nice time climbing.',
+      'Happy climbing!',
+      'Be careful on the way up!',
+      'Not for the faint of heart!',
+      'Great tree for kids!',
+      'Awesome for kids!',
+      'Have fun!',
+      'Enjoy!',
+      'Be safe!',
+      'Please review :)',
+      'Enjoy your climb :)',
+      'Take care :)',
+      'For all tree climbing enthusiasts :)',
+      'Great for all ages :)',
+      'Adults only.',
+      'Experienced climbers only.',
+      'Peace, bro :P',
+      'I hope you enjoy it too!',
+    ]
+
     for (let i = 0; i < numFillerTrees; i++) {
-      
-      const randTreeType = treeTypes[Math.floor(Math.random() * treeTypes.length)];
+
+      // create random name
       const randTreeAdj = treeAdjs[Math.floor(Math.random() * treeAdjs.length)];
       const randTreeOwner = faker.name.firstName() + "'s"
       const randPrefix = faker.name.prefix()
+      const randTreeType = treeTypes[Math.floor(Math.random() * treeTypes.length)];
 
+      let name;
       const nameBuildNum = Math.random() * 10
-
-      const name = 'replace';
-      
-      const cityState = 'replace';
-      const detLocation = 'replace';
-      const description = 'replace';
-      const adderId = 'replace';
+      if (nameBuildNum <= 5) {
+        name = `${randTreeAdj} ${randTreeType}`
+      } else if (nameBuildNum <= 8) {
+        name = `${randTreeOwner} ${randTreeType}`
+      } else {
+        name = `${randPrefix} ${randTreeType}`
+      }
+      // generate random cityState
+      const cityState = `${faker.address.city()}, ${faker.address.stateAbbr}`;
+      // generate random detLocation
+      const detLocation = faker.address.streetAddress;
+      // generate random description by combinging random descriptions from the 2 lists.
+      const description = `${treeDesciptions1[Math.floor(Math.random() * treeDesciptions1.length)]} ${treeDesciptions2[Math.floor(Math.random() * treeDesciptions2.length)]}`;
+      // generate random adder
+      const adderId = Math.floor(Math.random() * numUsers);
 
       fillerTrees.push({
         name: name,
@@ -195,6 +241,7 @@ module.exports = {
         description: 'Amazing view, but no real climb :P',
         adderId: 1, createdAt: new Date(), updatedAt: new Date()
       },
+      ...fillerTrees
     ])
   },
 
