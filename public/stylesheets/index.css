@@ -1,3 +1,52 @@
+/* Logo */
+.logo {
+  display: flex;
+}
+
+.good {
+  font-size: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+  color: #212121;
+  text-decoration: none;
+}
+
+.tree {
+  font-size: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  color: #6c9734;
+  text-decoration: none;
+}
+
+
+/* Navbar */
+.navbar {
+  display:flex;
+  flex-direction: row;
+  margin:auto;
+  align-items: center;
+  width: 80%;
+  font-family: "Raleway", sans-serif;
+}
+
+.nav-link {
+  align-self: flex-end;
+  text-decoration: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.nav-span {
+  width: 50%;
+  text-align: center;
+  align-self: center;
+}
+
+
+
 h1 {
   color: #555555;
 }
@@ -66,4 +115,15 @@ a:hover:not(.goodTrees){
   width: 30%;
   text-align: center;
   vertical-align: middle;
+}
+
+
+.signup a {
+  float: left;
+  color: #f2f2f2;
+  background-color: 6c9734;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
