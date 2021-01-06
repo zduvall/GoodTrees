@@ -1,12 +1,47 @@
 h1 {
-    color: #555555;
+  color: #555555;
 }
 
 .tree-list__container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 
+
 .tree-list__col {
-    padding: 10px;
+  padding: 10px;
+}
+
+/* Styles for single-user.pug */
+.header{
+  margin: auto;
+  width: fit-content;
+  padding: 1rem;
+}
+
+.user-info-container {
+  width: 70%;
+  margin: auto;
+  display: flex;
+}
+
+.sidebar {
+  flex-grow: 1;
+  border: brown solid;
+  border-radius: 1rem;
+  padding: .5rem 1rem;
+}
+
+.main-content {
+  flex-grow: 4;
+}
+
+.sub-header {
+  font-weight: 600;
+  color: brown;
+}
+
+.score {
+  margin: auto;
+  width: fit-content;
 }
