@@ -48,5 +48,18 @@ mixin treeListView(trees)
 mixin csrfToken()
   input(type='hidden' name='_csrf' value=csrfToken)
 
-//- mixin reviewListView(tree)
-//-   each review in tree.reviews
+mixin reviewListView(review)
+  table.review-list__table
+    thead
+      th.column Reviewer
+      th.column Difficulty
+      th.column Fun Factor
+      th.column View From Top
+      th.column Description
+    tbody
+      tr
+        td.column: p= review.reviewer.username
+        td.column: p= review.difficulty
+        td.column: p= review.funFactor
+        td.column: p= review.viewFromTop
+        td.column: p= review.reviewText

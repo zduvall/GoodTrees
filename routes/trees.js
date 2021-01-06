@@ -41,8 +41,8 @@ router.get(
                     }
                 }
             });
-        res.json({ tree })
-        // res.render("Trees/specific-tree", { tree });
+        // res.json({ tree })
+        res.render("Trees/specific-tree", { tree });
     })
 );
 

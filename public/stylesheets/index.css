@@ -152,3 +152,40 @@ a:hover:not(.goodTrees){
   text-decoration: none;
   font-size: 17px;
 }
+
+.review-list__table {
+    display: table;
+    table-layout: auto;
+    width: 500px;
+    padding-top: 1rem;
+    border: 2px solid black;
+}
+
+.review-list__container {
+    width: 60%;
+    max-width: 800px;
+    margin: 10%;
+    display: flex;
+    border-radius: 1rem;
+    justify-content: center;
+    flex-direction: column-reverse;
+    text-align: center;
+}
+
+.review-list__container table td:nth-child(2){
+    /* background-color: red; */
+}
+
+.tree-view__content {
+    flex-grow: 1;
+    padding: .5rem 1rem;
+    text-align: center;
+}
+
+.tree-page__name {
+    padding: 3%;
+}
+
+.review-list__table tbody p {
+    /* font-size: 50%; */
+}
