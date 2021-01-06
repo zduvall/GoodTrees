@@ -140,19 +140,20 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
         },
         {
           model: db.Review,
-          as: 'reviews'
+          as: 'reviews',
+          required: false
         }
       ]
     }
   });
   const climbedTrees = user.forestTrees.filter(tree => tree.ForestConnection.climbStatus);
   const wantToClimbTrees = user.forestTrees.filter(tree => !tree.ForestConnection.climbStatus);
-  // const climberScore = getClimberScore(climbedTrees);
-  res.render('Users/single-user', { 
-    user, 
-    climbedTrees, 
+  const climberScore = getClimberScore(climbedTrees);
+  res.render('Users/single-user', {
+    user,
+    climbedTrees,
     wantToClimbTrees,
-    // climberScore 
+    climberScore 
   });
 }))
 

@@ -1,39 +1,29 @@
-// get tree's avg difficulty score (make sure to include all reviews on tree in)
-const getTreeAvgDiffScores = (tree) => {
+// get tree's avg score (make sure to include all reviews on tree in)
+const getTreeAvgScore = (tree, attribute) => {
+  if(!tree.reviews.length) return 0
+  
   let sum = 0;
-  let num = 0;
+  
   tree.reviews.forEach(review => {
-    num ++;
-    sum += review.difficulty;
+    sum += review[attribute];
   });
-  return sum / num;
-}
 
-// get tree's avg funFactor score (make sure to include all reviews on tree in)
-const getTreeAvgFunScores = (tree) => {
-
-}
-// get tree's viewFromTop score (make sure to include all reviews on tree in)
-const getTreeAvgViewScores = (tree) => {
-
+  return sum / tree.reviews.length;
 }
 
 // get user's climber score (pass in user's climbedTrees and make sure to include all reviews)
 const getClimberScore = (climbedTrees) => {
+  if (!climbedTrees.length) return "No trees climbed yet!!!"
   let sum = 0;
-  let num = 0;
 
   climbedTrees.forEach(tree => {
-    num++;
-    sum += getTreeAvgDiffScores(tree);
+    sum += getTreeAvgScore(tree, "difficulty");
   })
 
-  return sum / num;
+  return sum / climbedTrees.length;
 }
 
 module.exports = {
-  getTreeAvgDiffScores,
-  getTreeAvgFunScores,
-  getTreeAvgViewScores,
+  getTreeAvgScore,
   getClimberScore
 };

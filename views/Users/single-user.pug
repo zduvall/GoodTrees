@@ -5,11 +5,11 @@ block content
   div
     h1 #{user.username}'s Forest
   div
-    h2 #{user.username}'s climber score:
+    h2 #{user.username}'s climber score: #{climberScore}
   div
     h2 #{user.username}'s climbed trees:
       div
-        +treeListView(wantToClimbTrees)
+        +treeListView(climbedTrees)
   div
     h2 #{user.username}'s trees to climb:
       div
