@@ -2,46 +2,66 @@ h1 {
   color: #555555;
 }
 
+/* .tree-list {
+  list-style-type: none;
+}
+
 .tree-list__container {
   display: flex;
   flex-direction: row;
-}
+  align-items: center;
+  justify-content: space-around;
+} */
 
+/* .tree-list__col {
+  margin: 1rem auto;
+} */
 
-.tree-list__col {
-  padding: 10px;
-}
-
-/* Styles for single-user.pug */
 .header{
   margin: auto;
   width: fit-content;
   padding: 1rem;
 }
 
-.user-info-container {
-  width: 70%;
+.container {
+  width: 60%;
+  max-width: 800px;
   margin: auto;
   display: flex;
 }
 
 .sidebar {
-  flex-grow: 1;
-  border: brown solid;
+  width: 25%;
+  height: fit-content;
+  flex-wrap: wrap;
+  border: #873307 solid;
   border-radius: 1rem;
   padding: .5rem 1rem;
 }
 
 .main-content {
-  flex-grow: 4;
+  flex-grow: 1;
+  padding: .5rem 1rem;
 }
 
 .sub-header {
   font-weight: 600;
-  color: brown;
+  color: #873307;
 }
 
 .score {
   margin: auto;
   width: fit-content;
+  padding: 1rem;
+}
+
+.trees-table {
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.column {
+  width: 30%;
+  text-align: center;
+  vertical-align: middle;
 }
