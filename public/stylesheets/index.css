@@ -21,6 +21,9 @@ html {
   background: #fff8f2;
 }
 
+.homepage-link {
+  padding: 1rem;
+}
 
 a:hover:not(.goodTrees){
   background: #e2f0d0;
@@ -39,6 +42,7 @@ a:hover:not(.goodTrees){
   margin: auto;
   display: flex;
   border-radius: 1rem;
+  justify-content: center;
 }
 
 .sidebar {
