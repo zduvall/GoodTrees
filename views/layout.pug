@@ -18,8 +18,8 @@ html
         a(class="nav-link" href=`/users/${locals.user.id}` class="navBar") My Forest
         a(class="nav-link" href="/trees" class="navBar") Find Trees
         a(class="nav-link" href="/users" class="navBar") Highest Climbers
-        form(class="nav-link" action="/users/logout" method="POST")
-          button(type="submit" class="nav-logout") Log Out
+        form(class="nav-logout-form nav-link" action="/users/logout" method="POST")
+          button(type="submit" class="nav-logout-btn") Logout
       else
         span(class="nav-span")
         a(class="nav-link" href="/") Home
