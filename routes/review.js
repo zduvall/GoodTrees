@@ -36,24 +36,27 @@ router.post(
   createReviewValidators,
   requireAuth,
   asyncHandler(async (req, res) => {
-    const { difficulty, funFactor, viewFromTop, reviewText } = req.body;
+    const { treeId, difficulty, funFactor, viewFromTop, reviewText } = req.body;
 
     const review = db.Review.build({
+      treeId,
       difficulty,
       funFactor,
       viewFromTop,
       reviewText,
-      adderId: res.locals.user.dataValues.id,
+      reviewerId: res.locals.user.dataValues.id,
     });
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
       await review.save();
-      return res.redirect(`/users/${user.id}`);
+      return res.redirect(`/trees/${req.body.treeId}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render("/new", {
+      const tree = await db.Tree.findByPk(treeId);
+      res.render("Trees/create-review", {
         title: "Create A New Review",
+        tree,
         review,
         errors,
         csrfToken: req.csrfToken(),
