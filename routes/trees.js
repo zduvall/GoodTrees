@@ -9,8 +9,6 @@ const db = require("../db/models");
 
 const { csrfProtection, asyncHandler, createTreeValidators } = require("./utils");
 
-var router = express.Router();
-
 const router = express.Router();
 
 //GET all trees
