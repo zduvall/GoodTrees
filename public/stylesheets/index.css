@@ -17,6 +17,12 @@ h1 {
   margin: 1rem auto;
 } */
 
+
+a:hover:not(.goodTrees){
+  background: #a9d9a9;
+  border-radius: .25rem;
+}
+
 .header{
   margin: auto;
   width: fit-content;

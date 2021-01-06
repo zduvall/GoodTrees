@@ -12,10 +12,10 @@ block content
     if climbedTrees.length || wantToClimbTrees.length
       .main-content  
         div
-          h2.sub-header Climbed Trees:
+          h2.sub-header Already Climbed:
           div: +treeListView(climbedTrees)
         div
-          h2.sub-header Trees to Climb:
+          h2.sub-header Want to Climb:
           div: +treeListView(wantToClimbTrees)
     else
       .main-content

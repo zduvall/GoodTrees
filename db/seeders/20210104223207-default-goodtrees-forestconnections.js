@@ -38,7 +38,15 @@ module.exports = {
         createdAt: new Date(), updatedAt: new Date()
       },
       {
-        climbStatus: true, favStatus: false, userId: 2, treeId: 2,
+        climbStatus: true, favStatus: false, userId: 2, treeId: 1,
+        createdAt: new Date(), updatedAt: new Date()
+      },
+      {
+        climbStatus: false, favStatus: false, userId: 2, treeId: 2,
+        createdAt: new Date(), updatedAt: new Date()
+      },
+      {
+        climbStatus: false, favStatus: false, userId: 2, treeId: 3,
         createdAt: new Date(), updatedAt: new Date()
       },
     ], {});
