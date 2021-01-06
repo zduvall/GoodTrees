@@ -1,4 +1,5 @@
 'use strict';
+
 const bcrypt = require('bcryptjs');
 const faker = require('faker');
 

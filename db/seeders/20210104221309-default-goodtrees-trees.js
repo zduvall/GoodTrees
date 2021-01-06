@@ -1,5 +1,7 @@
 'use strict';
 
+const faker = require('faker');
+
 let numTrees;
 
 module.exports = {
@@ -74,10 +76,43 @@ module.exports = {
       'Black Walnut',
       'Black Willow',
     ]
-
+    const treeAdjs = [
+      'Ancestral',
+      'Ancient',
+      'Beloved',
+      'Brown',
+      'Conspicuous',
+      'Dark',
+      'Darkest',
+      'Eldest',
+      'Gnarled',
+      'Golden',
+      'Green',
+      'Huge',
+      'Light',
+      'Local',
+      'Lonely',
+      'Mature',
+      'Perfect',
+      'Potted',
+      'Rare',
+      'Serpentine',
+      'Stately',
+      'Tallest',
+      'Young',
+    ]
+    
     for (let i = 0; i < numFillerTrees; i++) {
+      
+      const randTreeType = treeTypes[Math.floor(Math.random() * treeTypes.length)];
+      const randTreeAdj = treeAdjs[Math.floor(Math.random() * treeAdjs.length)];
+      const randTreeOwner = faker.name.firstName() + "'s"
+      const randPrefix = faker.name.prefix()
+
+      const nameBuildNum = Math.random() * 10
 
       const name = 'replace';
+      
       const cityState = 'replace';
       const detLocation = 'replace';
       const description = 'replace';
