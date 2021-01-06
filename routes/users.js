@@ -1,7 +1,6 @@
-var express = require("express");
+const express = require("express");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
-
 
 const db = require("../db/models");
 
@@ -14,7 +13,7 @@ const {
 
 const { loginUser, logoutUser } = require("../auth.js");
 
-var router = express.Router();
+const router = express.Router();
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
@@ -122,23 +121,30 @@ router.post("/logout", (req, res) => {
   res.redirect("/Users/login");
 });
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-  const id = req.params.id
-  const user = await db.User.findByPk(id, {
-    include: {
-      model: db.Tree,
-      as: 'forestTrees',
+router.get(
+  "/:id(\\d+)",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const user = await db.User.findByPk(id, {
       include: {
-        model: db.User,
-        as: 'user'
-      }
-    }
-  });
-  const climbedTrees = user.forestTrees.filter(tree => tree.ForestConnection.climbStatus)
-  const wantToClimbTrees = user.forestTrees.filter(tree => !tree.ForestConnection.climbStatus)
-  // console.log(wantToClimbTrees);
-  // res.json(user.forestTrees[0].name);
-  res.render('Users/single-user', { user, climbedTrees, wantToClimbTrees });
-}))
+        model: db.Tree,
+        as: "forestTrees",
+        include: {
+          model: db.User,
+          as: "user",
+        },
+      },
+    });
+    const climbedTrees = user.forestTrees.filter(
+      (tree) => tree.ForestConnection.climbStatus
+    );
+    const wantToClimbTrees = user.forestTrees.filter(
+      (tree) => !tree.ForestConnection.climbStatus
+    );
+    // console.log(wantToClimbTrees);
+    // res.json(user.forestTrees[0].name);
+    res.render("Users/single-user", { user, climbedTrees, wantToClimbTrees });
+  })
+);
 
 module.exports = router;

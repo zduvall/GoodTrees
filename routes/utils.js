@@ -69,28 +69,34 @@ const loginValidators = [
 ];
 
 const createTreeValidators = [
-    check("name")
-        .exists({ checkFalsy: true })
-        .withMessage("Please provide a name for the tree")
-        .isLength({max: 30})
-        .withMessage("A goodtree does not have a name longer than 30 characters long"),
-    check("cityState")
-        .exists({ checkFalsy: true })
-        .withMessage("Please provide the closest city and state to the tree")
-        .isLength({ max: 40})
-        .withMessage("Please abbreviate the city/state to under 40 characters"),
-    check("detLocation")
-        .exists({ checkFalsy: true })
-        .withMessage("Please provide a message to help future climbers get to this tree"),
-    check("description")
-        .exists({ checkFalsy: true})
-        .withMessage("Please provide a description to help future goodtree climbers")
-]
+  check("name")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide a name for the tree")
+    .isLength({ max: 30 })
+    .withMessage(
+      "A goodtree does not have a name longer than 30 characters long"
+    ),
+  check("cityState")
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide the closest city and state to the tree")
+    .isLength({ max: 40 })
+    .withMessage("Please abbreviate the city/state to under 40 characters"),
+  check("detLocation")
+    .exists({ checkFalsy: true })
+    .withMessage(
+      "Please provide a message to help future climbers get to this tree"
+    ),
+  check("description")
+    .exists({ checkFalsy: true })
+    .withMessage(
+      "Please provide a description to help future goodtree climbers"
+    ),
+];
 
 module.exports = {
   csrfProtection,
   asyncHandler,
   signUpValidators,
   loginValidators,
-  createTreeValidators
+  createTreeValidators,
 };
