@@ -4,13 +4,18 @@ include ../utils.pug
 block content
   div
     h1 #{user.username}'s Forest
-  div
+  .sidebar
     h2 #{user.username}'s climber score: #{climberScore}
-  div
-    h2 #{user.username}'s climbed trees:
-      div
-        +treeListView(climbedTrees)
-  div
-    h2 #{user.username}'s trees to climb:
-      div
-        +treeListView(wantToClimbTrees)
+    h2 Trees in forest: #{climbedTrees.length + wantToClimbTrees.length}
+  if climbedTrees.length || wantToClimbTrees.length
+    div
+      h2 #{user.username}'s climbed trees:
+        div
+          +treeListView(climbedTrees)
+    div
+      h2 #{user.username}'s trees to climb:
+        div
+          +treeListView(wantToClimbTrees)
+  else
+    div
+      a(href="/trees") Grow your forest by adding trees you have climbed or want to climb!
