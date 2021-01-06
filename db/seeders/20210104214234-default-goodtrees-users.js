@@ -25,7 +25,11 @@ module.exports = {
       
     for (let i = 0; i < numFillerUsers; i++) {
 
-      const userName = faker.internet.userName();
+      let userName = faker.internet.userName()
+      while (userName.length > 20) {
+        userName = faker.internet.userName()
+      }
+
       const email = faker.internet.email();
       const hashedPassword = await bcrypt.hash(userName + "234", 10);
 
@@ -53,8 +57,8 @@ module.exports = {
 
     return queryInterface.bulkInsert('Users', [
       { username: 'Demo', email: 'demo@gmail.com', hashedPassword: hashedPasswordDemo, createdAt: new Date(), updatedAt: new Date()},
+      { username: 'NewClimber', email: 'randy@gmail.com', hashedPassword: hashedPassword2, createdAt: new Date(), updatedAt: new Date() },
       { username: 'Spongebob', email: 'spongebob@gmail.com', hashedPassword: hashedPassword1, createdAt: new Date(), updatedAt: new Date() },
-      { username: 'Randy', email: 'randy@gmail.com', hashedPassword: hashedPassword2, createdAt: new Date(), updatedAt: new Date() },
       { username: 'Pikachu', email: 'pokemons@protonmail.com', hashedPassword: hashedPassword3, createdAt: new Date(), updatedAt: new Date() },
       ...fillerUsers
     ], {});
@@ -71,5 +75,3 @@ module.exports = {
     return queryInterface.bulkDelete('Users', null, {});
   }
 };
-
-module.exports = { numUsers }

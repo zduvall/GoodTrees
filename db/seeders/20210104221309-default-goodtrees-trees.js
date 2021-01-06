@@ -1,12 +1,10 @@
 'use strict';
 
 const faker = require('faker');
-const numUsers = require('./20210104214234-default-goodtrees-users')
-
-let numTrees;
+const db = require(`../models/index`)
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -20,8 +18,8 @@ module.exports = {
 
     // create filler trees
     const fillerTrees = [];
-    const numFillerTrees = 30; // edit this to edit the number of trees created
-    numTrees = numFillerTrees + 13; // this is adding 13 because we have 13 hardcoded trees
+    const numFillerTrees = 40; // edit this to edit the number of trees created
+    const numUsers = await db.User.count();
 
     // data for creating random trees
     const treeTypes = [
@@ -55,11 +53,11 @@ module.exports = {
       'American Larch',
       'Black Locust',
       'Honey - Locust',
-      'The Maples',
+      'Maple',
       'Red Maple',
       'Silver Maple',
       'Sugar Maple',
-      'The Oaks',
+      'Oak',
       'Black Oak',
       'Chestnut Oak',
       'Northern Red Oak',
@@ -105,7 +103,7 @@ module.exports = {
     ]
     const treeDesciptions1 = [
       'This is one of the best trees out there.',
-      'My friend and I felt so lucky when we stumbled upon this tree, I\'m glad we get to share it.',
+      'My friend and I felt so lucky when we stumbled upon this tree, I\'m glad we get to share it with the world.',
       'I hope lots of people enjoy climbing this beauty just like I did.',
       'It\'s easy to locate and quickly recognize.',
       'I\'m excited to share this tree with all of you. It\'s beautiful to see and climb.',
@@ -116,7 +114,7 @@ module.exports = {
       'This tree is a small but beautiful tree.',
       'I grew up climbing this tree and was later proposed to under it.',
     ]
-    const treeDescriptions2 = [
+    const treeDesciptions2 = [
       'Please leave a review!',
       'Hope you have a nice time climbing.',
       'Happy climbing!',
@@ -156,13 +154,20 @@ module.exports = {
         name = `${randPrefix} ${randTreeType}`
       }
       // generate random cityState
-      const cityState = `${faker.address.city()}, ${faker.address.stateAbbr}`;
+      let city = faker.address.city()
+      while(city.length > 36) {
+        city = faker.address.city()
+      }
+      const cityState = `${city}, ${faker.address.stateAbbr()}`;
+      
       // generate random detLocation
-      const detLocation = faker.address.streetAddress;
+      const detLocation = faker.address.streetAddress();
+      
       // generate random description by combinging random descriptions from the 2 lists.
       const description = `${treeDesciptions1[Math.floor(Math.random() * treeDesciptions1.length)]} ${treeDesciptions2[Math.floor(Math.random() * treeDesciptions2.length)]}`;
+      
       // generate random adder
-      const adderId = Math.floor(Math.random() * numUsers);
+      const adderId = Math.ceil(Math.random() * numUsers);
 
       fillerTrees.push({
         name: name,
