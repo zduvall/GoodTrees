@@ -12,6 +12,9 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+
+    
+
     return queryInterface.bulkInsert('Trees', [
       {
         name: 'GrandOld', cityState: 'San Francisco, CA', detLocation: 'Right on top of the granderson hill.',
