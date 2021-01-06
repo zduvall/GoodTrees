@@ -1,7 +1,6 @@
-var express = require("express");
+const express = require("express");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
-
 
 const db = require("../db/models");
 
@@ -13,10 +12,9 @@ const {
 } = require("./utils");
 
 const { loginUser, logoutUser } = require("../auth.js");
-
 const { getClimberScore } = require('./get-scores')
 
-var router = express.Router();
+const router = express.Router();
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {

@@ -1,4 +1,4 @@
-var express = require("express");
+const express = require("express");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const { requireAuth } = require("../auth.js")
@@ -11,31 +11,41 @@ const { csrfProtection, asyncHandler, createTreeValidators } = require("./utils"
 
 var router = express.Router();
 
+const router = express.Router();
 
 //GET all trees
-router.get('/', asyncHandler(async (req, res) => {
-    const trees = await db.Tree.findAll({ include: ['user'], order: [["name"]] });
-    res.render('Trees/trees-page', { trees })
-}));
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const trees = await db.Tree.findAll({
+      include: ["user"],
+      order: [["name"]],
+    });
+    res.render("Trees/trees-page", { trees });
+  })
+);
 
 //GET a specific tree
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+router.get(
+  "/:id(\\d+)",
+  asyncHandler(async (req, res) => {
     const treeId = parseInt(req.params.id, 10);
 
     const tree = await db.Tree.findByPk(treeId);
 
-    res.render('Trees/specific-tree', { tree });
-}));
+    res.render("Trees/specific-tree", { tree });
+  })
+);
 
 //Create Tree
-router.get('/new', csrfProtection, requireAuth, (req, res) => {
-    const tree = db.Tree.build();
-    res.render('Trees/create-tree', {
-        title: "Create A New Tree",
-        tree,
-        csrfToken: req.csrfToken()
-    })
-})
+router.get("/new", csrfProtection, requireAuth, (req, res) => {
+  const tree = db.Tree.build();
+  res.render("Trees/create-tree", {
+    title: "Create A New Tree",
+    tree,
+    csrfToken: req.csrfToken(),
+  });
+});
 
 router.post('/new', csrfProtection, createTreeValidators, requireAuth, asyncHandler(async (req, res) => {
     const { name, cityState, detLocation, description } = req.body;
@@ -56,5 +66,6 @@ router.post('/new', csrfProtection, createTreeValidators, requireAuth, asyncHand
             csrfToken: req.csrfToken(),
         });
     }
-}))
-module.exports = router
+  })
+);
+module.exports = router;

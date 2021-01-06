@@ -103,5 +103,5 @@ module.exports = {
   asyncHandler,
   signUpValidators,
   loginValidators,
-  createTreeValidators
+  createTreeValidators,
 };
