@@ -1,21 +1,55 @@
+/* Logo */
+.logo {
+  display: flex;
+}
+
+.good {
+  font-size: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
+  color: #212121;
+  text-decoration: none;
+}
+
+.tree {
+  font-size: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  color: #6c9734;
+  text-decoration: none;
+}
+
+
+/* Navbar */
+.navbar {
+  display:flex;
+  flex-direction: row;
+  margin:auto;
+  align-items: center;
+  width: 80%;
+  font-family: "Raleway", sans-serif;
+}
+
+.nav-link {
+  align-self: flex-end;
+  text-decoration: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.nav-span {
+  width: 50%;
+  text-align: center;
+  align-self: center;
+}
+
+
+
 h1 {
   color: #555555;
 }
-
-/* .tree-list {
-  list-style-type: none;
-}
-
-.tree-list__container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-} */
-
-/* .tree-list__col {
-  margin: 1rem auto;
-} */
 
 html {
   background: #fff8f2;
@@ -94,4 +128,14 @@ a:hover:not(.goodTrees){
 .tree-page__name {
     display: flex;
     justify-content: center;
+}
+
+.signup a {
+  float: left;
+  color: #f2f2f2;
+  background-color: 6c9734;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }

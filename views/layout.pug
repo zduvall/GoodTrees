@@ -9,19 +9,20 @@ html
       link(rel='stylesheet' href='/stylesheets/index.css')
   body
 
-    div(class="nav")
+    nav(class="navbar")
       div(class="logo")
         a(href="/" class="good goodTrees") good
         a(href="/" class="tree goodTrees") trees
-        if locals.authenticated
-          p Welcome to Good Trees, #{user.username}!
-          a(href=`/users/${locals.user.id}` class="navBar") My Forest
-          a(href="/trees" class="navBar") Find Trees
-          a(href="/users" class="navBar") Highest Climbers
-          form(action="/users/logout" method="POST")
-            button(type="submit" class="logOut") Log Out
-        else
-          a(href="/" class="navBar") Home
-          a(href="/users/login" class="navBar") Log In
-          a(href="/users/sign-up") Sign Up
+      if locals.authenticated
+        span(class="nav-span") Welcome to Good Trees, #{user.username}!
+        a(class="nav-link" href=`/users/${locals.user.id}` class="navBar") My Forest
+        a(class="nav-link" href="/trees" class="navBar") Find Trees
+        a(class="nav-link" href="/users" class="navBar") Highest Climbers
+        form(class="nav-link" action="/users/logout" method="POST")
+          button(type="submit" class="nav-logout") Log Out
+      else
+        span(class="nav-span")
+        a(class="nav-link" href="/") Home
+        a(class="nav-link" href="/users/sign-up") Sign Up
+        a(class="nav-link" href="/users/login") Log In
     block content
