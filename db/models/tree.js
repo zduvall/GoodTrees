@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Tree.associate = function (models) {
     Tree.belongsTo(models.User, { foreignKey: "adderId", as: "user" });
-    Tree.hasMany(models.Review, { foreignKey: "treeId" });
+    Tree.hasMany(models.Review, { foreignKey: "treeId", as: "reviews" });
     Tree.belongsToMany(models.User, {
       through: "ForestConnection",
       otherKey: "userId",

@@ -24,12 +24,9 @@ module.exports = {
     const hashedPassword3 = await bcrypt.hash(password3, 10);
 
    return queryInterface.bulkInsert('Users', [
-     {username: 'Spongebob', email:'spongebob@gmail.com', hashedPassword: hashedPassword1,
-    createdAt: new Date(), updatedAt: new Date()},
-     {username: 'Randy', email:'randy@gmail.com', hashedPassword: hashedPassword2,
-     createdAt: new Date(), updatedAt: new Date()},
-     {username:'Pikachu', email: 'pokemons@protonmail.com', hashedPassword: hashedPassword3,
-     createdAt: new Date(), updatedAt: new Date()}
+     {username: 'Spongebob', email:'spongebob@gmail.com', hashedPassword: hashedPassword1, createdAt: new Date(), updatedAt: new Date()},
+     {username: 'Randy', email:'randy@gmail.com', hashedPassword: hashedPassword2, createdAt: new Date(), updatedAt: new Date()},
+     {username:'Pikachu', email: 'pokemons@protonmail.com', hashedPassword: hashedPassword3, createdAt: new Date(), updatedAt: new Date()}
    ], {});
   },
 

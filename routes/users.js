@@ -12,6 +12,7 @@ const {
 } = require("./utils");
 
 const { loginUser, logoutUser } = require("../auth.js");
+const { getClimberScore } = require('./get-scores')
 
 const router = express.Router();
 
@@ -20,7 +21,7 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
-// User sign-up
+// User GET sign-up
 router.get("/sign-up", csrfProtection, (req, res) => {
   const user = db.User.build();
   res.render("Users/sign-up", {
@@ -30,6 +31,7 @@ router.get("/sign-up", csrfProtection, (req, res) => {
   });
 });
 
+// User POST sign-up
 router.post(
   "/sign-up",
   csrfProtection,
@@ -116,35 +118,41 @@ router.post(
   })
 );
 
+// logout
 router.post("/logout", (req, res) => {
   logoutUser(req, res);
   res.redirect("/Users/login");
 });
 
-router.get(
-  "/:id(\\d+)",
-  asyncHandler(async (req, res) => {
-    const id = req.params.id;
-    const user = await db.User.findByPk(id, {
-      include: {
-        model: db.Tree,
-        as: "forestTrees",
-        include: {
+// show individual user page
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const id = req.params.id
+  const user = await db.User.findByPk(id, {
+    include: {
+      model: db.Tree,
+      as: 'forestTrees',
+      include: [
+        {
           model: db.User,
-          as: "user",
+          as: 'user'
         },
-      },
-    });
-    const climbedTrees = user.forestTrees.filter(
-      (tree) => tree.ForestConnection.climbStatus
-    );
-    const wantToClimbTrees = user.forestTrees.filter(
-      (tree) => !tree.ForestConnection.climbStatus
-    );
-    // console.log(wantToClimbTrees);
-    // res.json(user.forestTrees[0].name);
-    res.render("Users/single-user", { user, climbedTrees, wantToClimbTrees });
-  })
-);
+        {
+          model: db.Review,
+          as: 'reviews',
+          required: false
+        }
+      ]
+    }
+  });
+  const climbedTrees = user.forestTrees.filter(tree => tree.ForestConnection.climbStatus);
+  const wantToClimbTrees = user.forestTrees.filter(tree => !tree.ForestConnection.climbStatus);
+  const climberScore = getClimberScore(climbedTrees);
+  res.render('Users/single-user', {
+    user,
+    climbedTrees,
+    wantToClimbTrees,
+    climberScore 
+  });
+}))
 
 module.exports = router;

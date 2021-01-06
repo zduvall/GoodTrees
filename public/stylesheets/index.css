@@ -1,12 +1,84 @@
 h1 {
-    color: #555555;
+  color: #555555;
+}
+
+/* .tree-list {
+  list-style-type: none;
 }
 
 .tree-list__container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+} */
+
+/* .tree-list__col {
+  margin: 1rem auto;
+} */
+
+html {
+  background: #fff8f2;
 }
 
-.tree-list__col {
-    padding: 10px;
+.homepage-link {
+  padding: 1rem;
+}
+
+a:hover:not(.goodTrees){
+  background: #e2f0d0;
+  border-radius: .25rem;
+}
+
+.header{
+  margin: auto;
+  width: fit-content;
+  padding: 1rem;
+}
+
+.container {
+  width: 60%;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  border-radius: 1rem;
+  justify-content: center;
+}
+
+.sidebar {
+  width: 25%;
+  height: fit-content;
+  flex-wrap: wrap;
+  border: #873307 solid;
+  border-radius: 1rem;
+  padding: .5rem 1rem;
+  position: sticky;
+  top: 1em;
+}
+
+.container__main-content {
+  flex-grow: 1;
+  padding: .5rem 1rem;
+}
+
+.sub-header {
+  font-weight: 600;
+  color: #873307;
+}
+
+.score {
+  margin: auto;
+  width: fit-content;
+  padding: 1rem;
+}
+
+.trees-table {
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.column {
+  width: 30%;
+  text-align: center;
+  vertical-align: middle;
 }
