@@ -9,4 +9,13 @@ block content
             div.sub-header: a(href= "/trees/new").new-tree__button Add a new Tree!
             div
             div.sub-header: a(href= "/").new-tree__button Review this Tree!
-    h2.tree-page__subheader This Tree's Location:
+        .container__main-content
+            h2.tree-page__subheader This Tree's Location:
+                .tree-page__content: p= tree.cityState
+                .tree-page__content: p= tree.detLocation
+            h2.tree-page__subheader Description:
+                .tree-page__content: p= tree.description
+            h2.tree-page__subheader This Tree's reviews:
+                .container
+                    each review in tree.reviews
+                        +reviewListView(review)

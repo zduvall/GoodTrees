@@ -29,9 +29,20 @@ router.get(
     asyncHandler(async (req, res) => {
         const treeId = parseInt(req.params.id, 10);
 
-        const tree = await db.Tree.findByPk(treeId);
-
-        res.render("Trees/specific-tree", { tree });
+        const tree = await db.Tree.findByPk(treeId,
+            {
+                include:
+                {
+                    model: db.Review,
+                    as: 'reviews',
+                    include: {
+                        model: db.User,
+                        as: 'reviewer'
+                    }
+                }
+            });
+        res.json({ tree })
+        // res.render("Trees/specific-tree", { tree });
     })
 );
 
