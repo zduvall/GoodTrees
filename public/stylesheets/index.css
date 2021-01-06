@@ -17,9 +17,13 @@ h1 {
   margin: 1rem auto;
 } */
 
+html {
+  background: #fff8f2;
+}
+
 
 a:hover:not(.goodTrees){
-  background: #a9d9a9;
+  background: #e2f0d0;
   border-radius: .25rem;
 }
 
@@ -34,6 +38,7 @@ a:hover:not(.goodTrees){
   max-width: 800px;
   margin: auto;
   display: flex;
+  border-radius: 1rem;
 }
 
 .sidebar {
@@ -45,7 +50,7 @@ a:hover:not(.goodTrees){
   padding: .5rem 1rem;
 }
 
-.main-content {
+.container__main-content {
   flex-grow: 1;
   padding: .5rem 1rem;
 }

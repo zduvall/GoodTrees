@@ -10,7 +10,7 @@ block content
       h2.sub-header Trees in Forest: 
       .score #{climbedTrees.length + wantToClimbTrees.length}
     if climbedTrees.length || wantToClimbTrees.length
-      .main-content  
+      .container__main-content 
         div
           h2.sub-header Already Climbed:
           div: +treeListView(climbedTrees)
@@ -18,5 +18,5 @@ block content
           h2.sub-header Want to Climb:
           div: +treeListView(wantToClimbTrees)
     else
-      .main-content
+      .container__main-content
         p <a href="/trees">Find trees</a> to add to your forest!
