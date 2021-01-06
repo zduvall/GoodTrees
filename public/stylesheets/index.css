@@ -21,14 +21,18 @@
 
 
 /* Navbar */
+.navbar .logo {
+  margin-left: 10%;
+}
+
 .navbar {
   display:flex;
   flex-direction: row;
   margin:auto;
   align-items: center;
-  width: 80%;
+  width: 100%;
   font-family: "Raleway", sans-serif;
-  background-image: url("/leaf-background-vector.png");
+  /*background-image: url("/leaf-background-vector.png");*/
 }
 
 .nav-link {
