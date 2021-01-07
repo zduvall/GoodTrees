@@ -29,7 +29,7 @@ html(lang="en")
         .homepage-link: a(href='/users/sign-up') Sign Up
     else
       .container
-        .homepage-link: a(href=`/users/${locals.user.id}`) View your page
+        .homepage-link: a(href=`/users/${locals.curUser.id}`) View your page
         .homepage-link: a(href='/trees') Find trees
         .homepage-link
           form(action="/users/logout" method="POST")

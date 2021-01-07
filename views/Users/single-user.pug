@@ -2,13 +2,21 @@ extends ../layout.pug
 include ../utils.pug
 
 block content
-  h1.header #{user.username}'s Forest
+  if user.id === locals.curUser.id
+    h1.header My Forest
+  else
+    h1.header #{user.username}'s Forest
   .container
     .sidebar
-      h2.sub-header Climber Score: 
-      .score #{climberScore}
-      h2.sub-header Trees in Forest: 
+      h2.sub-header.sidebar-header(title="Climber score is based on already climbed trees and the difficulty of those trees") Climber Score: 
+      .score(title="Climber score is based on already climbed trees and the difficulty of those trees") #{climberScore}
+      h2.sub-header.sidebar-header Trees in Forest: 
       .score #{climbedTrees.length + wantToClimbTrees.length}
+      h2.sub-header.sidebar-header Already Climbed: 
+      .score #{climbedTrees.length}
+      h2.sub-header.sidebar-header Want to Climb: 
+      .score #{wantToClimbTrees.length}
+      //- p(style="font-size:.5rem") Your climber score is based on trees you have climbed and their difficulty
     if climbedTrees.length || wantToClimbTrees.length
       .container__main-content 
         div
@@ -19,5 +27,7 @@ block content
           div: +treeListView(wantToClimbTrees)
     else
       .container__main-content
-        //- p <a href="/trees">Find trees</a> to add to your forest!
-        p No trees yet in #{user.username}'s forest!
+        if locals.curUser.userName === user.username
+          p <a href="/trees">Find trees</a> to add to your forest!
+        else
+          p No trees yet in #{user.username}'s forest!

@@ -21,7 +21,7 @@ module.exports = {
     const numUsers = await db.User.count();
     const numTrees = await db.Tree.count();
 
-    for (let userId = 3; userId <= numUsers; userId++) {
+    for (let userId = 2; userId <= numUsers; userId++) { // start at 2, so our user 'Newb' never has any trees added
 
       let numFillerFCs = Math.floor(Math.random() * maxFillerFCsPerUser)
       let set = new Set(); // this is used below to make sure we don't get the same treeId twice for any one user
