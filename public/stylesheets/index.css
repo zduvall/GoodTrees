@@ -74,8 +74,15 @@
   width: 100%;
   font-family: "Raleway", sans-serif;
 }
+.footer-about > h5 {
+  margin-bottom: 5%;
+}
+.footer-developers > h5 {
+  margin-bottom: 10%;
+}
 
 .footer-about-p {
+  margin-top: 5%;
   font-size: 0.75rem;
 }
 
