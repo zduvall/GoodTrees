@@ -65,12 +65,12 @@ router.post('/new', csrfProtection, createTreeValidators, requireAuth, asyncHand
     const { name, cityState, detLocation, description } = req.body;
 
 
-    const tree = db.Tree.build({ name, cityState, detLocation, description, adderId: res.locals.user.dataValues.id });
+    const tree = db.Tree.build({ name, cityState, detLocation, description, adderId: res.locals.curUser.dataValues.id });
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
         await tree.save();
-        return res.redirect(`/users/${res.locals.user.dataValues.id}`);
+        return res.redirect(`/users/${res.locals.curUser.dataValues.id}`);
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render("Trees/create-tree", {

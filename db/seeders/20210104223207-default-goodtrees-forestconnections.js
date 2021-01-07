@@ -1,7 +1,9 @@
 'use strict';
 
+const db = require('../models/index')
+
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -12,6 +14,42 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+
+    // create filler forest connections (FC's)
+    const fillerFCs = [];
+    const maxFillerFCsPerUser = 20; // edit this to edit the max # FC's per user
+    const numUsers = await db.User.count();
+    const numTrees = await db.Tree.count();
+
+    for (let userId = 2; userId <= numUsers; userId++) { // start at 2, so our user 'Newb' never has any trees added
+
+      let numFillerFCs = Math.floor(Math.random() * maxFillerFCsPerUser)
+      let set = new Set(); // this is used below to make sure we don't get the same treeId twice for any one user
+
+      for (let i = 0; i < numFillerFCs; i++) {
+
+        const climbStatus = Math.round(Math.random()) === 0 ? true : false;
+        const favStatus = Math.round(Math.random()) === 0 ? true : false;
+
+        let treeId = null;
+        let randTreeId = Math.ceil(Math.random() * numTrees);
+        while (set.has(randTreeId)) {
+          randTreeId = Math.ceil(Math.random() * numTrees)
+        }
+        set.add(randTreeId)
+        treeId = randTreeId
+
+        fillerFCs.push({
+          climbStatus: climbStatus,
+          favStatus: favStatus,
+          userId: userId,
+          treeId: treeId,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        })
+      }
+    }
+
     return queryInterface.bulkInsert('ForestConnections', [
       {
         climbStatus: true, favStatus: true, userId: 1, treeId: 1,
@@ -37,18 +75,7 @@ module.exports = {
         climbStatus: true, favStatus: true, userId: 1, treeId: 6,
         createdAt: new Date(), updatedAt: new Date()
       },
-      {
-        climbStatus: true, favStatus: false, userId: 2, treeId: 1,
-        createdAt: new Date(), updatedAt: new Date()
-      },
-      {
-        climbStatus: false, favStatus: false, userId: 2, treeId: 2,
-        createdAt: new Date(), updatedAt: new Date()
-      },
-      {
-        climbStatus: false, favStatus: false, userId: 2, treeId: 3,
-        createdAt: new Date(), updatedAt: new Date()
-      },
+      ...fillerFCs
     ], {});
   },
 

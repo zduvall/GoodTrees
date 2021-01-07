@@ -71,6 +71,7 @@ h1 {
 
 body {
   background: #f8f6f3;
+  /* background: #f7eee9; */
 }
 
 .homepage-link {
@@ -122,6 +123,11 @@ a:hover:not(.goodTrees){
   font-weight: 600;
   color: #873307;
   padding-top: 20px;
+  font-size: 1.1rem;
+}
+
+.sidebar-header {
+  font-weight: 400;
 }
 
 .score {
