@@ -11,6 +11,7 @@ const usersRouter = require("./routes/users");
 const treesRouter = require("./routes/trees");
 const reviewsRouter = require("./routes/review");
 const { restoreUser } = require("./auth");
+const { secret } = require('./config/index')
 
 const app = express();
 
@@ -28,8 +29,8 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret: "superSecret",
     store,
+    secret,
     saveUninitialized: false,
     resave: false,
   })
