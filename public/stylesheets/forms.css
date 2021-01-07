@@ -1,0 +1,42 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #f8f6f3;
+  padding: 20px;
+}
+
+select {
+  width: 150px;
+  height: 30px;
+  border: 1px solid #999;
+  font-size: 18px;
+  color: #6c9734;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 2px 2px #ccc;
+}
+
+textarea {
+  background-color: #eee;
+}
+
+button {
+  background-color: #6c9734;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.form-select {
+  /* float: right; */
+  width: 25%;
+  margin-top: 6px;
+}
+
