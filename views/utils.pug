@@ -31,3 +31,21 @@ mixin treeListView(trees)
 
 mixin csrfToken()
   input(type='hidden' name='_csrf' value=csrfToken)
+
+mixin reviewListView(review)
+  div.review-list__table
+    table
+      thead
+        th.column.review-list__column Reviewer
+        th.column.review-list__column Difficulty
+        th.column.review-list__column Fun Factor
+        th.column.review-list__column View From Top
+      tbody
+        tr
+          td.column.review-list__column: p= review.reviewer.username
+          td.column.review-list__column: p= review.difficulty
+          td.column.review-list__column: p= review.funFactor
+          td.column.review-list__column: p= review.viewFromTop
+    div.review-list__description
+      p.review-list__description__title Description
+      p= review.reviewText
