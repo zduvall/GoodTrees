@@ -4,7 +4,7 @@
   border-radius: 5px;
   background-color: #f8f6f3;
   padding: 20px;
-  
+  font-family: "Raleway", sans-serif;
 }
 
 .form {
@@ -52,6 +52,24 @@ button:hover {
   opacity: 0.9;
 }
 
+.signup-confirmPass {
+  background-color: #6c9734;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signup-confirmPass:hover {
+  opacity: 0.9;
+}
+
+.signup-btn {
+  padding-top: .5rem;
+}
+
+
 .form-select {
   width: 25%;
   margin-top: 6px;
@@ -67,6 +85,3 @@ img {
   padding-top: 0.5rem;
 }
 
-.create-btn {
-
-}

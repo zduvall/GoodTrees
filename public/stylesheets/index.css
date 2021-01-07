@@ -5,7 +5,7 @@
 }
 
 .good {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: "Raleway", sans-serif;
   font-weight: 100;
   color: #212121;
@@ -13,7 +13,7 @@
 }
 
 .tree {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   color: #6c9734;
@@ -21,14 +21,21 @@
 }
 
 /* Navbar */
+.navbar .logo {
+  margin-left: 10%;
+}
+
 .navbar {
   display:flex;
   justify-content: space-evenly;
+  position: sticky;
+  top: 0;
   /* flex-direction: row; */
   margin:auto;
   align-items: center;
   width: auto;
   height: 50px;
+  /* width: 100%; */
   font-family: "Raleway", sans-serif;
   background-image: url("/leaf-background-vector.png");
 }
@@ -69,6 +76,7 @@ h1 {
 
 body {
   background: #f8f6f3;
+  /* background: #f7eee9; */
 }
 
 .homepage-link {
@@ -119,6 +127,11 @@ a:hover:not(.goodTrees){
 .sub-header {
   font-weight: 600;
   color: #873307;
+  font-size: 1.1rem;
+}
+
+.sidebar-header {
+  font-weight: 400;
 }
 
 .score {

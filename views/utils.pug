@@ -19,22 +19,6 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
         input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form-control')
 
 mixin treeListView(trees)
-  //- ul.tree-list
-  //-   li: div.tree-list__container
-  //-     div.tree-list__col
-  //-       p Tree Name
-  //-     div.tree-list__col
-  //-       p City/State
-  //-     div.tree-list__col
-  //-       p Tree Creator
-  //-   each tree in trees
-  //-     li: div.tree-list__container
-  //-       div.tree-list__col
-  //-         a(href= '/trees/'+tree.id)= tree.name
-  //-       div.tree-list__col
-  //-         p= tree.cityState
-  //-       div.tree-list__col
-  //-         a(href= '/users/'+tree.adderId)= tree.user.username
   table.trees-table
     thead
       th.column Tree Name
