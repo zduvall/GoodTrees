@@ -155,17 +155,17 @@ module.exports = {
       }
       // generate random cityState
       let city = faker.address.city()
-      while(city.length > 36) {
+      while (city.length > 36) {
         city = faker.address.city()
       }
       const cityState = `${city}, ${faker.address.stateAbbr()}`;
-      
+
       // generate random detLocation
       const detLocation = faker.address.streetAddress();
-      
+
       // generate random description by combinging random descriptions from the 2 lists.
       const description = `${treeDesciptions1[Math.floor(Math.random() * treeDesciptions1.length)]} ${treeDesciptions2[Math.floor(Math.random() * treeDesciptions2.length)]}`;
-      
+
       // generate random adder
       const adderId = Math.ceil(Math.random() * numUsers);
 

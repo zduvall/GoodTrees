@@ -22,23 +22,22 @@ module.exports = {
     const numTrees = await db.Tree.count();
 
     for (let userId = 3; userId <= numUsers; userId++) {
-      
+
       let numFillerFCs = Math.floor(Math.random() * maxFillerFCsPerUser)
+      let set = new Set(); // this is used below to make sure we don't get the same treeId twice for once user
+
       for (let i = 0; i < numFillerFCs; i++) {
-        
+
         const climbStatus = Math.round(Math.random()) === 0 ? true : false;
         const favStatus = Math.round(Math.random()) === 0 ? true : false;
-        
+
         let treeId = null;
-        let set = new Set();
-        while (true) {
-          let randTreeId = Math.ceil(Math.random() * numTrees);
-          if (!set.has(randTreeId)) {
-            set.add(randTreeId)
-            treeId = randTreeId;
-            break
-          }
+        let randTreeId = Math.ceil(Math.random() * numTrees);
+        while (set.has(randTreeId)) {
+          randTreeId = Math.ceil(Math.random() * numTrees)
         }
+        set.add(randTreeId)
+        treeId = randTreeId
 
         fillerFCs.push({
           climbStatus: climbStatus,
