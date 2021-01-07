@@ -194,6 +194,7 @@ module.exports = {
 
       // create random tree name
       function randomNameGenerator () {
+        let name;
         const randTreeAdj = treeAdjs[Math.floor(Math.random() * treeAdjs.length)];
         const randName = faker.name.firstName()
         const randPrefix = faker.name.prefix()
@@ -201,14 +202,18 @@ module.exports = {
 
         const nameBuildNum = Math.random() * 10
         if (nameBuildNum <= 4) {
-          return `${randTreeAdj} ${randTreeType}`
+          name = `${randTreeAdj} ${randTreeType}`
         } else if (nameBuildNum <= 7) {
-          return `${randTreeType} ${randName}`
+          name = `${randTreeType} ${randName}`
         } else if (nameBuildNum <= 9) {
-          return `${randName}'s ${randTreeType}`
+          name = `${randName}'s ${randTreeType}`
         } else {
-          return `${randPrefix} ${randTreeType}`
+          name = `${randPrefix} ${randTreeType}`
         }
+        if (nameBuildNum > 8) {
+          name = name.replace(/['\.\s]/g, '');
+        }
+        return name
       }
 
       // make sure name length is unique <= 30 per database restrictions
