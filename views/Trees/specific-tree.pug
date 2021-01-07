@@ -3,4 +3,26 @@ extends ../layout.pug
 include ../utils.pug
 
 block content
-    h1 This will be the specific tree page!!
+
+    .container
+        .sidebar
+            div.sub-header: a(href= "/trees/new").nav-link Add a new Tree!
+            div
+            div.sub-header: a(href= `/reviews/${tree.id}/new`).nav-link Review this Tree!
+        .tree-view__content
+            h1.tree-page__name= tree.name
+            div
+                h2.sub-header This Tree's Location:
+                .tree-page__content: p= tree.cityState
+                .tree-page__content: p= tree.detLocation
+            div
+                h2.sub-header Added by:
+                .tree-page__content: a(href="/users/"+tree.adderId)= tree.user.username
+            div
+                h2.sub-header Description:
+                .tree-page__content: p= tree.description
+            div
+                h2.sub-header This Tree's reviews:
+                .review-list__container
+                    each review in tree.reviews
+                        +reviewListView(review)
