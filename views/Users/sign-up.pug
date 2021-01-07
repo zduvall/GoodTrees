@@ -3,13 +3,17 @@ include ../utils.pug
 
 block content
   div(class='form-container')
-    div  
+    div
+      h1 Sign-Up
+      div(class='form__auth')  
         +validationErrorSummary(errors)
+      div
         form(action="/users/sign-up" method="post")
-            input(type="hidden" name="_csrf" value=csrfToken)
-            +field('Username', 'username', user.username)
-            +field('Email', 'email', user.email)
-            +field('Password', 'password', user.password, 'password')
-            +field('Confirm Password', 'confirmPassword', user.confirmPassword, 'password')
-        div(class="signup-btn")
-            button(type='submit') Sign Up
+          input(type="hidden" name="_csrf" value=csrfToken)
+          +field('Username', 'username', user.username)
+          +field('Email', 'email', user.email)
+          +field('Password', 'password', user.password, 'password')
+          +field('Confirm Password', 'confirmPassword', user.confirmPassword, 'password')
+          div(class="signup-btn")
+            button(type='submit' class="btn-signup") Sign Up
+

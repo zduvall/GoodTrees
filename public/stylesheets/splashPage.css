@@ -1,0 +1,14 @@
+body,
+html {
+  height: 100%;
+  margin: 0px 0px 0px 0px;
+  background-color: rgba(177, 163, 142);
+}
+
+.splash-container {
+  background-image: url("/forest.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

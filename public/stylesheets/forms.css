@@ -1,10 +1,14 @@
 .form-container {
   display: flex;
   justify-content: center;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: #f8f6f3;
   padding: 20px;
   font-family: "Raleway", sans-serif;
+}
+
+.form__auth {
+  width: 50%;
 }
 
 .form {
@@ -68,7 +72,6 @@ button:hover {
 .signup-btn {
   padding-top: .5rem;
 }
-
 
 .form-select {
   width: 25%;
