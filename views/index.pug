@@ -1,36 +1,15 @@
-//- extends layout
+extends layout
 
-//- append head
-//-   //- add page specific styles by appending to the head
-//-   link(rel="stylesheet" href="/stylesheets/index.css")
-//-   //- add page specific js
-//-   script(src="/javascripts/index.js" type="module" defer)
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
 
-//- block content
-//-   div
-//-     p Welcome to Good Trees!
+block content
 
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet" href="/stylesheets/reset.css")
-    link(rel="stylesheet" href="/stylesheets/index.css")
-    script(src="/javascripts/index.js" type="module" defer)
-    title GoodTrees
   body
     div
       h1.header Welcome to <el class="good">good</el><el class="tree">trees</el>
       h1.header Where climbers find good trees to climb
-    if !locals.authenticated
-      .container
-        .homepage-link: a(href='/users/login') Login
-        .homepage-link: a(href='/users/sign-up') Sign Up
-    else
-      .container
-        .homepage-link: a(href=`/users/${locals.curUser.id}`) View your page
-        .homepage-link: a(href='/trees') Find trees
-        .homepage-link
-          form(action="/users/logout" method="POST")
-            button(type="submit" class="logOut") Log Out
+
