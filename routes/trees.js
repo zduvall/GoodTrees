@@ -6,6 +6,7 @@ const { requireAuth } = require("../auth.js")
 // const { check, validationResult } = require("express-validator");
 
 const db = require("../db/models");
+const { getTreeAvgScore } = require('./get-scores')
 
 const { csrfProtection, asyncHandler, createTreeValidators } = require("./utils");
 const user = require("../db/models/user.js");
@@ -46,8 +47,11 @@ router.get(
                         as: 'user'
                     }]
             });
-        // res.json({ tree })
-        res.render("Trees/specific-tree", { tree });
+        const avgDiff = getTreeAvgScore(tree, 'difficulty');
+        const avgFun = getTreeAvgScore(tree, 'funFactor');
+        const avgView = getTreeAvgScore(tree, 'viewFromTop');
+
+        res.render("Trees/specific-tree", { tree, avgDiff, avgFun, avgView });
     })
 );
 
