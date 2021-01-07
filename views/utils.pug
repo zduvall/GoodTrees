@@ -49,17 +49,19 @@ mixin csrfToken()
   input(type='hidden' name='_csrf' value=csrfToken)
 
 mixin reviewListView(review)
-  table.review-list__table
-    thead
-      th.column Reviewer
-      th.column Difficulty
-      th.column Fun Factor
-      th.column View From Top
-      th.column Description
-    tbody
-      tr
-        td.column: p= review.reviewer.username
-        td.column: p= review.difficulty
-        td.column: p= review.funFactor
-        td.column: p= review.viewFromTop
-        td.column: p= review.reviewText
+  div.review-list__table
+    table
+      thead
+        th.column.review-list__column Reviewer
+        th.column.review-list__column Difficulty
+        th.column.review-list__column Fun Factor
+        th.column.review-list__column View From Top
+      tbody
+        tr
+          td.column.review-list__column: p= review.reviewer.username
+          td.column.review-list__column: p= review.difficulty
+          td.column.review-list__column: p= review.funFactor
+          td.column.review-list__column: p= review.viewFromTop
+    div.review-list__description
+      p.review-list__description__title Description
+      p= review.reviewText

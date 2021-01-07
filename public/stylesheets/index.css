@@ -166,17 +166,17 @@ a:hover:not(.goodTrees){
 .review-list__table {
     display: table;
     table-layout: auto;
-    width: 500px;
+    width: 100%;
     padding-top: 1rem;
-    border: 2px solid black;
+    border: solid #873307;
+    border-radius: 1rem;
 }
 
 .review-list__container {
-    width: 60%;
+    width: 100%;
     max-width: 800px;
     margin: 10%;
     display: flex;
-    border-radius: 1rem;
     justify-content: center;
     flex-direction: column-reverse;
     text-align: center;
@@ -198,4 +198,16 @@ a:hover:not(.goodTrees){
 
 .review-list__table tbody p {
     /* font-size: 50%; */
+}
+
+.review-list__description {
+    padding: 0px 1rem;
+}
+
+.review-list__description__title {
+    font-weight: 800;
+}
+
+.review-list__column {
+    width: 25%;
 }

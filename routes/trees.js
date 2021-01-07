@@ -8,6 +8,7 @@ const { requireAuth } = require("../auth.js")
 const db = require("../db/models");
 
 const { csrfProtection, asyncHandler, createTreeValidators } = require("./utils");
+const user = require("../db/models/user.js");
 
 const router = express.Router();
 
@@ -32,14 +33,18 @@ router.get(
         const tree = await db.Tree.findByPk(treeId,
             {
                 include:
-                {
-                    model: db.Review,
-                    as: 'reviews',
-                    include: {
+                    [{
+                        model: db.Review,
+                        as: 'reviews',
+                        include: {
+                            model: db.User,
+                            as: 'reviewer'
+                        }
+                    },
+                    {
                         model: db.User,
-                        as: 'reviewer'
-                    }
-                }
+                        as: 'user'
+                    }]
             });
         // res.json({ tree })
         res.render("Trees/specific-tree", { tree });
