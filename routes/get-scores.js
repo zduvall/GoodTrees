@@ -2,9 +2,9 @@
 // for attribute, pass in a string of "difficulty", "funFactor", or "viewFromTop"
 const getTreeAvgScore = (tree, attribute) => {
   if(!tree.reviews.length) return 0
-  
+
   let sum = 0;
-  
+
   tree.reviews.forEach(review => {
     sum += review[attribute];
   });
@@ -14,10 +14,10 @@ const getTreeAvgScore = (tree, attribute) => {
 
 // get user's climber score (pass in user's climbedTrees and make sure to include all reviews on those trees)
 const getClimberScore = (climbedTrees) => {
-  if (!climbedTrees.length) return "No trees climbed yet!!!"
-  
+  if (!climbedTrees.length) return 0;
+
   let sum = 0;
-  
+
   climbedTrees.forEach(tree => {
     sum += getTreeAvgScore(tree, "difficulty");
   })

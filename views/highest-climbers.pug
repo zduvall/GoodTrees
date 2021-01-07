@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content
+    div(class="highest-climber__container")
+        table(class="highest-climber__table")
+            thead
+                th Rank
+                th Username
+                th Climber Score
+            tbody
+                each user, index in users
+                    tr
+                        td=index+1
+                        td(href=`/users/${user.id}`)=user.username
+                        td=user.climberScore

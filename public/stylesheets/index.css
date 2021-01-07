@@ -269,3 +269,10 @@ a:hover:not(.goodTrees){
 .review-list__column {
     width: 25%;
 }
+
+/* highest-climbers */
+
+.highest-climber__table {
+    border: solid #873307;
+    border-radius: 1rem;
+}
