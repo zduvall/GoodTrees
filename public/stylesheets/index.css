@@ -1,5 +1,6 @@
 /* Logo */
 .logo {
+  margin: 50Px;
   display: flex;
 }
 
@@ -19,14 +20,15 @@
   text-decoration: none;
 }
 
-
 /* Navbar */
 .navbar {
   display:flex;
-  flex-direction: row;
+  justify-content: space-evenly;
+  /* flex-direction: row; */
   margin:auto;
   align-items: center;
-  width: 80%;
+  width: auto;
+  height: 50px;
   font-family: "Raleway", sans-serif;
   background-image: url("/leaf-background-vector.png");
 }
@@ -47,6 +49,7 @@
 }
 
 .nav-logout-btn {
+  color: #212121;
   align-self: flex-end;
   font-family: "Raleway", sans-serif;
   background: none;
@@ -56,10 +59,9 @@
 
 }
 .nav-logout-form:hover {
-  background: #e2f0d0;
+  background: #d9cfbf;
   border-radius: .25rem;
 }
-
 
 h1 {
   color: #555555;
@@ -74,7 +76,7 @@ body {
 }
 
 a:hover:not(.goodTrees){
-  background: #e2f0d0;
+  background: #d9cfbf;
   border-radius: .25rem;
 }
 

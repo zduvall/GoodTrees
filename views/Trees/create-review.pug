@@ -4,8 +4,11 @@ include ../utils.pug
 block content
 
     div(class="form-container")
-        +validationErrorSummary(errors)
-        form(class="form-review" method="POST" action="/reviews/new")
+        div(class="tree")
+            img(src="/maple-tree.jpg")
+        div(class="form")    
+        
+          form(method="POST" action="/reviews/new")
             div(class="row") 
                 input(type="hidden" name="_csrf" value=csrfToken)
                 input(type="hidden" name="treeId" value=tree.id)
@@ -39,4 +42,6 @@ block content
                 textarea(name="reviewText" id="reviewText" placeholder="Please write your Review..." cols="30" rows="10")
             div
                 button(type="submit") Submit Review
+            div
+                +validationErrorSummary(errors)
 
