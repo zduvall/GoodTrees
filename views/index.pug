@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel='stylesheet' href='/stylesheets/splashPage.css')
-    title Good Trees
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+
   body
-    div(class="splash-container")
-      h1.header <el class="good">good</el><el class="tree">trees</el>
+    div
+      h1.header Welcome to <el class="good">good</el><el class="tree">trees</el>
       h1.header Where climbers find good trees to climb
 

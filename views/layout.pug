@@ -4,6 +4,7 @@ html
     block head
       title="goodtrees"
       link(rel="icon" type="image/ico" href="favicon.ico")
+      <script src="https://kit.fontawesome.com/e6d5eeb90d.js" crossorigin="anonymous"></script>
       link(rel='stylesheet' href='/stylesheets/reset.css')
       link(rel='stylesheet' href='/stylesheets/index.css')
       link(rel='stylesheet' href='/stylesheets/forms.css')
@@ -18,7 +19,7 @@ html
         span(class="nav-span") Welcome to Good Trees, #{locals.curUser.username}!
         a(class="nav-link" href=`/users/${locals.curUser.id}` class="navBar") My Forest
         a(class="nav-link" href="/trees" class="navBar") Find Trees
-        //- a(class="nav-link" href="/users" class="navBar") Highest Climbers
+        a(class="nav-link" href="/users" class="navBar") Highest Climbers
         form(class="nav-logout-form nav-link" action="/users/logout" method="POST")
           button(type="submit" class="nav-logout-btn") Logout
       else
@@ -27,3 +28,26 @@ html
         a(class="nav-link" href="/users/sign-up") Sign Up
         a(class="nav-link" href="/users/login") Log In
     block content
+
+    footer(class="footer")
+      div(class="footer-container footer-about")
+        h5 About
+        div:p(class="footer-about-p") For those who love the view from the top and the climb. Inspired by goodreads.com
+      div(class="footer-container footer-developers")
+        h5 Developers
+        div(class="footer-dev-name-container")
+          a(href="https://github.com/IamDgrant") Andre Grant
+          a(href="https://github.com/OptimumMars") Gabriel Gutierrez
+          a(href="https://github.com/btcblade") Tommy Chen
+          a(href="https://github.com/zduval") Zach Duvall
+      div(class="footer-container footer-technologies-used")
+        h5 Technologies Used
+        div(class="footer-technologies-used-container")
+          div(class="footer-img-container")
+            img(src="/technologies/icons8-nodejs-96.png")
+          div(class="footer-img-container")
+            img(src="/technologies/heroku_logo_icon_169035.png")
+          div(class="footer-img-container")
+            img(src="/technologies/postgresql.png")
+          div(class="footer-img-container")
+            img(src="/technologies/expressjs.png")

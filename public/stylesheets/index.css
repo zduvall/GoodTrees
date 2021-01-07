@@ -1,47 +1,36 @@
 /* Logo */
 .logo {
-  margin: 50px;
   display: flex;
 }
-
 .good {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: "Raleway", sans-serif;
   font-weight: 100;
-  color: #212121;
+  color: black;
   text-decoration: none;
 }
-
 .tree {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   color: #6c9734;
   text-decoration: none;
 }
-
 /* Navbar */
 .navbar .logo {
   margin-left: 10%;
 }
-
 .navbar {
-  display: flex;
-  justify-content: space-evenly;
-  position: sticky;
-  top: 0;
-  /* flex-direction: row; */
-  margin: auto;
+  display:flex;
+  flex-direction: row;
+  margin:auto;
   align-items: center;
-  width: auto;
-  height: 50px;
-  /* width: 100%; */
+  width: 100%;
   font-family: "Raleway", sans-serif;
-  background-image: url("/leaf-background-vector.png");
+  color: black;
+  /*background-image: url("/leaf-background-vector.png");*/
 }
-
 .nav-link {
-  font-size: .75rem;
   align-self: flex-end;
   text-decoration: none;
   padding-left: 0.5rem;
@@ -49,15 +38,13 @@
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
 }
-
 .nav-span {
   width: 50%;
   text-align: center;
   align-self: center;
 }
-
 .nav-logout-btn {
-  color: #212121;
+  color: black;
   align-self: flex-end;
   font-family: "Raleway", sans-serif;
   background: none;
@@ -66,34 +53,85 @@
   font-size: 1rem;
 }
 .nav-logout-form:hover {
-  background: #d9cfbf;
-  border-radius: 0.25rem;
+  background: #e2f0d0;
+  border-radius: .25rem;
 }
-
+/* Footer */
+.footer {
+  display:grid;
+  grid-template-columns: 10% 20% 10% 1fr 10%;
+  column-gap: 5%;
+  margin-top: 10%;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+}
+.footer-about > h5 {
+  margin-bottom: 5%;
+}
+.footer-developers > h5 {
+  margin-bottom: 10%;
+}
+.footer-about-p {
+  margin-top: 5%;
+  font-size: 0.75rem;
+}
+.footer-about{
+  grid-column-start: 2;
+  grid-column-end:3;
+}
+.footer-developers{
+  grid-column-start:3;
+  grid-column-end:4;
+}
+.footer-dev-name-container {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.footer-dev-name-container a {
+  font-size: 0.75rem;
+  margin-bottom: 0.2rem;
+  text-decoration: none;
+}
+.footer-technologies-used-container {
+  display: flex;
+  flex-direction: row;
+}
+.footer-img-container {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  margin-left: 2%;
+  margin-right: 2%
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
 h1 {
   color: #555555;
 }
-
 body {
   background: #f8f6f3;
   /* background: #f7eee9; */
 }
-
 .homepage-link {
   padding: 1rem;
 }
-
-a:hover:not(.goodTrees) {
-  background: #d9cfbf;
-  border-radius: 0.25rem;
+a:hover:not(.goodTrees){
+  background: #e2f0d0;
+  border-radius: .25rem;
 }
-
-.header {
+.header{
   margin: auto;
   width: fit-content;
   padding: 1rem;
 }
-
+.nav {
+  background-image: url("/leaf-background-vector.png");
+  opacity: 0.5;
+}
 .container {
   width: 60%;
   max-width: 800px;
@@ -102,65 +140,53 @@ a:hover:not(.goodTrees) {
   border-radius: 1rem;
   justify-content: center;
 }
-
 .sidebar {
   width: 25%;
   height: fit-content;
   flex-wrap: wrap;
   border: #873307 solid;
   border-radius: 1rem;
-  padding: 0.5rem 1rem;
+  padding: .5rem 1rem;
   position: sticky;
-  top: 5rem;
+  top: 1em;
 }
-
 .container__main-content {
   flex-grow: 1;
-  padding: 0.5rem 1rem;
+  padding: .5rem 1rem;
 }
-
 .sub-header {
   font-weight: 600;
   color: #873307;
   padding-top: 20px;
   font-size: 1.1rem;
 }
-
-
-
 .sidebar-header {
   font-weight: 400;
 }
-
 .score {
   margin: auto;
   width: fit-content;
   padding: 1rem;
 }
-
 .trees-table {
   width: 100%;
   padding-top: 1rem;
 }
-
 .column {
   width: 30%;
   text-align: center;
   vertical-align: middle;
 }
-
 .new-tree__button {
-  font-weight: 600;
-  color: #873307;
-  border: #873307 solid;
-  border-radius: 2px;
+    font-weight: 600;
+    color: #873307;
+    border: #873307 solid;
+    border-radius: 2px;
 }
-
 .tree-page__name {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
-
 .signup a {
   float: left;
   color: #f2f2f2;
@@ -170,45 +196,37 @@ a:hover:not(.goodTrees) {
   text-decoration: none;
   font-size: 17px;
 }
-
 .review-list__table {
-  display: table;
-  table-layout: auto;
-  width: 100%;
-  padding-top: 1rem;
-  border: solid #873307;
-  border-radius: 1rem;
+    display: table;
+    table-layout: auto;
+    width: 100%;
+    padding-top: 1rem;
+    border: solid #873307;
+    border-radius: 1rem;
 }
-
 .review-list__container {
-  width: 100%;
-  max-width: 800px;
-  margin: 10%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column-reverse;
-  text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    text-align: center;
 }
-
 .tree-view__content {
-  flex-grow: 1;
-  padding: 0.5rem 1rem;
-  text-align: center;
+    flex-grow: 1;
+    padding: .5rem 1rem;
+    text-align: center;
 }
-
 .tree-page__name {
-  padding: 3%;
+    padding: 3%;
 }
-
 .review-list__description {
-  padding: 0px 1rem;
+    padding: 0px 1rem;
 }
-
 .review-list__description__title {
-  font-weight: 800;
+    font-weight: 800;
 }
-
 .review-list__column {
-  width: 25%;
+    width: 25%;
 }
-

@@ -3,9 +3,9 @@ include ../utils.pug
 
 block content
   div(class='form-container')
-    div
+    div(class='form__auth')
       h1 Login
-      div(class='form__auth')
+      div
         +validationErrorSummary(errors)
       div  
         form(action="/users/login", method="post") 
