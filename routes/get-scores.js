@@ -22,6 +22,8 @@ const getClimberScore = (climbedTrees) => {
     sum += getTreeAvgScore(tree, "difficulty");
   })
 
+  sum = (Math.round(sum * 100) / 100).toFixed(2)
+
   return sum;
 }
 

@@ -17,22 +17,6 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
       input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form-control')
 
 mixin treeListView(trees)
-  //- ul.tree-list
-  //-   li: div.tree-list__container
-  //-     div.tree-list__col
-  //-       p Tree Name
-  //-     div.tree-list__col
-  //-       p City/State
-  //-     div.tree-list__col
-  //-       p Tree Creator
-  //-   each tree in trees
-  //-     li: div.tree-list__container
-  //-       div.tree-list__col
-  //-         a(href= '/trees/'+tree.id)= tree.name
-  //-       div.tree-list__col
-  //-         p= tree.cityState
-  //-       div.tree-list__col
-  //-         a(href= '/users/'+tree.adderId)= tree.user.username
   table.trees-table
     thead
       th.column Tree Name
@@ -47,3 +31,21 @@ mixin treeListView(trees)
 
 mixin csrfToken()
   input(type='hidden' name='_csrf' value=csrfToken)
+
+mixin reviewListView(review)
+  div.review-list__table
+    table
+      thead
+        th.column.review-list__column Reviewer
+        th.column.review-list__column Difficulty
+        th.column.review-list__column Fun Factor
+        th.column.review-list__column View From Top
+      tbody
+        tr
+          td.column.review-list__column: p= review.reviewer.username
+          td.column.review-list__column: p= review.difficulty
+          td.column.review-list__column: p= review.funFactor
+          td.column.review-list__column: p= review.viewFromTop
+    div.review-list__description
+      p.review-list__description__title Description
+      p= review.reviewText

@@ -8,53 +8,69 @@ const { requireAuth } = require("../auth.js")
 const db = require("../db/models");
 
 const { csrfProtection, asyncHandler, createTreeValidators } = require("./utils");
+const user = require("../db/models/user.js");
 
 const router = express.Router();
 
 //GET all trees
 router.get(
-  "/",
-  asyncHandler(async (req, res) => {
-    const trees = await db.Tree.findAll({
-      include: ["user"],
-      order: [["name"]],
-    });
-    res.render("Trees/trees-page", { trees });
-  })
+    "/",
+    asyncHandler(async (req, res) => {
+        const trees = await db.Tree.findAll({
+            include: ["user"],
+            order: [["name"]],
+        });
+        res.render("Trees/trees-page", { trees });
+    })
 );
 
 //GET a specific tree
 router.get(
-  "/:id(\\d+)",
-  asyncHandler(async (req, res) => {
-    const treeId = parseInt(req.params.id, 10);
+    "/:id(\\d+)",
+    asyncHandler(async (req, res) => {
+        const treeId = parseInt(req.params.id, 10);
 
-    const tree = await db.Tree.findByPk(treeId);
-
-    res.render("Trees/specific-tree", { tree });
-  })
+        const tree = await db.Tree.findByPk(treeId,
+            {
+                include:
+                    [{
+                        model: db.Review,
+                        as: 'reviews',
+                        include: {
+                            model: db.User,
+                            as: 'reviewer'
+                        }
+                    },
+                    {
+                        model: db.User,
+                        as: 'user'
+                    }]
+            });
+        // res.json({ tree })
+        res.render("Trees/specific-tree", { tree });
+    })
 );
 
 //Create Tree
 router.get("/new", csrfProtection, requireAuth, (req, res) => {
-  const tree = db.Tree.build();
-  res.render("Trees/create-tree", {
-    title: "Create A New Tree",
-    tree,
-    csrfToken: req.csrfToken(),
-  });
+    const tree = db.Tree.build();
+    res.render("Trees/create-tree", {
+        title: "Create A New Tree",
+        tree,
+        csrfToken: req.csrfToken(),
+    });
 });
 
 router.post('/new', csrfProtection, createTreeValidators, requireAuth, asyncHandler(async (req, res) => {
     const { name, cityState, detLocation, description } = req.body;
 
 
-    const tree = db.Tree.build({ name, cityState, detLocation, description, adderId: res.locals.user.dataValues.id });
+    const tree = db.Tree.build({ name, cityState, detLocation, description, adderId: res.locals.curUser.dataValues.id });
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
         await tree.save();
-        return res.redirect(`/users/${res.locals.user.dataValues.id}`);
+        return res.redirect(`/users/${res.locals.curUser.dataValues.id}`);
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         res.render("Trees/create-tree", {
@@ -64,6 +80,6 @@ router.post('/new', csrfProtection, createTreeValidators, requireAuth, asyncHand
             csrfToken: req.csrfToken(),
         });
     }
-  })
+})
 );
 module.exports = router;

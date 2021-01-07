@@ -124,6 +124,7 @@ h1 {
 
 body {
   background: #f8f6f3;
+  /* background: #f7eee9; */
 }
 
 .homepage-link {
@@ -174,6 +175,12 @@ a:hover:not(.goodTrees){
 .sub-header {
   font-weight: 600;
   color: #873307;
+  padding-top: 20px;
+  font-size: 1.1rem;
+}
+
+.sidebar-header {
+  font-weight: 400;
 }
 
 .score {
@@ -193,6 +200,17 @@ a:hover:not(.goodTrees){
   vertical-align: middle;
 }
 
+.new-tree__button {
+    font-weight: 600;
+    color: #873307;
+    border: #873307 solid;
+    border-radius: 2px;
+}
+
+.tree-page__name {
+    display: flex;
+    justify-content: center;
+}
 
 .signup a {
   float: left;
@@ -202,4 +220,45 @@ a:hover:not(.goodTrees){
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+}
+
+.review-list__table {
+    display: table;
+    table-layout: auto;
+    width: 100%;
+    padding-top: 1rem;
+    border: solid #873307;
+    border-radius: 1rem;
+}
+
+.review-list__container {
+    width: 100%;
+    max-width: 800px;
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    text-align: center;
+}
+
+.tree-view__content {
+    flex-grow: 1;
+    padding: .5rem 1rem;
+    text-align: center;
+}
+
+.tree-page__name {
+    padding: 3%;
+}
+
+.review-list__description {
+    padding: 0px 1rem;
+}
+
+.review-list__description__title {
+    font-weight: 800;
+}
+
+.review-list__column {
+    width: 25%;
 }
