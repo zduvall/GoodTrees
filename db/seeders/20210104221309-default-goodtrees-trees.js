@@ -192,7 +192,7 @@ module.exports = {
 
     for (let i = 0; i < numFillerTrees; i++) {
 
-      // create random name
+      // create random tree name
       function randomNameGenerator () {
         const randTreeAdj = treeAdjs[Math.floor(Math.random() * treeAdjs.length)];
         const randName = faker.name.firstName()
