@@ -188,10 +188,6 @@ a:hover:not(.goodTrees){
     text-align: center;
 }
 
-.review-list__container table td:nth-child(2){
-    /* background-color: red; */
-}
-
 .tree-view__content {
     flex-grow: 1;
     padding: .5rem 1rem;
@@ -200,10 +196,6 @@ a:hover:not(.goodTrees){
 
 .tree-page__name {
     padding: 3%;
-}
-
-.review-list__table tbody p {
-    /* font-size: 50%; */
 }
 
 .review-list__description {
