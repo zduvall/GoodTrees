@@ -64,6 +64,38 @@
   border-radius: .25rem;
 }
 
+/* Footer */
+
+.footer {
+  display:grid;
+  grid-template-columns: 10% 20% 10% 1fr 10%;
+  column-gap: 5%;
+  margin-top: 10%;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+}
+
+.footer-about{
+  grid-column-start: 2;
+  grid-column-end:3;
+}
+.footer-developers{
+  grid-column-start:3;
+  grid-column-end:4;
+}
+.footer-dev-name-container {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.footer-dev-name-container a {
+  font-size: 0.85rem;
+}
+.footer-technologies-used-container img {
+  height: 10%;
+  width: 10%;
+}
+
 
 h1 {
   color: #555555;
