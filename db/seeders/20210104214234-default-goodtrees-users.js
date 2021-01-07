@@ -53,8 +53,8 @@ module.exports = {
     const hashedPassword3 = await bcrypt.hash(password3, 10);
 
     return queryInterface.bulkInsert('Users', [
-      { username: 'demo', email: 'demo@demo.com', hashedPassword: hashedPasswordDemo, createdAt: new Date(), updatedAt: new Date() },
-      { username: 'NewClimber', email: 'new-climber@gmail.com', hashedPassword: hashedPassword2, createdAt: new Date(), updatedAt: new Date() },
+      { username: 'DemoClimber', email: 'demo@demo.com', hashedPassword: hashedPasswordDemo, createdAt: new Date(), updatedAt: new Date() },
+      { username: 'NewbClimber', email: 'new-climber@gmail.com', hashedPassword: hashedPassword2, createdAt: new Date(), updatedAt: new Date() },
       { username: 'Spongebob', email: 'spongebob@gmail.com', hashedPassword: hashedPassword1, createdAt: new Date(), updatedAt: new Date() },
       { username: 'Pikachu', email: 'pokemons@protonmail.com', hashedPassword: hashedPassword3, createdAt: new Date(), updatedAt: new Date() },
       ...fillerUsers
