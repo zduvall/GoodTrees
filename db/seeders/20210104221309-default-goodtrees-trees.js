@@ -18,7 +18,7 @@ module.exports = {
 
     // create filler trees
     const fillerTrees = [];
-    const numFillerTrees = 50; // edit this to edit the number of trees created
+    const numFillerTrees = 60; // edit this to edit the number of trees created
     const numUsers = await db.User.count();
 
     // data for creating random trees
@@ -28,12 +28,15 @@ module.exports = {
       'White Ash',
       'Bigtooth Aspen',
       'Quaking Aspen',
+      'Shimmering Aspen',
+      'Aspen',
       'Basswood',
       'American Beech',
       'Black Birch',
       'Gray Birch',
       'Paper Birch',
       'Yellow Birch',
+      'Birch',
       'Butternut',
       'Black Cherry',
       'Pin Cherry',
@@ -42,12 +45,15 @@ module.exports = {
       'Cucumber Tree',
       'American Elm',
       'Slippery Elm',
+      'Elm',
       'Balsam Fir',
+      'Fir',
       'Hawthorn',
       'Eastern Hemlock',
       'Bitternut Hickory',
       'Pignut Hickory',
       'Shagbark Hickory',
+      'Hickory',
       'Árbol',
       'American Hornbeam',
       'American Larch',
@@ -66,39 +72,75 @@ module.exports = {
       'White Pine',
       'Pitch Pine',
       'Red Pine',
+      'Pine Tree',
       'Redcedar',
       'Sassafras',
       'Shadbush',
       'Red Spruce',
       'White Spruce',
+      'Spruce',
       'Sycamore',
       'Tulip Tree',
       'Black Walnut',
       'Black Willow',
+      'Weeping Willow',
+      'Willow',
+      'Tree',
+      'Peach Tree',
+      'Apple Tree',
+      'Cherry Tree',
+      'Date Palm',
+      'Pear Tree',
+      'Fig Tree',
+      'Lemon Tree',
+      'Avacado Tree',
+      'Citrus Tree',
+      'Plum Tree',
+      'Evergreen',
+      'Conifer',
+      'Tower Tree',
     ]
     const treeAdjs = [
+      'Amazing',
       'Ancestral',
       'Ancient',
+      'Awsome',
       'Beloved',
+      'Branchy',
       'Brown',
       'Cool',
       'Dark',
       'Darkest',
+      'Dope',
       'Eldest',
+      'Eternal',
+      'Exciting',
       'Gnarled',
+      'Gnarly',
       'Golden',
+      'Grand',
+      'Gray',
+      'Great',
       'Green',
       'Huge',
+      'Impressive',
+      'Knotted',
       'Light',
       'Local',
       'Lonely',
       'Mature',
+      'Old',
       'Perfect',
       'Potted',
       'Rare',
       'Serpentine',
+      'Short',
+      'Sleek',
       'Stately',
+      'Super',
+      'Tall',
       'Tallest',
+      'Towering',
       'Young',
     ]
     const treeDesciptions1 = [
@@ -113,6 +155,13 @@ module.exports = {
       'There are so many trees out there, but few are as worthy of this one to be climbed.',
       'This tree is a small but beautiful tree.',
       'I grew up climbing this tree and was later proposed to under it.',
+      'All of the kids in my home town here have climbed this tree.',
+      'People come from all over the state to climb this tree.',
+      'This is the location of the county\'s semiannual tree climbing competition.',
+      'You won\'t find another tree like it.',
+      'This tree is the center of the social seen.',
+      'I am adding this tree after climbing it 20+ times. I decided it\'s finally time to share it with the world.',
+      'I hope others can enjoy this tree as much as I do.',
     ]
     const treeDesciptions2 = [
       'Please leave a review!',
@@ -134,37 +183,54 @@ module.exports = {
       'Experienced climbers only.',
       'Peace, bro :P',
       'I hope you enjoy it too!',
+      'Thanks for checking out the tree I added!',
     ]
+    
+    // will be used later to make sure a name and detLocation isn't repeated
+    let nameSet = new Set()
+    let detLocSet = new Set()
 
     for (let i = 0; i < numFillerTrees; i++) {
 
       // create random name
-      const randTreeAdj = treeAdjs[Math.floor(Math.random() * treeAdjs.length)];
-      const randTreeOwner = faker.name.firstName() + "'s"
-      const randPrefix = faker.name.prefix()
-      const randTreeType = treeTypes[Math.floor(Math.random() * treeTypes.length)];
+      function randomNameGenerator () {
+        const randTreeAdj = treeAdjs[Math.floor(Math.random() * treeAdjs.length)];
+        const randName = faker.name.firstName()
+        const randPrefix = faker.name.prefix()
+        const randTreeType = treeTypes[Math.floor(Math.random() * treeTypes.length)];
 
-      let name;
-      const nameBuildNum = Math.random() * 10
-      if (nameBuildNum <= 5) {
-        name = `${randTreeAdj} ${randTreeType}`
-      } else if (nameBuildNum <= 8) {
-        name = `${randTreeOwner} ${randTreeType}`
-      } else {
-        name = `${randPrefix} ${randTreeType}`
+        const nameBuildNum = Math.random() * 10
+        if (nameBuildNum <= 4) {
+          return `${randTreeAdj} ${randTreeType}`
+        } else if (nameBuildNum <= 7) {
+          return `${randTreeType} ${randName}`
+        } else if (nameBuildNum <= 9) {
+          return `${randName}'s ${randTreeType}`
+        } else {
+          return `${randPrefix} ${randTreeType}`
+        }
       }
-      // make sure name is not more than 30 per our database restrictions
-      name = name.substring(0, 30)
 
-      // generate random cityState
+      // make sure name length is unique <= 30 per database restrictions
+      let name = randomNameGenerator();
+      while(nameSet.has(name) || name.length > 30) {
+        name = randomNameGenerator()
+      }
+      nameSet.add(name)
+
+      // generate random cityState, totaling 40 charactors or less
       let city = faker.address.city()
       while (city.length > 36) {
         city = faker.address.city()
       }
       const cityState = `${city}, ${faker.address.stateAbbr()}`;
 
-      // generate random detLocation
-      const detLocation = faker.address.streetAddress();
+      // generate random detLocation making sure it is unique
+      let detLocation = faker.address.streetAddress();
+      while (detLocSet.has(detLocation)){
+        detLocation = faker.address.streetAddress()
+      }
+      detLocSet.add(detLocation)
 
       // generate random description by combinging random descriptions from the 2 lists.
       const description = `${treeDesciptions1[Math.floor(Math.random() * treeDesciptions1.length)]} ${treeDesciptions2[Math.floor(Math.random() * treeDesciptions2.length)]}`;
@@ -182,6 +248,8 @@ module.exports = {
         updatedAt: new Date()
       });
     };
+
+    // console.log(fillerTrees);
 
     return queryInterface.bulkInsert('Trees', [
       {

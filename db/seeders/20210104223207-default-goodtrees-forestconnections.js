@@ -24,7 +24,7 @@ module.exports = {
     for (let userId = 3; userId <= numUsers; userId++) {
 
       let numFillerFCs = Math.floor(Math.random() * maxFillerFCsPerUser)
-      let set = new Set(); // this is used below to make sure we don't get the same treeId twice for once user
+      let set = new Set(); // this is used below to make sure we don't get the same treeId twice for any one user
 
       for (let i = 0; i < numFillerFCs; i++) {
 
