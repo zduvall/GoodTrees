@@ -14,8 +14,8 @@ html
         a(href="/" class="good goodTrees") good
         a(href="/" class="tree goodTrees") trees
       if locals.authenticated
-        span(class="nav-span") Welcome to Good Trees, #{user.username}!
-        a(class="nav-link" href=`/users/${locals.user.id}` class="navBar") My Forest
+        span(class="nav-span") Welcome to Good Trees, #{locals.curUser.username}!
+        a(class="nav-link" href=`/users/${locals.curUser.id}` class="navBar") My Forest
         a(class="nav-link" href="/trees" class="navBar") Find Trees
         a(class="nav-link" href="/users" class="navBar") Highest Climbers
         form(class="nav-logout-form nav-link" action="/users/logout" method="POST")

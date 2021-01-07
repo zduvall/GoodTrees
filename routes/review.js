@@ -44,7 +44,7 @@ router.post(
       funFactor,
       viewFromTop,
       reviewText,
-      reviewerId: res.locals.user.dataValues.id,
+      reviewerId: res.locals.curUser.dataValues.id,
     });
     const validatorErrors = validationResult(req);
 
