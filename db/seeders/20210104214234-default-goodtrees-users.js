@@ -1,6 +1,7 @@
 'use strict';
-const bcrypt = require('bcryptjs');
 
+const bcrypt = require('bcryptjs');
+const faker = require('faker');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -14,6 +15,34 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+
+    // create filler users
+    const fillerUsers = [];
+    const numFillerUsers = 30; // edit this to edit the number of users created
+
+    for (let i = 0; i < numFillerUsers; i++) {
+
+      let userName = faker.internet.userName()
+      while (userName.length > 20) {
+        userName = faker.internet.userName()
+      }
+
+      const email = faker.internet.email();
+      const hashedPassword = await bcrypt.hash(userName + "234", 10);
+
+      fillerUsers.push({
+        username: userName,
+        email: email,
+        hashedPassword: hashedPassword,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      });
+    };
+
+    // hard coded users
+    const passwordDemo = 'demo';
+    const hashedPasswordDemo = await bcrypt.hash(passwordDemo, 10);
+
     const password1 = 'password1';
     const hashedPassword1 = await bcrypt.hash(password1, 10);
 
@@ -23,11 +52,13 @@ module.exports = {
     const password3 = 'password3';
     const hashedPassword3 = await bcrypt.hash(password3, 10);
 
-   return queryInterface.bulkInsert('Users', [
-     {username: 'Spongebob', email:'spongebob@gmail.com', hashedPassword: hashedPassword1, createdAt: new Date(), updatedAt: new Date()},
-     {username: 'Randy', email:'randy@gmail.com', hashedPassword: hashedPassword2, createdAt: new Date(), updatedAt: new Date()},
-     {username:'Pikachu', email: 'pokemons@protonmail.com', hashedPassword: hashedPassword3, createdAt: new Date(), updatedAt: new Date()}
-   ], {});
+    return queryInterface.bulkInsert('Users', [
+      { username: 'Newb', email: 'new-climber@gmail.com', hashedPassword: hashedPassword2, createdAt: new Date(), updatedAt: new Date() },
+      { username: 'DemoClimber', email: 'demo@demo.com', hashedPassword: hashedPasswordDemo, createdAt: new Date(), updatedAt: new Date() },
+      { username: 'Spongebob', email: 'spongebob@gmail.com', hashedPassword: hashedPassword1, createdAt: new Date(), updatedAt: new Date() },
+      { username: 'Pikachu', email: 'pokemons@protonmail.com', hashedPassword: hashedPassword3, createdAt: new Date(), updatedAt: new Date() },
+      ...fillerUsers
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -38,6 +69,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-   return queryInterface.bulkDelete('Users', null, {});
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };
