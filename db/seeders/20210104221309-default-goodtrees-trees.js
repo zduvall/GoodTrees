@@ -18,7 +18,7 @@ module.exports = {
 
     // create filler trees
     const fillerTrees = [];
-    const numFillerTrees = 40; // edit this to edit the number of trees created
+    const numFillerTrees = 50; // edit this to edit the number of trees created
     const numUsers = await db.User.count();
 
     // data for creating random trees
@@ -38,7 +38,7 @@ module.exports = {
       'Black Cherry',
       'Pin Cherry',
       'American Chestnut',
-      'Eastern Cottonwood',
+      'Baum',
       'Cucumber Tree',
       'American Elm',
       'Slippery Elm',
@@ -48,11 +48,11 @@ module.exports = {
       'Bitternut Hickory',
       'Pignut Hickory',
       'Shagbark Hickory',
-      'American Hophornbeam',
+      'Árbol',
       'American Hornbeam',
       'American Larch',
       'Black Locust',
-      'Honey - Locust',
+      'Honey Locust',
       'Maple',
       'Red Maple',
       'Silver Maple',
@@ -60,13 +60,13 @@ module.exports = {
       'Oak',
       'Black Oak',
       'Chestnut Oak',
-      'Northern Red Oak',
+      'Northern Oak',
       'Scarlet Oak',
       'White Oak',
-      'Eastern White Pine',
+      'White Pine',
       'Pitch Pine',
       'Red Pine',
-      'Eastern Redcedar',
+      'Redcedar',
       'Sassafras',
       'Shadbush',
       'Red Spruce',
@@ -81,7 +81,7 @@ module.exports = {
       'Ancient',
       'Beloved',
       'Brown',
-      'Conspicuous',
+      'Cool',
       'Dark',
       'Darkest',
       'Eldest',
@@ -153,6 +153,9 @@ module.exports = {
       } else {
         name = `${randPrefix} ${randTreeType}`
       }
+      // make sure name is not more than 30 per our database restrictions
+      name = name.substring(0, 30)
+
       // generate random cityState
       let city = faker.address.city()
       while (city.length > 36) {
