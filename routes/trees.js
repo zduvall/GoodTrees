@@ -9,7 +9,6 @@ const db = require("../db/models");
 const { getTreeAvgScore } = require('./get-scores')
 
 const { csrfProtection, asyncHandler, createTreeValidators } = require("./utils");
-const user = require("../db/models/user.js");
 
 const router = express.Router();
 
