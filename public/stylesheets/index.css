@@ -109,6 +109,10 @@
 
 /* Other */
 
+body {
+  height: 100%;
+}
+
 img {
   max-width: 100%;
   max-height: 100%;
@@ -123,6 +127,10 @@ h1 {
 a:hover:not(.goodTrees){
   background: #e2f0d0;
   border-radius: .25rem;
+}
+a:hover:not(.navBar-a-tag){
+  letter-spacing: .5px;
+  transition: all 0.4s ease 0s;
 }
 .header{
   margin: 0 auto .5rem auto;

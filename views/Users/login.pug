@@ -5,8 +5,6 @@ block content
   div(class='form-container')
     div(class='form__auth')
       h1 Login
-      div
-        +validationErrorSummary(errors)
       div  
         form(action="/users/login", method="post") 
           +csrfToken()
@@ -14,3 +12,5 @@ block content
           +field("Password", "password", null, "password")
           div(class="login-btn-div")
             button(type="submit" class="form-btn") Submit
+      div
+        +validationErrorSummary(errors)

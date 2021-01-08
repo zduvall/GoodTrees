@@ -3,9 +3,10 @@ include ../utils.pug
 
 block content
     .create-tree__background
+        h1.header Create Tree
         .form-container
             +validationErrorSummary(errors)
-            form(action="/trees/new" method="post") Create Tree Form
+            form(action="/trees/new" method="post")
                 +csrfToken()
                 +field('Name', 'name', tree.name)
                 +field('Closest City/State', 'cityState', tree.cityState)
