@@ -31,7 +31,7 @@ block content
             .my-trees__container: +treeListView(wantToClimbTrees)
       else
         .container__main-content
-          if locals.curUser.userName === user.username
-            p <a href="/trees">Find trees</a> to add to your forest!
+          if user.id === locals.curUser.id
+            h2.sub-header.no-trees-msg <a href="/trees">Find trees</a> to add to your forest
           else
-            p No trees yet in #{user.username}'s forest!
+            h2.sub-header.no-trees-msg #{user.username} has not added any trees to the forest

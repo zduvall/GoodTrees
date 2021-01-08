@@ -52,27 +52,27 @@ module.exports = {
 
     return queryInterface.bulkInsert('ForestConnections', [
       {
-        climbStatus: true, favStatus: true, userId: 1, treeId: 1,
+        climbStatus: true, favStatus: true, userId: 2, treeId: 1,
         createdAt: new Date(), updatedAt: new Date()
       },
       {
-        climbStatus: false, favStatus: true, userId: 1, treeId: 2,
+        climbStatus: false, favStatus: true, userId: 2, treeId: 2,
         createdAt: new Date(), updatedAt: new Date()
       },
       {
-        climbStatus: true, favStatus: false, userId: 1, treeId: 3,
+        climbStatus: true, favStatus: false, userId: 2, treeId: 3,
         createdAt: new Date(), updatedAt: new Date()
       },
       {
-        climbStatus: false, favStatus: true, userId: 1, treeId: 4,
+        climbStatus: false, favStatus: true, userId: 2, treeId: 4,
         createdAt: new Date(), updatedAt: new Date()
       },
       {
-        climbStatus: true, favStatus: true, userId: 1, treeId: 5,
+        climbStatus: true, favStatus: true, userId: 2, treeId: 5,
         createdAt: new Date(), updatedAt: new Date()
       },
       {
-        climbStatus: true, favStatus: true, userId: 1, treeId: 6,
+        climbStatus: true, favStatus: true, userId: 2, treeId: 6,
         createdAt: new Date(), updatedAt: new Date()
       },
       ...fillerFCs

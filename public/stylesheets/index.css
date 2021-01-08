@@ -225,11 +225,16 @@ a:hover:not(.goodTrees){
   font-size: 17px;
 }
 
-/* User Page -- comment in if want scroll in users page */
+/* User Page */
 .my-trees__container {
   display: flex;
   flex-direction: column;
   max-height: 400px;
+}
+
+.no-trees-msg {
+  margin: auto;
+  width: fit-content;
 }
 
 /* Find Trees Page */
