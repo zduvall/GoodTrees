@@ -123,14 +123,6 @@ img {
 h1 {
   color: #555555;
 }
-<<<<<<< HEAD
-
-=======
-body {
-  background: #f8f6f3;
-  /* background: #f7eee9; */
-}
->>>>>>> main
 .homepage-link {
   padding: 1rem;
 }
@@ -138,28 +130,17 @@ a:hover:not(.goodTrees){
   background: #e2f0d0;
   border-radius: .25rem;
 }
-<<<<<<< HEAD
 a:hover:not(.navBar-a-tag){
   letter-spacing: .5px;
   transition: all 0.4s ease 0s;
 }
-=======
->>>>>>> main
 .header{
   margin: 0 auto .5rem auto;
   width: fit-content;
-<<<<<<< HEAD
   padding: 1rem 1rem;
   color: #6c9734;
   background-color:rgba(255, 255, 255, 0.733);
   border-radius: 1rem;
-=======
-  padding: 1rem;
-}
-.nav {
-  background-image: url("/leaf-background-vector.png");
-  opacity: 0.5;
->>>>>>> main
 }
 .container {
   width: 60%;
@@ -176,15 +157,12 @@ a:hover:not(.navBar-a-tag){
   flex-grow: 1;
   width: 75%;
 }
-<<<<<<< HEAD
 
 .circled-content {
   background:rgba(255, 255, 255, 0.479);
   border-radius: 1rem;
   padding: .5rem;
 }
-=======
->>>>>>> main
 .sidebar {
   width: 25%;
   height: fit-content;
@@ -194,7 +172,6 @@ a:hover:not(.navBar-a-tag){
   top: 1em;
   text-align: center;
 }
-<<<<<<< HEAD
 
 .sidebar-btn-container {
   display: flex;
@@ -224,13 +201,6 @@ a:hover:not(.navBar-a-tag){
 }
 
 
-=======
-.container__main-content {
-  flex-grow: 1;
-  padding: .5rem 1rem;
-  width: 75%;
-}
->>>>>>> main
 .sub-header {
   /* text-transform: uppercase; */
   font-weight: 500;
@@ -244,7 +214,6 @@ a:hover:not(.navBar-a-tag){
 .score {
   margin: auto;
   width: fit-content;
-<<<<<<< HEAD
   padding: 0 0 .5rem 0;
 }
 
@@ -254,28 +223,6 @@ a:hover:not(.navBar-a-tag){
 
 .right-side-container {
   padding-left: 1rem;
-=======
-  padding: 1rem;
-}
-.trees-table {
-  width: 100%;
-  padding-top: 1rem;
-}
-.column {
-  width: 30%;
-  text-align: center;
-  vertical-align: middle;
-}
-.new-tree__button {
-    font-weight: 600;
-    color: #873307;
-    border: #873307 solid;
-    border-radius: 2px;
-}
-.tree-page__name {
-    display: flex;
-    justify-content: center;
->>>>>>> main
 }
 .signup a {
   float: left;
@@ -286,7 +233,6 @@ a:hover:not(.navBar-a-tag){
   text-decoration: none;
   font-size: 17px;
 }
-<<<<<<< HEAD
 
 /* User Page */
 .my-trees__container {
@@ -326,8 +272,6 @@ a:hover:not(.navBar-a-tag){
 }
 
 /* Review Page */
-=======
->>>>>>> main
 .review-list__table {
     display: table;
     table-layout: auto;
@@ -341,17 +285,6 @@ a:hover:not(.navBar-a-tag){
     flex-direction: column-reverse;
     text-align: center;
 }
-<<<<<<< HEAD
-=======
-.tree-view__content {
-    flex-grow: 1;
-    padding: .5rem 1rem;
-    text-align: center;
-}
-.tree-page__name {
-    padding: 3%;
-}
->>>>>>> main
 .review-list__description {
     padding: 0 1rem;
 }
