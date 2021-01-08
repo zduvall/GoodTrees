@@ -1,21 +1,29 @@
 body,
 html {
   height: 100%;
-  margin: -15px 0px -10px 0px;
+  margin: 0;
   font-family: "Raleway", sans-serif;
 }
 
 .splash-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   background-image: url("/forests/forest_sky_view.jpg");
+  background-size: cover;
   min-height: 100%;
   width: 100%;
   height: auto;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
+}
+
+.splash-container__content-container {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+  height: 70%;
 }
 
 .form-container {
@@ -25,6 +33,19 @@ html {
   padding: 20px;
   font-family: "Raleway", sans-serif;
   color: white;
+}
+
+.form__auth {
+  width: 20%;
+  /* background: #a3a3a377; */
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form__auth label {
+  text-align: center;
 }
 
 .labelClass {
@@ -65,16 +86,32 @@ html {
 }
 
 button {
-  background: none;
-  color: white;
-  padding: 12px 20px;
+  color: #f8f6f3 !important;
+  text-decoration: none;
+  background: #6c9734;
+  padding: .5rem;
+  border-radius: .5rem;
+  display: inline-block;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  transition: all 0.4s ease 0s;
+  margin: 1rem .08rem;
 }
 
-button:hover {
-  color: #bed3a3;
+button:hover:enabled {
+  background: #434343;
+  letter-spacing: 1px;
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+.login-form-button-container {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}
+
+.login-form-button-container button {
+  margin: .5rem;
 }
 
 .good {
@@ -108,23 +145,16 @@ button,
 
 .climbers {
   align-self: flex-end;
-  margin-right: 10px;
+  margin-right: 5%;
+  position: absolute;
+  bottom: 0;
 }
 
-/* .login {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  height: fit-content;
-  width: fit-content;
-} */
 
 .sign-up {
   display: flex;
   flex-direction: row;
   align-self: center;
-  height: fit-content;
-  width: fit-content;
 }
 
 .splash-page-link {
