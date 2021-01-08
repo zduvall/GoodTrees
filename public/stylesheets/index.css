@@ -167,7 +167,13 @@ a:hover:not(.goodTrees){
   background-color:rgba(231, 217, 194, 0.5);
   /* box-shadow: 0 0 1rem .25rem #f8f6f3 inset; */
   box-shadow: .25rem .25rem .25rem #d3c6a7;
+  padding: 1rem;
+}
 
+.container__main-content {
+  flex-grow: 1;
+  padding-left: 1rem;
+  width: 75%;
 }
 
 .circled-content {
@@ -175,22 +181,21 @@ a:hover:not(.goodTrees){
   border-radius: 1rem;
   /* box-shadow: 0 0 1rem .25rem rgba(231, 217, 194, 0.5) inset; */
   box-shadow: .25rem .25rem .25rem #d3c6a7;
+  padding: 1rem;
 }
 
 .sidebar {
   width: 25%;
   height: fit-content;
   flex-wrap: wrap;
-  padding: .5rem 1rem;
+  padding: .5rem;
   position: sticky;
   top: 1em;
-  margin: 1rem 0 0 1rem;
   text-align: center;
 }
 
 .sidebar-btn-container {
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
@@ -212,23 +217,16 @@ a:hover:not(.goodTrees){
 .sidebar-btn:hover {
   background: #434343;
   letter-spacing: 1px;
-  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
   box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
   transition: all 0.4s ease 0s;
 }
 
-.container__main-content {
-  flex-grow: 1;
-  padding: .5rem 1rem;
-  width: 75%;
-}
 
 .sub-header {
   /* text-transform: uppercase; */
   font-weight: 600;
   color: #873307;
-  padding-top: .5rem;
+  padding: .5rem 0;
   font-size: 1.1rem;
 }
 
@@ -239,18 +237,11 @@ a:hover:not(.goodTrees){
 .score {
   margin: auto;
   width: fit-content;
-  padding: 1rem;
+  padding: 0 0 .5rem 0;
 }
 
-.trees-table {
-  width: 100%;
-  padding-top: 1rem;
-}
-
-.column {
-  width: 30%;
-  text-align: center;
-  vertical-align: middle;
+.tree-details {
+  margin: 0 0 0 1rem;
 }
 
 .signup a {
@@ -263,19 +254,49 @@ a:hover:not(.goodTrees){
   font-size: 17px;
 }
 
+/* User Page -- comment in if want scroll in users page */
+/* .my-trees__container {
+  display: flex;
+  flex-direction: column;
+  height: 35vh;
+} */
+
+/* Find Trees Page */
+.trees-table {
+  width: 100%;
+}
+
+.tree-list-view__container {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+}
+
+/* For lots of tables */
+.column {
+  width: 30%;
+  text-align: center;
+}
+
+.scroll {
+  overflow: scroll;
+  max-height: inherit;
+  background-color: rgba(255, 255, 255, 0.178);
+  border-radius: 1rem;
+}
+
 /* Review Page */
 .review-list__table {
     display: table;
     table-layout: auto;
     width: 100%;
     padding-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .review-list__container {
     width: 100%;
     max-width: 800px;
-    margin-top: .5rem;
     display: flex;
     flex-direction: column-reverse;
     text-align: center;

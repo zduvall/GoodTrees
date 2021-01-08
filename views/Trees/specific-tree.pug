@@ -8,9 +8,9 @@ block content
     h1.header= tree.name
     .container
         .sidebar.circled-content
-            h2.sub-header.sidebar-header Grow your forest
+            h2.sub-header.sidebar-header Climb this tree?
             div.sidebar-btn-container
-                button.sidebar-btn#climbed-btn Climbed ✓
+                button.sidebar-btn#climbed-btn Done ✓
                 button.sidebar-btn#want-to-climb-btn Want to ✓
             h2.sub-header.sidebar-header(title="Difficulty score is an average of all reviews on this tree") Difficulty
             .score(title="Difficulty score is an average of all reviews on this tree") #{avgDiff}
@@ -25,18 +25,20 @@ block content
                 //-     button.sidebar-btn Add A New Tree
 
         .container__main-content
+            .circled-content
+                div
+                    h2.sub-header Tree Location
+                    p.tree-details= tree.detLocation
+                    p.tree-details= tree.cityState
+                div
+                    h2.sub-header Tree Creator
+                    a.tree-details(href="/users/"+tree.adderId)= tree.user.username
+                div
+                    h2.sub-header Tree Description
+                    p.tree-details= tree.description
+                div
+                    h2.sub-header Tree Reviews
             div
-                h2.sub-header Tree Location
-                p= tree.cityState
-                p= tree.detLocation
-            div
-                h2.sub-header Added by
-                a(href="/users/"+tree.adderId)= tree.user.username
-            div
-                h2.sub-header Description
-                p= tree.description
-            div
-                h2.sub-header Tree Reviews
             .review-list__container
                 each review in tree.reviews
                     +reviewListView(review)

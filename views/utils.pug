@@ -17,17 +17,19 @@ mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = 
       input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form-control')
 
 mixin treeListView(trees)
-  table.trees-table
-    thead
-      th.column Tree Name
-      th.column City, State
-      th.column Tree Creator
-    tbody
-      each tree in trees
-        tr
-          td.column: a(href= '/trees/'+tree.id)= tree.name
-          td.column: p= tree.cityState
-          td.column: a(href= '/users/'+tree.adderId)= tree.user.username
+    table.trees-table
+      thead
+        th.column Tree Name
+        th.column Tree Location
+        th.column Tree Creator
+    .scroll
+      table.trees-table
+        tbody
+          each tree in trees
+            tr
+              td.column: a(href= '/trees/'+tree.id)= tree.name
+              td.column: p= tree.cityState
+              td.column: a(href= '/users/'+tree.adderId)= tree.user.username
 
 mixin csrfToken()
   input(type='hidden' name='_csrf' value=csrfToken)
@@ -42,7 +44,7 @@ mixin reviewListView(review)
         th.column.review-list__column View From Top
       tbody
         tr
-          td.column.review-list__column: p= review.reviewer.username
+          td.column.review-list__column: a(href='/users/'+review.reviewer.id)= review.reviewer.username
           td.column.review-list__column: p= review.difficulty
           td.column.review-list__column: p= review.funFactor
           td.column.review-list__column: p= review.viewFromTop
