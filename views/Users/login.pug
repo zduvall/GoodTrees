@@ -5,12 +5,23 @@ block content
   div(class='form-container')
     div(class='form__auth')
       h1 Login
+<<<<<<< HEAD
+=======
+      div
+        +validationErrorSummary(errors)
+>>>>>>> main
       div  
         form(action="/users/login", method="post") 
           +csrfToken()
           +field("Email", "email", email, "mail")
           +field("Password", "password", null, "password")
           div(class="login-btn-div")
+<<<<<<< HEAD
             button(type="submit" class="form-btn") Submit
       div
         +validationErrorSummary(errors)
+=======
+            button(type="submit" class="btn-login") Log-in
+          div
+            p: a(href="/users/sign-up" class="create-btn") Create a FREE GoodTrees account
+>>>>>>> main
