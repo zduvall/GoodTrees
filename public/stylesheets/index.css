@@ -129,7 +129,7 @@ a:hover:not(.goodTrees){
   border-radius: .25rem;
 }
 .header{
-  margin: .5rem auto;
+  margin: 0 auto .5rem auto;
   width: fit-content;
   padding: 1rem 1rem;
   color: #6c9734;
@@ -144,8 +144,6 @@ a:hover:not(.goodTrees){
   border-radius: 1rem;
   justify-content: center;
   background-color:rgba(255, 255, 255, 0.733);
-  /* box-shadow: 0 0 1rem .25rem #f8f6f3 inset; */
-  /* box-shadow: .25rem .25rem .25rem #d3c6a7; */
   padding: 1rem;
 }
 
@@ -155,10 +153,8 @@ a:hover:not(.goodTrees){
 }
 
 .circled-content {
-  background:#f8f6f3;
+  background:rgba(255, 255, 255, 0.479);
   border-radius: 1rem;
-  /* box-shadow: 0 0 1rem .25rem rgba(231, 217, 194, 0.5) inset; */
-  /* box-shadow: .25rem .25rem .25rem #d3c6a7; */
   padding: 1rem;
 }
 .sidebar {
@@ -246,11 +242,11 @@ a:hover:not(.goodTrees){
 }
 
 /* comment in if want scroll in find trees page */
-/* .tree-list-view__container {
+.tree-list-view__container {
   display: flex;
   flex-direction: column;
   height: 75vh;
-} */
+}
 
 /* For lots of tables */
 .column {
@@ -261,7 +257,7 @@ a:hover:not(.goodTrees){
 .scroll {
   overflow: scroll;
   max-height: inherit;
-  background-color: rgba(255, 255, 255, 0.178);
+  background-color: rgba(255, 255, 255, 0.479);
   border-radius: 1rem;
 }
 

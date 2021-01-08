@@ -1,3 +1,19 @@
-.find-trees__background {
+.trees-page__background {
   background-image: url("/forests/92833.jpg");
+  background-size: cover;
+}
+
+.specific-tree__background {
+  background-image: url("/forests/128782.jpg");
+  background-size: cover;
+}
+
+.single-user__background {
+  background-image: url("/forests/128801.jpg");
+  background-size: cover;
+}
+
+.create-review__background {
+  background-image: url("/forests/128801.jpg");
+  background-size: cover;
 }

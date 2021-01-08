@@ -1,19 +1,18 @@
 .form-container {
+  width: 30%;
+  max-width: 800px;
+  margin: auto;
   display: flex;
+  border-radius: 1rem;
   justify-content: center;
-  border-radius: 2px;
-  background-color: #f8f6f3;
-  padding: 20px;
-  font-family: "Raleway", sans-serif;
+  background-color:rgba(255, 255, 255, 0.733);
+  /* box-shadow: 0 0 1rem .25rem #f8f6f3 inset; */
+  /* box-shadow: .25rem .25rem .25rem #d3c6a7; */
+  padding: 1rem;
 }
 
 .form__auth {
   width: 20%;
-}
-
-.form {
-  margin-left: -15%;
-  
 }
 
 .labelClass {
