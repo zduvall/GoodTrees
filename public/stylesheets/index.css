@@ -28,6 +28,7 @@
   width: 100%;
   font-family: "Raleway", sans-serif;
   color: black;
+  background-color: rgba(255, 255, 255, 0.363);
   /*background-image: url("/leaf-background-vector.png");*/
 }
 .nav-link {
@@ -146,13 +147,12 @@ a:hover:not(.goodTrees){
   justify-content: center;
   background-color:rgba(231, 217, 194, 0.5);
   /* box-shadow: 0 0 1rem .25rem #f8f6f3 inset; */
-  box-shadow: .25rem .25rem .25rem #d3c6a7;
+  /* box-shadow: .25rem .25rem .25rem #d3c6a7; */
   padding: 1rem;
 }
 
 .container__main-content {
   flex-grow: 1;
-  padding-left: 1rem;
   width: 75%;
 }
 
@@ -160,7 +160,7 @@ a:hover:not(.goodTrees){
   background:#f8f6f3;
   border-radius: 1rem;
   /* box-shadow: 0 0 1rem .25rem rgba(231, 217, 194, 0.5) inset; */
-  box-shadow: .25rem .25rem .25rem #d3c6a7;
+  /* box-shadow: .25rem .25rem .25rem #d3c6a7; */
   padding: 1rem;
 }
 .sidebar {
@@ -220,6 +220,11 @@ a:hover:not(.goodTrees){
 .tree-details {
   margin: 0 0 0 1rem;
 }
+
+.tree-details-container {
+  padding-left: 1rem;
+}
+
 .signup a {
   float: left;
   color: #f2f2f2;
@@ -242,11 +247,12 @@ a:hover:not(.goodTrees){
   width: 100%;
 }
 
-.tree-list-view__container {
+/* comment in if want scroll in find trees page */
+/* .tree-list-view__container {
   display: flex;
   flex-direction: column;
   height: 75vh;
-}
+} */
 
 /* For lots of tables */
 .column {
