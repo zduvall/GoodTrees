@@ -3,7 +3,11 @@ extends ../layout.pug
 include ../utils.pug
 
 block content
-  h1.header Find Trees
-  .container
-    .container__main-content
-      div: +treeListView(trees)
+  .trees-page__background.page__background 
+    h1.header Find Trees
+    .container
+      .container__main-content
+        .tree-list-view__container
+          +treeListView(trees)
+
+

@@ -2,29 +2,43 @@ extends ../layout.pug
 include ../utils.pug
 
 block content
-    +validationErrorSummary(errors)
-    form(class="form-review" method="POST" action="/reviews/new") 
-        input(type="hidden" name="_csrf" value=csrfToken)
-        input(type="hidden" name="treeId" value=tree.id)
-        div: label(for="difficulty") Difficulty
-            select(name="difficulty" id="difficulty")
-                option(value=1) Easy
-                option(value=2) Medium
-                option(value=3) Hard
-                option(value=4) Danger Seeker 
-        div: label(for="funFactor") Fun Factor
-            select(name="funFactor" id="funFactor")
-                option(value=1) Boring
-                option(value=2) Okay
-                option(value=3) Enjoyable
-                option(value=4) Amazing
-        div: label(for="viewFromTop") View from Top
-            select(name="viewFromTop" id="viewFromTop")   
-                option(value=1) Dull
-                option(value=2) Good
-                option(value=3) Great
-                option(value=4) Mesmerizing 
-        div: label(for="reviewText") Tell us about it
-            textarea(name="reviewText" id="reviewText" cols="30" rows="10")
-        button(type="submit") Submit Review
+    .create-review__background.page__background
+        h1.header Review #{tree.name}
+        div(class="form-container")
+            form(method="POST" action="/reviews/new" )
+                div(class="row") 
+                    +csrfToken()
+                    input(type="hidden" name="treeId" value=tree.id)
+                div(class="labelClass")
+                    label(for="difficulty" class="labelClass") Difficulty
+                div(class="form-select")
+                    select(name="difficulty" id="difficulty")
+                        option(value=1) Easy
+                        option(value=2) Medium
+                        option(value=3) Hard
+                        option(value=4) Danger Seeker 
+                div(class="labelClass")
+                    label(for="funFactor") Fun Factor
+                div(class="form-select")
+                    select(name="funFactor" id="funFactor")
+                        option(value=1) Boring
+                        option(value=2) Okay
+                        option(value=3) Enjoyable
+                        option(value=4) Amazing
+                div(class="labelClass")
+                    label(for="viewFromTop") View from Top
+                div(class="form-select")
+                    select(name="viewFromTop" id="viewFromTop")   
+                        option(value=1) Dull
+                        option(value=2) Good
+                        option(value=3) Great
+                        option(value=4) Mesmerizing 
+                div(class="labelClass")
+                    label(for="reviewText") Tell us about this tree
+                div(class="form-select")
+                    textarea(name="reviewText" id="reviewText" placeholder="Please write your review..." cols="30" rows="10")
+                div
+                    button(type="submit" class="form-btn") Submit Review
+                div
+                    +validationErrorSummary(errors)
 

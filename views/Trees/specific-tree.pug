@@ -1,28 +1,43 @@
 extends ../layout.pug
 
+append head
+    script(src="/javascripts/specific-tree.js" type="module" defer)    
 include ../utils.pug
 
 block content
+    .specific-tree__background.page__background
+        h1.header= tree.name
+        .container
+            .sidebar.circled-content
+                h2.sub-header.sidebar-header Climb this tree?
+                div.sidebar-btn-container
+                    button.form-btn#climbed-btn Done ✓
+                    button.form-btn#want-to-climb-btn Want to ✓
+                h2.sub-header.sidebar-header(title="Difficulty score is an average of all reviews on this tree") Difficulty
+                .score(title="Difficulty score is an average of all reviews on this tree") #{avgDiff}
+                h2.sub-header.sidebar-header(title="Fun factor score is an average of all reviews on this tree") Fun Factor
+                .score(title="Fun factor score is an average of all reviews on this tree") #{avgFun}
+                h2.sub-header.sidebar-header(title="View from top score is an average of all reviews on this tree") View From Top
+                .score(title="View from top score is an average of all reviews on this tree") #{avgView}
+                div.sidebar-btn-container
+                    form(action=`/reviews/${tree.id}/new`, method="get")
+                        button.form-btn Review This Tree
 
-    .container
-        .sidebar
-            div.sub-header: a(href= "/trees/new").nav-link Add a new Tree!
-            div
-            div.sub-header: a(href= `/reviews/${tree.id}/new`).nav-link Review this Tree!
-        .tree-view__content
-            h1.tree-page__name= tree.name
-            div
-                h2.sub-header This Tree's Location:
-                .tree-page__content: p= tree.cityState
-                .tree-page__content: p= tree.detLocation
-            div
-                h2.sub-header Added by:
-                .tree-page__content: a(href="/users/"+tree.adderId)= tree.user.username
-            div
-                h2.sub-header Description:
-                .tree-page__content: p= tree.description
-            div
-                h2.sub-header This Tree's reviews:
+            .container__main-content.right-side-container
+                .circled-content
+                    div
+                        h2.sub-header Tree Location
+                        p.tree-details= tree.detLocation
+                        p.tree-details= tree.cityState
+                    div
+                        h2.sub-header Tree Creator
+                        a.tree-details(href="/users/"+tree.adderId)= tree.user.username
+                    div
+                        h2.sub-header Tree Description
+                        p.tree-details= tree.description
+                    div
+                        h2.sub-header Tree Reviews
+                div
                 .review-list__container
                     each review in tree.reviews
                         +reviewListView(review)

@@ -1,39 +1,40 @@
 mixin validationErrorSummary(errors)
   if errors
-    div(class='alert alert-danger' role='alert')
-      p The following error(s) occurred:
-      ul
-        each error in errors
-          li= error
+    ul
+      each error in errors
+        li= error
 
 mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = null)
-  div(class='form-group')
-    label(for=fieldName)= labelText
-    if fieldType === 'textarea'
-      textarea(id=fieldName name=fieldName class='form-control' rows='5')= fieldValue
-    else if fieldType === 'select'
-      select(id=fieldName name=fieldName class='form-select')
-    else
-      input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form-control')
+    div(class='labelClass')
+      label(for=fieldName)= labelText
+    div(class="form-select")
+      if fieldType === 'textarea'
+        textarea(id=fieldName name=fieldName rows='5')= fieldValue
+      else if fieldType === 'select'
+        select(id=fieldName name=fieldName class='form-select')
+      else
+        input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder class='form-control')
 
 mixin treeListView(trees)
-  table.trees-table
-    thead
-      th.column Tree Name
-      th.column City, State
-      th.column Tree Creator
-    tbody
-      each tree in trees
-        tr
-          td.column: a(href= '/trees/'+tree.id)= tree.name
-          td.column: p= tree.cityState
-          td.column: a(href= '/users/'+tree.adderId)= tree.user.username
+    table.trees-table
+      thead
+        th.column Tree Name
+        th.column Tree Location
+        th.column Tree Creator
+    .scroll
+      table.trees-table
+        tbody
+          each tree in trees
+            tr
+              td.column: a(href= '/trees/'+tree.id)= tree.name
+              td.column: p= tree.cityState
+              td.column: a(href= '/users/'+tree.adderId)= tree.user.username
 
 mixin csrfToken()
   input(type='hidden' name='_csrf' value=csrfToken)
 
 mixin reviewListView(review)
-  div.review-list__table
+  div.review-list__table.circled-content
     table
       thead
         th.column.review-list__column Reviewer
@@ -42,7 +43,7 @@ mixin reviewListView(review)
         th.column.review-list__column View From Top
       tbody
         tr
-          td.column.review-list__column: p= review.reviewer.username
+          td.column.review-list__column: a(href='/users/'+review.reviewer.id)= review.reviewer.username
           td.column.review-list__column: p= review.difficulty
           td.column.review-list__column: p= review.funFactor
           td.column.review-list__column: p= review.viewFromTop

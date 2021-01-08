@@ -2,15 +2,13 @@
 .logo {
   display: flex;
 }
-
 .good {
   font-size: 1.5rem;
   font-family: "Raleway", sans-serif;
   font-weight: 100;
-  color: #212121;
+  color: black;
   text-decoration: none;
 }
-
 .tree {
   font-size: 1.5rem;
   font-family: "Raleway", sans-serif;
@@ -18,13 +16,10 @@
   color: #6c9734;
   text-decoration: none;
 }
-
-
 /* Navbar */
 .navbar .logo {
   margin-left: 10%;
 }
-
 .navbar {
   display:flex;
   flex-direction: row;
@@ -32,9 +27,9 @@
   align-items: center;
   width: 100%;
   font-family: "Raleway", sans-serif;
+  color: black;
   /*background-image: url("/leaf-background-vector.png");*/
 }
-
 .nav-link {
   align-self: flex-end;
   text-decoration: none;
@@ -43,34 +38,31 @@
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
 }
-
 .nav-span {
   width: 50%;
   text-align: center;
   align-self: center;
 }
-
 .nav-logout-btn {
+  /* background-color: #555555; */
+  color: black;
   align-self: flex-end;
   font-family: "Raleway", sans-serif;
   background: none;
   border: none;
   padding: 0;
   font-size: 1rem;
-
 }
 .nav-logout-form:hover {
   background: #e2f0d0;
   border-radius: .25rem;
 }
-
 /* Footer */
-
 .footer {
   display:grid;
   grid-template-columns: 10% 20% 10% 1fr 10%;
   column-gap: 5%;
-  margin-top: 10%;
+  margin-top: 5%;
   width: 100%;
   font-family: "Raleway", sans-serif;
 }
@@ -80,12 +72,10 @@
 .footer-developers > h5 {
   margin-bottom: 10%;
 }
-
 .footer-about-p {
   margin-top: 5%;
   font-size: 0.75rem;
 }
-
 .footer-about{
   grid-column-start: 2;
   grid-column-end:3;
@@ -104,56 +94,51 @@
   margin-bottom: 0.2rem;
   text-decoration: none;
 }
-
 .footer-technologies-used-container {
   display: flex;
   flex-direction: row;
 }
-
 .footer-img-container {
   height: 80px;
   width: 80px;
   display: flex;
   align-items: center;
-
   margin-left: 2%;
   margin-right: 2%
+}
+
+/* Other */
+
+body {
+  height: 100%;
 }
 
 img {
   max-width: 100%;
   max-height: 100%;
 }
-
 h1 {
   color: #555555;
 }
-
-body {
-  background: #f8f6f3;
-  /* background: #f7eee9; */
-}
-
 .homepage-link {
   padding: 1rem;
 }
-
 a:hover:not(.goodTrees){
   background: #e2f0d0;
   border-radius: .25rem;
 }
-
+a:hover:not(.navBar-a-tag){
+  letter-spacing: .5px;
+  transition: all 0.4s ease 0s;
+}
 .header{
-  margin: auto;
+  margin: 0 auto .5rem auto;
   width: fit-content;
-  padding: 1rem;
+  padding: 1rem 1rem;
+  color: #6c9734;
+  background-color:rgba(255, 255, 255, 0.733);
+  border-radius: 1rem;
 }
-
-.nav {
-  background-image: url("/leaf-background-vector.png");
-  opacity: 0.5;
-}
-
 .container {
   width: 60%;
   max-width: 800px;
@@ -161,64 +146,81 @@ a:hover:not(.goodTrees){
   display: flex;
   border-radius: 1rem;
   justify-content: center;
-}
-
-.sidebar {
-  width: 25%;
-  height: fit-content;
-  flex-wrap: wrap;
-  border: #873307 solid;
-  border-radius: 1rem;
-  padding: .5rem 1rem;
-  position: sticky;
-  top: 1em;
+  background-color:rgba(255, 255, 255, 0.733);
+  padding: 1rem;
 }
 
 .container__main-content {
   flex-grow: 1;
-  padding: .5rem 1rem;
+  width: 75%;
 }
+
+.circled-content {
+  background:rgba(255, 255, 255, 0.479);
+  border-radius: 1rem;
+  padding: .5rem;
+}
+.sidebar {
+  width: 25%;
+  height: fit-content;
+  flex-wrap: wrap;
+  padding: .5rem;
+  position: sticky;
+  top: 1em;
+  text-align: center;
+}
+
+.sidebar-btn-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-btn {
+  color: #f8f6f3 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #6c9734;
+  padding: .5rem;
+  border-radius: .5rem;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  margin: 0 .08rem;
+}
+
+.form-btn:hover {
+  background: #434343;
+  letter-spacing: 1px;
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
 
 .sub-header {
-  font-weight: 600;
+  /* text-transform: uppercase; */
+  font-weight: 500;
   color: #873307;
-  padding-top: 20px;
+  padding: .5rem 0;
   font-size: 1.1rem;
 }
-
 .sidebar-header {
   font-weight: 400;
 }
-
 .score {
   margin: auto;
   width: fit-content;
-  padding: 1rem;
+  padding: 0 0 .5rem 0;
 }
 
-.trees-table {
-  width: 100%;
-  padding-top: 1rem;
+.tree-details {
+  margin: 0 0 0 1rem;
 }
 
-.column {
-  width: 30%;
-  text-align: center;
-  vertical-align: middle;
+.right-side-container {
+  padding-left: 1rem;
 }
-
-.new-tree__button {
-    font-weight: 600;
-    color: #873307;
-    border: #873307 solid;
-    border-radius: 2px;
-}
-
-.tree-page__name {
-    display: flex;
-    justify-content: center;
-}
-
 .signup a {
   float: left;
   color: #f2f2f2;
@@ -229,43 +231,63 @@ a:hover:not(.goodTrees){
   font-size: 17px;
 }
 
+/* User Page */
+.my-trees__container {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+}
+
+.no-trees-msg {
+  margin: auto;
+  width: fit-content;
+}
+
+/* Find Trees Page */
+.trees-table {
+  width: 100%;
+}
+
+/* comment in if want scroll in find trees page */
+.tree-list-view__container {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+}
+
+/* For lots of tables */
+.column {
+  width: 30%;
+  text-align: center;
+}
+
+.scroll {
+  overflow-y: scroll;
+  max-height: inherit;
+  background-color: rgba(255, 255, 255, 0.479);
+  border-radius: 1rem;
+}
+
+/* Review Page */
 .review-list__table {
     display: table;
     table-layout: auto;
     width: 100%;
-    padding-top: 1rem;
-    border: solid #873307;
-    border-radius: 1rem;
+    margin-top: 1rem;
 }
-
 .review-list__container {
     width: 100%;
     max-width: 800px;
-    margin: 10%;
     display: flex;
-    justify-content: center;
     flex-direction: column-reverse;
     text-align: center;
 }
-
-.tree-view__content {
-    flex-grow: 1;
-    padding: .5rem 1rem;
-    text-align: center;
-}
-
-.tree-page__name {
-    padding: 3%;
-}
-
 .review-list__description {
-    padding: 0px 1rem;
+    padding: 0 1rem;
 }
-
 .review-list__description__title {
     font-weight: 800;
 }
-
 .review-list__column {
     width: 25%;
 }

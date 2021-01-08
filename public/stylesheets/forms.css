@@ -1,0 +1,75 @@
+.form-container {
+  width: 30%;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  border-radius: 1rem;
+  justify-content: center;
+  background-color:rgba(255, 255, 255, 0.733);
+  /* box-shadow: 0 0 1rem .25rem #f8f6f3 inset; */
+  /* box-shadow: .25rem .25rem .25rem #d3c6a7; */
+  padding: 1rem;
+}
+
+.form__auth {
+  width: 20%;
+}
+
+.labelClass {
+  color: #212121;
+  padding-top: 0.25rem;
+}
+
+select {
+  width: 150px;
+  height: 30px;
+  border: 1px solid #999;
+  font-size: 18px;
+  color: #6c9734;
+  background-color: #eee;
+  border-radius: .25rem;
+  box-shadow: 2px 2px #ccc;
+}
+
+textarea {
+  background-color: #eee;
+  border-radius: .25rem;
+}
+
+.form-control {
+  border-radius: .25rem;
+  background-color: #eee;
+}
+
+.signup-confirmPass {
+  background-color: #6c9734;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signup-confirmPass:hover {
+  opacity: 0.9;
+}
+
+.signup-btn {
+  padding-top: .5rem;
+}
+
+.form-select {
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* img { */
+  /* max-width: 50%; */
+  /* border-radius: 50%; */
+  /* padding-right: 1rem; */
+/* } */
+
+.login-btn {
+  padding-top: 0.5rem;
+}
+

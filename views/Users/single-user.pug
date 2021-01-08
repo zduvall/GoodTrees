@@ -2,31 +2,36 @@ extends ../layout.pug
 include ../utils.pug
 
 block content
-  if user.id === locals.curUser.id
-    h1.header My Forest
-  else
-    h1.header #{user.username}'s Forest
-  .container
-    .sidebar
-      h2.sub-header.sidebar-header(title="Climber score is based on already climbed trees and the difficulty of those trees") Climber Score: 
-      .score(title="Climber score is based on already climbed trees and the difficulty of those trees") #{climberScore}
-      h2.sub-header.sidebar-header Trees in Forest: 
-      .score #{climbedTrees.length + wantToClimbTrees.length}
-      h2.sub-header.sidebar-header Already Climbed: 
-      .score #{climbedTrees.length}
-      h2.sub-header.sidebar-header Want to Climb: 
-      .score #{wantToClimbTrees.length}
-    if climbedTrees.length || wantToClimbTrees.length
-      .container__main-content 
-        div
-          h2.sub-header Already Climbed:
-          div: +treeListView(climbedTrees)
-        div
-          h2.sub-header Want to Climb:
-          div: +treeListView(wantToClimbTrees)
+  .single-user__background.page__background
+    if user.id === locals.curUser.id
+      h1.header My Forest
     else
-      .container__main-content
-        if locals.curUser.userName === user.username
-          p <a href="/trees">Find trees</a> to add to your forest!
-        else
-          p No trees yet in #{user.username}'s forest!
+      h1.header #{user.username}'s Forest
+    .container
+      .sidebar.circled-content
+        h2.sub-header.sidebar-header(title="Climber score is based on already climbed trees and the difficulty of those trees") Climber Score
+        .score(title="Climber score is based on already climbed trees and the difficulty of those trees") #{climberScore}
+        h2.sub-header.sidebar-header Trees in Forest
+        .score #{climbedTrees.length + wantToClimbTrees.length}
+        h2.sub-header.sidebar-header Already Climbed
+        .score #{climbedTrees.length}
+        h2.sub-header.sidebar-header Want to Climb
+        .score #{wantToClimbTrees.length}
+        if user.id === locals.curUser.id
+          div.sidebar-btn-container
+            form(action="/trees/new", method="get")
+                button.form-btn Create new Tree
+      if climbedTrees.length || wantToClimbTrees.length
+        .container__main-content.right-side-container
+          div
+            h2.sub-header Already Climbed
+            .my-trees__container: +treeListView(climbedTrees)
+          div
+            h2.sub-header Want to Climb
+            .my-trees__container: +treeListView(wantToClimbTrees)
+      else
+        .container__main-content
+          if user.id === locals.curUser.id
+            h2.sub-header.no-trees-msg <a href="/trees">Find trees</a> to add to your forest
+          else
+            h2.sub-header.no-trees-msg #{user.username} has not added any trees to the forest

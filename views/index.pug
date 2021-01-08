@@ -1,15 +1,30 @@
-extends layout
-
-append head
-  //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
-  script(src="/javascripts/index.js" type="module" defer)
-
-block content
-
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/stylesheets/splashPage.css")
+    link(href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap" rel="stylesheet")
+  title Good Trees
   body
-    div
-      h1.header Welcome to <el class="good">good</el><el class="tree">trees</el>
-      h1.header Where climbers find good trees to climb
+    div(class="splash-container")
+      div(class="welcome")
+        a(href="/" class="good") good
+        a(href="/" class="tree") trees
+      div(class="spacer")
+      if locals.authenticated
+        div(class="sign-up")
+          a(class="splash-page-link" href=`/users/${locals.curUser.id}`) My Forest
+          a(class="splash-page-link" href="/trees") Find Trees
+          form(action="/users/logout" method="post")
+            button(type="submit" class="splash-page-link") Logout
+      else
+        div(class="sign-up")     
+            a(class="splash-page-link" href="/users/login") Log-In
+            a(class="splash-page-link" href="/users/sign-up") Sign-Up
+        div(class='form__auth')
+        block content
+      div(class="climbers")  
+        p where climbers find <el class="good">good</el><el class="tree">trees</el> to climb
+
 
