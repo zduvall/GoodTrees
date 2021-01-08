@@ -1,4 +1,4 @@
-extends ../layout.pug
+extends ../index.pug
 include ../utils.pug
 
 block content
@@ -15,5 +15,5 @@ block content
           +field('Password', 'password', user.password, 'password')
           +field('Confirm Password', 'confirmPassword', user.confirmPassword, 'password')
           div(class="signup-btn")
-            button(type='submit' class="btn-signup") Sign Up
+            button(type='submit' class="btn-signup") Sign-Up
 

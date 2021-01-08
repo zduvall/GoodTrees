@@ -7,7 +7,8 @@ html {
 
 .splash-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
   background-image: url("/forests/forest_sky_view.jpg");
   min-height: 100%;
   min-width: 1024px;
@@ -18,16 +19,63 @@ html {
   left: 0;
 }
 
+.form-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  padding: 20px;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+
+.labelClass {
+  color: white;
+  padding-top: 0.25rem;
+  text-shadow: 2px 2px 8px black;
+}
+
+.form-control {
+  border-radius: 0.25rem;
+  background-color: #eee;
+}
+
+.create-btn {
+  color: white;
+}
+
+.create-btn:hover {
+  color: #bed3a3;
+}
+
 .welcome {
   margin-left: 30px;
-  width:fit-content;
+  width: fit-content;
   height: fit-content;
+}
+
+.btn-login,
+.btn-signup {
+  font-size: larger;
+  
 }
 
 .climbers {
   display: flex;
   justify-content: flex-end;
   color: #fff;
+}
+
+button {
+  background: none;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #bed3a3;
 }
 
 .good {
@@ -46,26 +94,42 @@ html {
   text-decoration: none;
 }
 
+p {
+  font-size: large;
+}
+
 .good,
 .tree,
-p, .login {
-  text-shadow: 2px 2px 8px black;
+p,
+.login,
+button,
+.form-container {
+  text-shadow: 2px 2px 10px black;
 }
 
 .climbers {
   align-self: flex-end;
-
+  margin-right: 10px;
 }
 
-.login {
+/* .login {
   display: flex;
+  flex-direction: row;
+  align-self: center;
   height: fit-content;
   width: fit-content;
-  /* justify-content: center; */
-  /* align-items: center; */
+} */
+
+.sign-up {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  height: fit-content;
+  width: fit-content;
 }
 
 .nav-link {
+  font-size: x-large;
   color: #fff;
   text-decoration: none;
   font-family: "Raleway", sans-serif;
@@ -73,5 +137,5 @@ p, .login {
 
 .nav-link:hover {
   border-radius: 10%;
-  background-color:#6c9734;
+  color: #bed3a3;
 }

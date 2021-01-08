@@ -1,4 +1,4 @@
-extends ../layout.pug
+extends ../index.pug
 include ../utils.pug
 
 block content
@@ -12,7 +12,7 @@ block content
           +csrfToken()
           +field("Email", "email", email, "mail")
           +field("Password", "password", null, "password")
-          div(class="login-btn")
-            button(type="submit") Login
+          div(class="login-btn-div")
+            button(type="submit" class="btn-login") Log-in
           div
             p: a(href="/users/sign-up" class="create-btn") Create a FREE GoodTrees account

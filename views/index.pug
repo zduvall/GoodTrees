@@ -5,15 +5,18 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="/stylesheets/splashPage.css")
     link(href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap" rel="stylesheet")
-  title Document
+  title Good Trees
   body
     div(class="splash-container")
       div(class="welcome")
         a(href="/" class="good") good
         a(href="/" class="tree") trees
-      div(class="login")
-          a(class="nav-link" href="/users/login") Log In
+      div(class="spacer")
+      div(class="sign-up")     
+          a(class="nav-link" href="/users/login") Log-In
           a(class="nav-link" href="/users/sign-up") Sign-Up
+      div(class='form__auth')
+        block content
       div(class="climbers")  
         p where climbers find <el class="good">good</el><el class="tree">trees</el> to climb
 
