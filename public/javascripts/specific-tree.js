@@ -4,10 +4,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const asyncHandler = (handler) => (req, res, next) =>
     handler(req, res, next).catch((err) => next(err));
 
-  window.addEventListener("load", (event) => {
-    console.log("hello from javascript!")
-  });
-
   const markClimbedBtn = document.getElementById('mark-climbed-btn')
   const markWantToClimbBtn = document.getElementById('mark-want-to-climb-btn')
 

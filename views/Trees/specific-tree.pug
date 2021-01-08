@@ -11,8 +11,15 @@ block content
             .sidebar.circled-content
                 h2.sub-header.sidebar-header Climb this tree?
                 div.sidebar-btn-container
-                    button.form-btn#mark-climbed-btn(data-userId=locals.curUser.id data-treeId=tree.id) Done ✓
-                    button.form-btn#mark-want-to-climb-btn() Want to ✓
+                    if (!existingFC)
+                        button.form-btn#mark-climbed-btn(data-userId=locals.curUser.id data-treeId=tree.id) Done ✓
+                        button.form-btn#mark-want-to-climb-btn() Want to ✓
+                    else if (existingFC.climbStatus)
+                        button.form-btn#mark-climbed-btn(disabled data-userId=locals.curUser.id data-treeId=tree.id) Done ✓
+                        button.form-btn#mark-want-to-climb-btn() Want to ✓
+                    else
+                        button.form-btn#mark-climbed-btn(data-userId=locals.curUser.id data-treeId=tree.id) Done ✓
+                        button.form-btn#mark-want-to-climb-btn(disabled) Want to ✓
                 h2.sub-header.sidebar-header(title="Difficulty score is an average of all reviews on this tree") Difficulty
                 .score(title="Difficulty score is an average of all reviews on this tree") #{avgDiff}
                 h2.sub-header.sidebar-header(title="Fun factor score is an average of all reviews on this tree") Fun Factor
