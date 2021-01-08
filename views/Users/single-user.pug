@@ -8,21 +8,25 @@ block content
     h1.header #{user.username}'s Forest
   .container
     .sidebar.circled-content
-      h2.sub-header.sidebar-header(title="Climber score is based on already climbed trees and the difficulty of those trees") Climber Score: 
+      h2.sub-header.sidebar-header(title="Climber score is based on already climbed trees and the difficulty of those trees") Climber Score
       .score(title="Climber score is based on already climbed trees and the difficulty of those trees") #{climberScore}
-      h2.sub-header.sidebar-header Trees in Forest: 
+      h2.sub-header.sidebar-header Trees in Forest
       .score #{climbedTrees.length + wantToClimbTrees.length}
-      h2.sub-header.sidebar-header Already Climbed: 
+      h2.sub-header.sidebar-header Already Climbed
       .score #{climbedTrees.length}
-      h2.sub-header.sidebar-header Want to Climb: 
+      h2.sub-header.sidebar-header Want to Climb
       .score #{wantToClimbTrees.length}
+      if user.id === locals.curUser.id
+        div.sidebar-btn-container
+          form(action="/trees/new", method="get")
+              button.sidebar-btn Create new Tree
     if climbedTrees.length || wantToClimbTrees.length
       .container__main-content 
         div
-          h2.sub-header Already Climbed:
+          h2.sub-header Already Climbed
           div: +treeListView(climbedTrees)
         div
-          h2.sub-header Want to Climb:
+          h2.sub-header Want to Climb
           div: +treeListView(wantToClimbTrees)
     else
       .container__main-content
