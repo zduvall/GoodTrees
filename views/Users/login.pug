@@ -1,14 +1,18 @@
-extends ../layout.pug
-
+extends ../index.pug
 include ../utils.pug
 
 block content
-  +validationErrorSummary(errors)
-  form(action="/users/login", method="post") Login
-    +csrfToken()
-    +field("email", "email", email, "email")
-    +field("password", "password", null, "password")
-    div
-      button(type="submit") Login
-  div
-    p: a(href="/users/sign-up") Create a new GoodTrees account
+  div(class='form-container')
+    div(class='form__auth')
+      h1 Login
+      div
+        +validationErrorSummary(errors)
+      div  
+        form(action="/users/login", method="post") 
+          +csrfToken()
+          +field("Email", "email", email, "mail")
+          +field("Password", "password", null, "password")
+          div(class="login-btn-div")
+            button(type="submit" class="btn-login") Log-in
+          div
+            p: a(href="/users/sign-up" class="create-btn") Create a FREE GoodTrees account
