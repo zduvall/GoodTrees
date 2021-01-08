@@ -292,9 +292,87 @@ a:hover:not(.navBar-a-tag){
     width: 25%;
 }
 
-/* highest-climbers */
-
-.highest-climber__table {
-    border: solid #873307;
-    border-radius: 1rem;
+/* highest-climbers table*/
+.highest-climbers__page {
+  display:flex;
+  flex-direction: row;
+  font-family: "Raleway", sans-serif;
 }
+.highest-climbers__container {
+  width: 60%;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  border-radius: 1rem;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color:rgba(255, 255, 255, 0.733);
+  padding: 1rem;
+}
+.highest-climbers__table__container {
+  margin: 2%;
+}
+.highest-climbers__table th{
+  padding-top: 3%;
+  padding-bottom: 3%;
+  text-align: left;
+  background-color: #6c9734;;
+  color: white;
+  font-weight: 500;
+}
+.highest-climbers__tree__outercontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin: 2%;
+}
+.highest-climbers__tree__container {
+  display:grid;
+  grid-template-areas:
+    '. . user1 . . '
+    '. user2 user3 user4 .'
+    'user5 user6 user7 user8 user9'
+    '. . user10 . .'
+    '. . user11 . .'
+    '. . user12 . .';
+
+  width: 100%;
+  margin: 3%;
+}
+.highest-climbers__tree__treetop, .highest-climbers__tree__treetrunk {
+  font-size: 0.7rem;
+  height: 2rem;
+  text-decoration: none;
+  text-align: center;
+}
+.highest-climbers__tree__treetop a {
+  background-color: red;
+}
+.highest-climbers__container h3 {
+  text-align: center;
+
+}
+a.highest-climbers__tree__treetop:hover {
+  background-color: #6c9734;
+  transition: none;
+  border-radius: none;
+}
+a.highest-climbers__tree__treetrunk:hover {
+  background-color: #6b522c;
+  transition: none;
+  border-radius: none;
+}
+
+.user1 {grid-area: user1; background: #e2f0d0;}
+.user2 {grid-area: user2; background: #e2f0d0;}
+.user3 {grid-area: user3; background: #e2f0d0;}
+.user4 {grid-area: user4; background: #e2f0d0;}
+.user5 {grid-area: user5; background: #e2f0d0;}
+.user6 {grid-area: user6; background: #e2f0d0;}
+.user7 {grid-area: user7; background: #e2f0d0;}
+.user8 {grid-area: user8; background: #e2f0d0;}
+.user9 {grid-area: user9; background: #e2f0d0;}
+.user10 {grid-area: user10; background:#b39260;}
+.user11 {grid-area: user11; background:#b39260;}
+.user12 {grid-area: user12; background:#b39260;}
