@@ -11,14 +11,30 @@ router.post("/",
       userId,
       treeId
     } = req.body;
-    
-    const forestConnection = await db.ForestConnection.create({
-      climbStatus,
-      favStatus,
-      userId,
-      treeId
-    });
-    res.json({ forestConnection });
+
+    // Check if it already exists and store in variable. Will be object or null
+    const existingFC = await db.ForestConnection.findOne({
+      where: {
+        userId,
+        treeId
+      }
+    })
+
+    if (existingFC) {
+      
+      await existingFC.update({
+        climbStatus,
+      });
+      
+      res.json({ existingFC });
+    } else {
+      const newFC = await db.ForestConnection.create({
+        climbStatus,
+        userId,
+        treeId
+      });
+      res.json({ newFC });
+    }
   })
 );
 

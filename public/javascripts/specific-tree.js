@@ -1,3 +1,7 @@
+// asyncHandler
+const asyncHandler = (handler) => (req, res, next) =>
+  handler(req, res, next).catch((err) => next(err));
+
 document.addEventListener("DOMContentLoaded", async () => {
 
   window.addEventListener("load", (event) => {
@@ -10,10 +14,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const userId = markClimbedBtn.getAttribute('data-userId')
   const treeId = markClimbedBtn.getAttribute('data-treeId')
 
-  markClimbedBtn.addEventListener('click', async (event) => {
+  const createOrUpdateFC = async function (trueOrFalse) {
     const body = {
-      climbStatus: true,
-      favStatus: false,
+      climbStatus: trueOrFalse,
       userId: userId,
       treeId: treeId,
     }
@@ -24,5 +27,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       },
       body: JSON.stringify(body)
     }).then(res => res.json())
-  });
+  }
+
+  markClimbedBtn.addEventListener('click', asyncHandler(async (event) => {
+    createOrUpdateFC(true)
+  }));
+
+  markWantToClimbBtn.addEventListener('click', asyncHandler(async (event) => {
+    createOrUpdateFC(false)
+  }));
+
 });
