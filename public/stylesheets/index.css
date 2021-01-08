@@ -62,7 +62,7 @@
   display:grid;
   grid-template-columns: 10% 20% 10% 1fr 10%;
   column-gap: 5%;
-  margin-top: 5%;
+  margin-top: 2%;
   width: 100%;
   font-family: "Raleway", sans-serif;
 }
@@ -105,6 +105,11 @@
   align-items: center;
   margin-left: 2%;
   margin-right: 2%
+}
+
+#footer-github-link {
+  text-decoration: none;
+  font-size: .75rem;
 }
 
 /* Other */
