@@ -133,6 +133,7 @@ router.get(
       include: {
         model: db.Tree,
         as: "forestTrees",
+        order: [["createdAt", "DESC"]],
         include: [
           {
             model: db.User,

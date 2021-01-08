@@ -6,10 +6,12 @@ const logger = require("morgan");
 const { sequelize } = require("./db/models");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const treesRouter = require("./routes/trees");
 const reviewsRouter = require("./routes/review");
+const forestconnectionsRouter = require("./routes/forest-connections")
 const highestClimbersRouter = require("./routes/highest-climbers");
 const { restoreUser } = require("./auth");
 const { secret } = require("./config/index");
@@ -46,6 +48,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/trees", treesRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/forestconnections", forestconnectionsRouter)
 app.use('/highest-climbers', highestClimbersRouter)
 
 // catch 404 and forward to error handler

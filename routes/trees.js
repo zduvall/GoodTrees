@@ -13,7 +13,6 @@ const {
   asyncHandler,
   createTreeValidators,
 } = require("./utils");
-const user = require("../db/models/user.js");
 
 const router = express.Router();
 
@@ -52,11 +51,26 @@ router.get(
         },
       ],
     });
+
     const avgDiff = getTreeAvgScore(tree, "difficulty");
     const avgFun = getTreeAvgScore(tree, "funFactor");
     const avgView = getTreeAvgScore(tree, "viewFromTop");
 
-    res.render("Trees/specific-tree", { tree, avgDiff, avgFun, avgView });
+    const existingFC = await db.ForestConnection.findOne({
+      where: {
+        userId: res.locals.curUser.id,
+        treeId
+      }
+    }); 
+
+    const existingReview = await db.Review.findOne({
+      where: {
+        treeId,
+        reviewerId: res.locals.curUser.id
+      }
+    });
+
+    res.render("Trees/specific-tree", { tree, avgDiff, avgFun, avgView, existingFC, existingReview });
   })
 );
 
@@ -89,7 +103,7 @@ router.post(
 
     if (validatorErrors.isEmpty()) {
       await tree.save();
-      return res.redirect(`/users/${res.locals.curUser.dataValues.id}`);
+      return res.redirect(`/trees/${tree.id}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("Trees/create-tree", {

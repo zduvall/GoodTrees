@@ -1,6 +1,7 @@
 body {
   padding: 50px;
-  font: 14px "Raleway" "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px;
+  font-family: "Raleway", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -33,4 +34,8 @@ nav {
 
 h1 {
   font-size: 2rem;
+}
+
+button {
+    cursor: pointer;
 }
