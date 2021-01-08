@@ -33,7 +33,7 @@ mixin csrfToken()
   input(type='hidden' name='_csrf' value=csrfToken)
 
 mixin reviewListView(review)
-  div.review-list__table
+  div.review-list__table.circled-content
     table
       thead
         th.column.review-list__column Reviewer

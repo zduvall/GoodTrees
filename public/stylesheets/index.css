@@ -149,6 +149,7 @@ a:hover:not(.goodTrees){
   margin: auto;
   width: fit-content;
   padding: 1rem;
+  color: #6c9734;
 }
 
 .nav {
@@ -163,18 +164,24 @@ a:hover:not(.goodTrees){
   display: flex;
   border-radius: 1rem;
   justify-content: center;
+  background-color:rgba(245, 231, 208, 0.5);
+  box-shadow: 0 0 1rem .25rem #f8f6f3 inset
+}
+
+.circled-content {
+  border: #996345 solid .18rem;
+  border-radius: 1rem;
+  box-shadow: .25rem .25rem .5rem #d3c6a7;
 }
 
 .sidebar {
   width: 25%;
   height: fit-content;
   flex-wrap: wrap;
-  border: #873307 solid;
-  border-radius: 1rem;
   padding: .5rem 1rem;
   position: sticky;
   top: 1em;
-  box-shadow: .25rem .25rem .5rem #89a06c;
+  margin: 1rem 0 0 1rem;
 }
 
 .container__main-content {
@@ -186,7 +193,7 @@ a:hover:not(.goodTrees){
 .sub-header {
   font-weight: 600;
   color: #873307;
-  padding-top: 20px;
+  padding-top: .5rem;
   font-size: 1.1rem;
 }
 
@@ -211,13 +218,6 @@ a:hover:not(.goodTrees){
   vertical-align: middle;
 }
 
-.new-tree__button {
-    font-weight: 600;
-    color: #873307;
-    border: #873307 solid;
-    border-radius: 2px;
-}
-
 .signup a {
   float: left;
   color: #f2f2f2;
@@ -234,9 +234,6 @@ a:hover:not(.goodTrees){
     table-layout: auto;
     width: 100%;
     padding-top: 1rem;
-    border: solid #873307;
-    border-radius: 1rem;
-    box-shadow: .25rem .25rem .5rem #89a06c;
     margin-bottom: 1rem;
 }
 
@@ -250,7 +247,7 @@ a:hover:not(.goodTrees){
 }
 
 .review-list__description {
-    padding: 0px 1rem;
+    padding: 0 1rem;
 }
 
 .review-list__description__title {

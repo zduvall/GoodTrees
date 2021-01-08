@@ -1,33 +1,35 @@
 extends ../layout.pug
 
+append head
+    
 include ../utils.pug
 
 block content
     h1.header= tree.name
     .container
-        .sidebar
+        .sidebar.circled-content
             h2.sub-header.sidebar-header(title="Difficulty score is an average of all reviews on this tree") Difficulty:
             .score(title="Difficulty score is an average of all reviews on this tree") #{avgDiff}
             h2.sub-header.sidebar-header(title="Fun factor score is an average of all reviews on this tree") Fun Factor:
             .score(title="Fun factor score is an average of all reviews on this tree") #{avgFun}
             h2.sub-header.sidebar-header(title="View from top score is an average of all reviews on this tree") View From Top:
             .score(title="View from top score is an average of all reviews on this tree") #{avgView}
-            div.sub-header: a(href= `/reviews/${tree.id}/new`) Review this Tree
-            div.sub-header: a(href= "/trees/new") Add a new Tree
+            div: a(href= `/reviews/${tree.id}/new`) Review this Tree
+            div: a(href= "/trees/new") Add a new Tree
 
         .container__main-content
             div
-                h2.sub-header This Tree's Location:
-                .tree-page__content: p= tree.cityState
-                .tree-page__content: p= tree.detLocation
+                h2.sub-header Tree Location:
+                p= tree.cityState
+                p= tree.detLocation
             div
                 h2.sub-header Added by:
-                .tree-page__content: a(href="/users/"+tree.adderId)= tree.user.username
+                a(href="/users/"+tree.adderId)= tree.user.username
             div
                 h2.sub-header Description:
-                .tree-page__content: p= tree.description
+                p= tree.description
             div
-                h2.sub-header This Tree's reviews:
-                .review-list__container
-                    each review in tree.reviews
-                        +reviewListView(review)
+                h2.sub-header Tree Reviews:
+            .review-list__container
+                each review in tree.reviews
+                    +reviewListView(review)
