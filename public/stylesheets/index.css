@@ -164,14 +164,17 @@ a:hover:not(.goodTrees){
   display: flex;
   border-radius: 1rem;
   justify-content: center;
-  background-color:rgba(245, 231, 208, 0.5);
-  box-shadow: 0 0 1rem .25rem #f8f6f3 inset
+  background-color:rgba(231, 217, 194, 0.5);
+  /* box-shadow: 0 0 1rem .25rem #f8f6f3 inset; */
+  box-shadow: .25rem .25rem .25rem #d3c6a7;
+
 }
 
 .circled-content {
-  border: #996345 solid .18rem;
+  background:#f8f6f3;
   border-radius: 1rem;
-  box-shadow: .25rem .25rem .5rem #d3c6a7;
+  /* box-shadow: 0 0 1rem .25rem rgba(231, 217, 194, 0.5) inset; */
+  box-shadow: .25rem .25rem .25rem #d3c6a7;
 }
 
 .sidebar {
@@ -182,11 +185,13 @@ a:hover:not(.goodTrees){
   position: sticky;
   top: 1em;
   margin: 1rem 0 0 1rem;
+  text-align: center;
 }
 
 .sidebar-btn-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
 }
@@ -201,7 +206,7 @@ a:hover:not(.goodTrees){
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
-  margin: .08rem 0;
+  margin: 0 .08rem;
 }
 
 .sidebar-btn:hover {
