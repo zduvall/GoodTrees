@@ -185,9 +185,8 @@ a:hover:not(.goodTrees){
 .review-list__container {
     width: 100%;
     max-width: 800px;
-    margin: 10%;
+    margin-top: .5rem;
     display: flex;
-    justify-content: center;
     flex-direction: column-reverse;
     text-align: center;
 }
