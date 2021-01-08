@@ -19,9 +19,20 @@ router.get(
   "/:id(\\d+)/new",
   csrfProtection,
   asyncHandler(async (req, res) => {
-    const review = db.Review.build();
+    
+    let review = db.Review.build();
     const treeId = parseInt(req.params.id, 10);
     const tree = await db.Tree.findByPk(treeId);
+    
+    const existingReview = await db.Review.findOne({
+      where: {
+        treeId,
+        reviewerId: res.locals.curUser.dataValues.id
+      }
+    });
+
+    if (existingReview) review = existingReview;
+
     res.render("Trees/create-review", {
       tree,
       review,
@@ -39,7 +50,7 @@ router.post(
   asyncHandler(async (req, res) => {
     const { treeId, difficulty, funFactor, viewFromTop, reviewText } = req.body;
 
-    const existingFC = await db.Review.findOne({
+    const existingReview = await db.Review.findOne({
       where: {
         treeId,
         reviewerId: res.locals.curUser.dataValues.id
@@ -60,8 +71,8 @@ router.post(
     if (validatorErrors.isEmpty()) {
 
       // update if already exists
-      if (existingFC) {
-        await existingFC.update({
+      if (existingReview) {
+        await existingReview.update({
           treeId,
           difficulty,
           funFactor,

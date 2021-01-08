@@ -28,7 +28,10 @@ block content
                 .score(title="View from top score is an average of all reviews on this tree") #{avgView}
                 div.sidebar-btn-container
                     form(action=`/reviews/${tree.id}/new`, method="get")
-                        button.form-btn Review This Tree
+                        if !existingReview
+                            button.form-btn Review This Tree
+                        else
+                            button.form-btn Update Your Review
 
             .container__main-content.right-side-container
                 .circled-content

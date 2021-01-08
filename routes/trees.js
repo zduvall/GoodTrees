@@ -63,7 +63,14 @@ router.get(
       }
     }); 
 
-    res.render("Trees/specific-tree", { tree, avgDiff, avgFun, avgView, existingFC });
+    const existingReview = await db.Review.findOne({
+      where: {
+        treeId,
+        reviewerId: res.locals.curUser.id
+      }
+    });
+
+    res.render("Trees/specific-tree", { tree, avgDiff, avgFun, avgView, existingFC, existingReview });
   })
 );
 
