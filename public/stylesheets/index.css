@@ -193,7 +193,7 @@ a:hover:not(.goodTrees){
 
 .sub-header {
   /* text-transform: uppercase; */
-  font-weight: 600;
+  font-weight: 500;
   color: #873307;
   padding: .5rem 0;
   font-size: 1.1rem;
@@ -226,11 +226,11 @@ a:hover:not(.goodTrees){
 }
 
 /* User Page -- comment in if want scroll in users page */
-/* .my-trees__container {
+.my-trees__container {
   display: flex;
   flex-direction: column;
-  height: 35vh;
-} */
+  max-height: 400px;
+}
 
 /* Find Trees Page */
 .trees-table {
@@ -251,7 +251,7 @@ a:hover:not(.goodTrees){
 }
 
 .scroll {
-  overflow: scroll;
+  overflow-y: scroll;
   max-height: inherit;
   background-color: rgba(255, 255, 255, 0.479);
   border-radius: 1rem;
