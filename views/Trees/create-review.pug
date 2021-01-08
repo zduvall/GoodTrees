@@ -8,9 +8,9 @@ block content
             img(src="/maple-tree.jpg")
         div(class="form")    
         
-          form(method="POST" action="/reviews/new")
+          form(method="POST" action="/reviews/new" )
             div(class="row") 
-                input(type="hidden" name="_csrf" value=csrfToken)
+                +csrfToken()
                 input(type="hidden" name="treeId" value=tree.id)
             div(class="labelClass")
                 label(for="difficulty" class="labelClass") Difficulty

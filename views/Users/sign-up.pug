@@ -9,7 +9,7 @@ block content
         +validationErrorSummary(errors)
       div
         form(action="/users/sign-up" method="post")
-          input(type="hidden" name="_csrf" value=csrfToken)
+          +csrfToken()
           +field('Username', 'username', user.username)
           +field('Email', 'email', user.email)
           +field('Password', 'password', user.password, 'password')
