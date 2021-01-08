@@ -14,7 +14,7 @@ const reviewsRouter = require("./routes/review");
 const forestconnectionsRouter = require("./routes/forest-connections")
 
 const { restoreUser } = require("./auth");
-const { secret } = require('./config/index')
+const { secret } = require("./config/index");
 
 const app = express();
 

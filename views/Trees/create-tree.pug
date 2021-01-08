@@ -8,8 +8,8 @@ block content
             +validationErrorSummary(errors)
             form(action="/trees/new" method="post")
                 +csrfToken()
-                +field('Name', 'name', tree.name)
-                +field('Closest City/State', 'cityState', tree.cityState)
-                +field('Detailed Location', 'detLocation', tree.detLocation, 'textarea')
-                +field('Description', 'description', tree.description, 'textarea')
-                button(type='submit' class="form-btn") Create a new Tree
+                +field("Name", "name", tree.name)
+                +field("Closest City/State", "cityState", tree.cityState)
+                +field("Detailed Location", "detLocation", tree.detLocation, "textarea")
+                +field("Description", "description", tree.description, "textarea")
+                button(type="submit" class="form-btn") Create a new Tree

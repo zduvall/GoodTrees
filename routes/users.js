@@ -12,7 +12,7 @@ const {
 } = require("./utils");
 
 const { loginUser, logoutUser } = require("../auth.js");
-const { getClimberScore } = require('./get-scores')
+const { getClimberScore } = require("./get-scores");
 
 const router = express.Router();
 
@@ -125,34 +125,41 @@ router.post("/logout", (req, res) => {
 });
 
 // show individual user page
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-  const id = req.params.id
-  const user = await db.User.findByPk(id, {
-    include: {
-      model: db.Tree,
-      as: 'forestTrees',
-      include: [
-        {
-          model: db.User,
-          as: 'user'
-        },
-        {
-          model: db.Review,
-          as: 'reviews',
-          required: false
-        }
-      ]
-    }
-  });
-  const climbedTrees = user.forestTrees.filter(tree => tree.ForestConnection.climbStatus);
-  const wantToClimbTrees = user.forestTrees.filter(tree => !tree.ForestConnection.climbStatus);
-  const climberScore = getClimberScore(climbedTrees);
-  res.render('Users/single-user', {
-    user,
-    climbedTrees,
-    wantToClimbTrees,
-    climberScore 
-  });
-}))
+router.get(
+  "/:id(\\d+)",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const user = await db.User.findByPk(id, {
+      include: {
+        model: db.Tree,
+        as: "forestTrees",
+        include: [
+          {
+            model: db.User,
+            as: "user",
+          },
+          {
+            model: db.Review,
+            as: "reviews",
+            required: false,
+          },
+        ],
+      },
+    });
+    const climbedTrees = user.forestTrees.filter(
+      (tree) => tree.ForestConnection.climbStatus
+    );
+    const wantToClimbTrees = user.forestTrees.filter(
+      (tree) => !tree.ForestConnection.climbStatus
+    );
+    const climberScore = getClimberScore(climbedTrees);
+    res.render("Users/single-user", {
+      user,
+      climbedTrees,
+      wantToClimbTrees,
+      climberScore,
+    });
+  })
+);
 
 module.exports = router;
