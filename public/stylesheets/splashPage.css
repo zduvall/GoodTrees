@@ -128,16 +128,11 @@ button,
   width: fit-content;
 }
 
-<<<<<<< HEAD
 .splash-page-link {
-=======
-.nav-link {
->>>>>>> main
   font-size: x-large;
   color: #fff;
   text-decoration: none;
   font-family: "Raleway", sans-serif;
-<<<<<<< HEAD
   padding: .75rem;
   border-radius: 1rem;
   margin: .5rem;
@@ -147,11 +142,5 @@ button,
 
 .splash-page-link:hover {
   border-radius: 1rem;
-=======
-}
-
-.nav-link:hover {
-  border-radius: 10%;
->>>>>>> main
   color: #bed3a3;
 }

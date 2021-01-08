@@ -5,21 +5,6 @@ block content
   div(class='form-container')
     div(class='form__auth') 
       h1 Sign-Up
-<<<<<<< HEAD
-      div
-        form(action="/users/sign-up" method="post")
-          +csrfToken()
-          div
-            +field('Username', 'username', user.username)
-            +field('Email', 'email', user.email)
-          div
-            +field('Password', 'password', user.password, 'password')
-            +field('Confirm Password', 'confirmPassword', user.confirmPassword, 'password')
-          div(class="signup-btn")
-            button(type='submit' class="form-btn") Submit
-      div
-        +validationErrorSummary(errors)
-=======
       div 
         +validationErrorSummary(errors)
       div
@@ -31,5 +16,4 @@ block content
           +field('Confirm Password', 'confirmPassword', user.confirmPassword, 'password')
           div(class="signup-btn")
             button(type='submit' class="btn-signup") Sign-Up
->>>>>>> main
 
