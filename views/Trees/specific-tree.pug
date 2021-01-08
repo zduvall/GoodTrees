@@ -11,8 +11,8 @@ block content
             .sidebar.circled-content
                 h2.sub-header.sidebar-header Climb this tree?
                 div.sidebar-btn-container
-                    button.sidebar-btn#climbed-btn Done ✓
-                    button.sidebar-btn#want-to-climb-btn Want to ✓
+                    button.form-btn#climbed-btn Done ✓
+                    button.form-btn#want-to-climb-btn Want to ✓
                 h2.sub-header.sidebar-header(title="Difficulty score is an average of all reviews on this tree") Difficulty
                 .score(title="Difficulty score is an average of all reviews on this tree") #{avgDiff}
                 h2.sub-header.sidebar-header(title="Fun factor score is an average of all reviews on this tree") Fun Factor
@@ -21,9 +21,7 @@ block content
                 .score(title="View from top score is an average of all reviews on this tree") #{avgView}
                 div.sidebar-btn-container
                     form(action=`/reviews/${tree.id}/new`, method="get")
-                        button.sidebar-btn Review This Tree
-                    //- form(action="/trees/new", method="get")
-                    //-     button.sidebar-btn Add A New Tree
+                        button.form-btn Review This Tree
 
             .container__main-content.right-side-container
                 .circled-content

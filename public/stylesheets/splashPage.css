@@ -128,14 +128,19 @@ button,
   width: fit-content;
 }
 
-.nav-link {
+.splash-page-link {
   font-size: x-large;
   color: #fff;
   text-decoration: none;
   font-family: "Raleway", sans-serif;
+  padding: .75rem;
+  border-radius: 1rem;
+  margin: .5rem;
+  background: #a3a3a377;
+  text-shadow: none;
 }
 
-.nav-link:hover {
-  border-radius: 10%;
+.splash-page-link:hover {
+  border-radius: 1rem;
   color: #bed3a3;
 }

@@ -117,10 +117,6 @@ h1 {
   color: #555555;
 }
 
-/* body {
-  background: #f8f6f3;
-} */
-
 .homepage-link {
   padding: 1rem;
 }
@@ -155,7 +151,7 @@ a:hover:not(.goodTrees){
 .circled-content {
   background:rgba(255, 255, 255, 0.479);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: .5rem;
 }
 .sidebar {
   width: 25%;
@@ -174,7 +170,7 @@ a:hover:not(.goodTrees){
   justify-content: center;
 }
 
-.sidebar-btn {
+.form-btn {
   color: #f8f6f3 !important;
   text-transform: uppercase;
   text-decoration: none;
@@ -187,7 +183,7 @@ a:hover:not(.goodTrees){
   margin: 0 .08rem;
 }
 
-.sidebar-btn:hover {
+.form-btn:hover {
   background: #434343;
   letter-spacing: 1px;
   box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
@@ -266,7 +262,6 @@ a:hover:not(.goodTrees){
     display: table;
     table-layout: auto;
     width: 100%;
-    padding-top: 1rem;
     margin-top: 1rem;
 }
 .review-list__container {

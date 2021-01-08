@@ -14,12 +14,14 @@ html(lang="en")
       div(class="spacer")
       if locals.authenticated
         div(class="sign-up")
-          a(class="nav-link" href=`/users/${locals.curUser.id}`) My Forest
-          a(class="nav-link" href="/trees") Find Trees
+          a(class="splash-page-link" href=`/users/${locals.curUser.id}`) My Forest
+          a(class="splash-page-link" href="/trees") Find Trees
+          form(action="/users/logout" method="post")
+            button(type="submit" class="splash-page-link") Logout
       else
         div(class="sign-up")     
-            a(class="nav-link" href="/users/login") Log-In
-            a(class="nav-link" href="/users/sign-up") Sign-Up
+            a(class="splash-page-link" href="/users/login") Log-In
+            a(class="splash-page-link" href="/users/sign-up") Sign-Up
         div(class='form__auth')
         block content
       div(class="climbers")  
