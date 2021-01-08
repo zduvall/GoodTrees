@@ -1,19 +1,19 @@
-extends ../index.pug
+extends ../splash.pug
 include ../utils.pug
 
 block content
-  div(class='form-container')
-    div(class='form__auth') 
+  div(class="form-container")
+    div(class="form__auth") 
       h1 Sign-Up
       div 
         +validationErrorSummary(errors)
       div
         form(action="/users/sign-up" method="post")
           +csrfToken()
-          +field('Username', 'username', user.username)
-          +field('Email', 'email', user.email)
-          +field('Password', 'password', user.password, 'password')
-          +field('Confirm Password', 'confirmPassword', user.confirmPassword, 'password')
+          +field("Username", "username", user.username)
+          +field("Email", "email", user.email)
+          +field("Password", "password", user.password, "password")
+          +field("Confirm Password", "confirmPassword", user.confirmPassword, "password")
           div(class="signup-btn")
-            button(type='submit' class="btn-signup") Sign-Up
+            button(type="submit" class="btn-signup") Sign-Up
 

@@ -75,7 +75,9 @@ const createTreeValidators = [
     .exists({ checkFalsy: true })
     .withMessage("Please provide a name for the tree")
     .isLength({ max: 30 })
-    .withMessage("A goodtree does not have a name longer than 30 characters long")
+    .withMessage(
+      "A goodtree does not have a name longer than 30 characters long"
+    )
     .custom((value) => {
       return db.Tree.findOne({ where: { name: value } }).then((tree) => {
         if (tree) {
@@ -92,11 +94,15 @@ const createTreeValidators = [
     .withMessage("Please abbreviate the city/state to under 40 characters"),
   check("detLocation")
     .exists({ checkFalsy: true })
-    .withMessage("Please provide a message to help future climbers get to this tree"),
+    .withMessage(
+      "Please provide a message to help future climbers get to this tree"
+    ),
   check("description")
     .exists({ checkFalsy: true })
-    .withMessage("Please provide a description to help future goodtree climbers")
-]
+    .withMessage(
+      "Please provide a description to help future goodtree climbers"
+    ),
+];
 
 const createReviewValidators = [
   check("reviewText")
@@ -107,13 +113,13 @@ const createReviewValidators = [
   check("difficulty")
     .exists({ checkFalsy: true })
     .withMessage("Please tell us how difficult this tree is to climb."),
- check("funFactor")
+  check("funFactor")
     .exists({ checkFalsy: true })
     .withMessage("Please tell us how fun this tree is."),
   check("viewFromTop")
     .exists({ checkFalsy: true })
-    .withMessage("Please tell us about the view.")
-]
+    .withMessage("Please tell us about the view."),
+];
 
 module.exports = {
   csrfProtection,
@@ -121,5 +127,5 @@ module.exports = {
   signUpValidators,
   loginValidators,
   createTreeValidators,
-  createReviewValidators
+  createReviewValidators,
 };

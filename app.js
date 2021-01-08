@@ -12,7 +12,7 @@ const treesRouter = require("./routes/trees");
 const reviewsRouter = require("./routes/review");
 const highestClimbersRouter = require("./routes/highest-climbers");
 const { restoreUser } = require("./auth");
-const { secret } = require('./config/index')
+const { secret } = require("./config/index");
 
 const app = express();
 
