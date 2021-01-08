@@ -27,6 +27,7 @@ router.get('/', asyncHandler(async (req, res) => {
         const climbedTrees = user.forestTrees.filter(tree => tree.ForestConnection.climbStatus);
         const climberScore = getClimberScore(climbedTrees);
         user.climberScore = climberScore;
+        user.numOfTreesClimbed = climbedTrees.length;
     })
     //sort users by highest climberScore
     users.sort((a, b) => b.climberScore - a.climberScore);

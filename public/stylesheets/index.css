@@ -310,7 +310,7 @@ a:hover:not(.navBar-a-tag){
   padding: 1rem;
 }
 .highest-climbers__table__container {
-  margin: 2%;
+  margin: 3%
 }
 .highest-climbers__table th{
   padding-top: 3%;
@@ -327,6 +327,16 @@ a:hover:not(.navBar-a-tag){
   width: 60%;
   margin: 2%;
 }
+.highest-climbers__tree__innercontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2%;
+  margin-bottom: 10%;
+}
 .highest-climbers__tree__container {
   display:grid;
   grid-template-areas:
@@ -336,6 +346,7 @@ a:hover:not(.navBar-a-tag){
     '. . user10 . .'
     '. . user11 . .'
     '. . user12 . .';
+  grid-auto-columns: 1fr;
 
   width: 100%;
   margin: 3%;
@@ -351,7 +362,7 @@ a:hover:not(.navBar-a-tag){
 }
 .highest-climbers__container h3 {
   text-align: center;
-
+  font-size: 1.2rem;
 }
 a.highest-climbers__tree__treetop:hover {
   background-color: #6c9734;

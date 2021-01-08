@@ -17,10 +17,19 @@ block content
                                 td: a(href=`/users/${user.id}`)=user.username
                                 td=user.climberScore
             div(class="highest-climbers__tree__outercontainer")
-                h3 Highest Climber Score
-                div(class="highest-climbers__tree__container")
-                    each user, index in users
-                        if index < 9
-                            a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
-                        else if index < 12
-                            a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
+                div(class="highest-climbers__tree__innercontainer")
+                    h3 Highest Climber Score
+                    div(class="highest-climbers__tree__container")
+                        each user, index in users
+                            if index < 9
+                                a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
+                            else if index < 12
+                                a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
+                div(class="highest-climbers__tree__innercontainer")
+                    h3 Total Trees Climbed
+                    div(class="highest-climbers__tree__container")
+                        each user, index in users.sort((a, b) => b.numOfTreesClimbed - a.numOfTreesClimbed)
+                            if index < 9
+                                a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${user.username} ${user.numOfTreesClimbed}`
+                            else if index < 12
+                                a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${user.username} ${user.numOfTreesClimbed}`
