@@ -20,7 +20,7 @@ html
         span(class="nav-span") Welcome to Good Trees, #{locals.curUser.username}!
         a(class="nav-link navBar-a-tag" href=`/users/${locals.curUser.id}` class="navBar") My Forest
         a(class="nav-link navBar-a-tag" href="/trees" class="navBar") Find Trees
-        a(class="nav-link navBar-a-tag" href="/users" class="navBar") Highest Climbers
+        a(class="nav-link navBar-a-tag" href="/highest-climbers" class="navBar") Highest Climbers
         form(class="nav-logout-form nav-link" action="/users/logout" method="POST")
           button(type="submit" class="nav-logout-btn") Logout
       else

@@ -10,6 +10,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const treesRouter = require("./routes/trees");
 const reviewsRouter = require("./routes/review");
+const highestClimbersRouter = require("./routes/highest-climbers");
 const { restoreUser } = require("./auth");
 const { secret } = require("./config/index");
 
@@ -45,6 +46,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/trees", treesRouter);
 app.use("/reviews", reviewsRouter);
+app.use('/highest-climbers', highestClimbersRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
