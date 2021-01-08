@@ -19,9 +19,10 @@ router.get(
     asyncHandler(async (req, res) => {
         const trees = await db.Tree.findAll({
             include: ["user"],
-            order: [["id"]],
+            order: [["createdAt", "DESC"]],
         });
         res.render("Trees/trees-page", { trees });
+        // res.json({trees});
     })
 );
 
