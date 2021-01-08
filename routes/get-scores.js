@@ -15,7 +15,7 @@ const getTreeAvgScore = (tree, attribute) => {
 
 // get user's climber score (pass in user's climbedTrees and make sure to include all reviews on those trees)
 const getClimberScore = (climbedTrees) => {
-  if (!climbedTrees.length) return "No trees climbed yet!!!"
+  if (!climbedTrees.length) return 0;
 
   let sum = 0;
 

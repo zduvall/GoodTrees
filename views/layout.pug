@@ -8,18 +8,19 @@ html
       link(rel='stylesheet' href='/stylesheets/reset.css')
       link(rel='stylesheet' href='/stylesheets/index.css')
       link(rel='stylesheet' href='/stylesheets/forms.css')
+      link(rel='stylesheet' href='/stylesheets/backgrounds.css')
       link(href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;500&display=swap" rel="stylesheet")
   body
 
     nav(class="navbar")
       div(class="logo")
-        a(href="/" class="good goodTrees") good
-        a(href="/" class="tree goodTrees") trees
+        a(href="/" class="good goodTrees navBar-a-tag") good
+        a(href="/" class="tree goodTrees navBar-a-tag") trees
       if locals.authenticated
         span(class="nav-span") Welcome to Good Trees, #{locals.curUser.username}!
-        a(class="nav-link" href=`/users/${locals.curUser.id}` class="navBar") My Forest
-        a(class="nav-link" href="/trees" class="navBar") Find Trees
-        a(class="nav-link" href="/users" class="navBar") Highest Climbers
+        a(class="nav-link navBar-a-tag" href=`/users/${locals.curUser.id}` class="navBar") My Forest
+        a(class="nav-link navBar-a-tag" href="/trees" class="navBar") Find Trees
+        a(class="nav-link navBar-a-tag" href="/users" class="navBar") Highest Climbers
         form(class="nav-logout-form nav-link" action="/users/logout" method="POST")
           button(type="submit" class="nav-logout-btn") Logout
       else

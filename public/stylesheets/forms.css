@@ -1,19 +1,18 @@
 .form-container {
+  width: 30%;
+  max-width: 800px;
+  margin: auto;
   display: flex;
+  border-radius: 1rem;
   justify-content: center;
-  border-radius: 2px;
-  background-color: #f8f6f3;
-  padding: 20px;
-  font-family: "Raleway", sans-serif;
+  background-color:rgba(255, 255, 255, 0.733);
+  /* box-shadow: 0 0 1rem .25rem #f8f6f3 inset; */
+  /* box-shadow: .25rem .25rem .25rem #d3c6a7; */
+  padding: 1rem;
 }
 
 .form__auth {
   width: 20%;
-}
-
-.form {
-  margin-left: -15%;
-  
 }
 
 .labelClass {
@@ -25,7 +24,6 @@ select {
   width: 150px;
   height: 30px;
   border: 1px solid #999;
-  font-family: "Raleway", sans-serif;
   font-size: 18px;
   color: #6c9734;
   background-color: #eee;
@@ -41,19 +39,6 @@ textarea {
 .form-control {
   border-radius: .25rem;
   background-color: #eee;
-}
-
-button {
-  background-color: #6c9734;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
 }
 
 .signup-confirmPass {

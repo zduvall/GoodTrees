@@ -1,0 +1,24 @@
+.page__background {
+  background-size: cover;
+  padding: 1rem;
+}
+
+.trees-page__background {
+  background-image: url("/forests/92833.jpg");
+}
+
+.specific-tree__background {
+  background-image: url("/forests/128782.jpg");
+}
+
+.create-tree__background {
+  background-image: url("/forests/128836.jpg");
+}
+
+.single-user__background {
+  background-image: url("/forests/128801.jpg");
+}
+
+.create-review__background {
+  background-image: url("/forests/128828.jpg");
+}
