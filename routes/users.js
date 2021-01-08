@@ -163,4 +163,23 @@ router.get(
   })
 );
 
+// login demo user
+router.post('/demo', asyncHandler(async (req, res) => {
+  let user = await db.User.findOne({
+    where: {
+      username: "DemoClimber"
+    }
+  })
+  loginUser(req, res, user);
+  return req.session.save((err) => {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect(`/users/${user.id}`);
+    }
+  })
+}));
+
 module.exports = router;
+
+

@@ -4,9 +4,7 @@ include ../utils.pug
 block content
   div(class="form-container")
     div(class="form__auth") 
-      h1 Sign-Up
-      div 
-        +validationErrorSummary(errors)
+      h1 Sign Up
       div
         form(action="/users/sign-up" method="post")
           +csrfToken()
@@ -14,6 +12,11 @@ block content
           +field("Email", "email", user.email)
           +field("Password", "password", user.password, "password")
           +field("Confirm Password", "confirmPassword", user.confirmPassword, "password")
-          div(class="signup-btn")
-            button(type="submit" class="btn-signup") Sign-Up
+          div.login-form-button-container
+            button(type="submit" class="form-btn") Submit
+        div.login-form-button-container
+          form(action="/users/demo" method="post")
+            button(type="submit" class="form-btn") Demo Login
+      div 
+        +validationErrorSummary(errors)
 

@@ -10,7 +10,10 @@ block content
           +csrfToken()
           +field("Email", "email", email, "mail")
           +field("Password", "password", null, "password")
-          div(class="login-btn-div")
+          div.login-form-button-container
             button(type="submit" class="form-btn") Submit
+        div.login-form-button-container
+          form(action="/users/demo" method="post")
+            button(type="submit" class="form-btn") Demo Login
       div
         +validationErrorSummary(errors)
