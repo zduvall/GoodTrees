@@ -172,11 +172,13 @@ a:hover:not(.goodTrees){
   padding: .5rem 1rem;
   position: sticky;
   top: 1em;
+  box-shadow: .25rem .25rem .25rem #6c9734;
 }
 
 .container__main-content {
   flex-grow: 1;
   padding: .5rem 1rem;
+  width: 75%;
 }
 
 .sub-header {
@@ -236,14 +238,15 @@ a:hover:not(.goodTrees){
     padding-top: 1rem;
     border: solid #873307;
     border-radius: 1rem;
+    box-shadow: .25rem .25rem .25rem #6c9734;
+    margin-bottom: 1rem;
 }
 
 .review-list__container {
     width: 100%;
     max-width: 800px;
-    margin: 10%;
+    margin-top: .5rem;
     display: flex;
-    justify-content: center;
     flex-direction: column-reverse;
     text-align: center;
 }
