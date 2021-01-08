@@ -27,10 +27,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   
   markClimbedBtn.addEventListener('click', asyncHandler(async (event) => {
     await createOrUpdateFC(true)
+    markClimbedBtn.disabled = true;
+    markClimbedBtn.innerHTML = 'Done ✓';
+    markWantToClimbBtn.disabled = false;
+    markWantToClimbBtn.innerHTML = 'Want to';
   }));
   
   markWantToClimbBtn.addEventListener('click', asyncHandler(async (event) => {
-    await createOrUpdateFC(false)
+    await createOrUpdateFC(false);
+    markWantToClimbBtn.disabled = true;
+    markWantToClimbBtn.innerHTML = 'Want to ✓';
+    markClimbedBtn.disabled = false;
+    markClimbedBtn.innerHTML = 'Done';
   }));
   
 });

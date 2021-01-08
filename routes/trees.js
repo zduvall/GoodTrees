@@ -96,7 +96,7 @@ router.post(
 
     if (validatorErrors.isEmpty()) {
       await tree.save();
-      return res.redirect(`/users/${res.locals.curUser.dataValues.id}`);
+      return res.redirect(`/trees/${tree.id}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("Trees/create-tree", {
