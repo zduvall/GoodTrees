@@ -1,0 +1,35 @@
+extends layout.pug
+
+block content
+    .highest-climbers__background.page__background
+        h1(class="header") Highest Climbers
+        .highest-climbers__container
+            div(class="highest-climbers__table__container")
+                table(class="highest-climbers__table")
+                    thead
+                        th Rank
+                        th Username
+                        th Score
+                    tbody
+                        each user, index in users
+                            tr
+                                td(class="rank")=index+1
+                                td: a(href=`/users/${user.id}`)=user.username
+                                td=user.climberScore
+            div(class="highest-climbers__tree__outercontainer")
+                div(class="highest-climbers__tree__innercontainer")
+                    h3 Highest Climber Score
+                    div(class="highest-climbers__tree__container")
+                        each user, index in users
+                            if index < 9
+                                a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
+                            else if index < 12
+                                a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
+                div(class="highest-climbers__tree__innercontainer")
+                    h3 Total Trees Climbed
+                    div(class="highest-climbers__tree__container")
+                        each user, index in users.sort((a, b) => b.numOfTreesClimbed - a.numOfTreesClimbed)
+                            if index < 9
+                                a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${user.username} ${user.numOfTreesClimbed}`
+                            else if index < 12
+                                a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${user.username} ${user.numOfTreesClimbed}`
