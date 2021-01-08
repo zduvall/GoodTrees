@@ -120,6 +120,8 @@
   margin-right: 2%
 }
 
+/* Other */
+
 img {
   max-width: 100%;
   max-height: 100%;
@@ -172,7 +174,7 @@ a:hover:not(.goodTrees){
   padding: .5rem 1rem;
   position: sticky;
   top: 1em;
-  box-shadow: .25rem .25rem .25rem #6c9734;
+  box-shadow: .25rem .25rem .5rem #89a06c;
 }
 
 .container__main-content {
@@ -216,11 +218,6 @@ a:hover:not(.goodTrees){
     border-radius: 2px;
 }
 
-.tree-page__name {
-    display: flex;
-    justify-content: center;
-}
-
 .signup a {
   float: left;
   color: #f2f2f2;
@@ -231,6 +228,7 @@ a:hover:not(.goodTrees){
   font-size: 17px;
 }
 
+/* Review Page */
 .review-list__table {
     display: table;
     table-layout: auto;
@@ -238,7 +236,7 @@ a:hover:not(.goodTrees){
     padding-top: 1rem;
     border: solid #873307;
     border-radius: 1rem;
-    box-shadow: .25rem .25rem .25rem #6c9734;
+    box-shadow: .25rem .25rem .5rem #89a06c;
     margin-bottom: 1rem;
 }
 
@@ -249,16 +247,6 @@ a:hover:not(.goodTrees){
     display: flex;
     flex-direction: column-reverse;
     text-align: center;
-}
-
-.tree-view__content {
-    flex-grow: 1;
-    padding: .5rem 1rem;
-    text-align: center;
-}
-
-.tree-page__name {
-    padding: 3%;
 }
 
 .review-list__description {

@@ -6,16 +6,14 @@ block content
     h1.header= tree.name
     .container
         .sidebar
-            h2.sub-header.sidebar-header(title="Average difficulty score is based on all reviews on this tree") Difficulty Score:
-            .score(title="Average difficulty score is based on all reviews on this tree") #{avgDiff}
-            h2.sub-header.sidebar-header(title="Average fun factor score is based on all reviews on this tree") Fun Factor Score:
-            .score(title="Average fun factor score is based on all reviews on this tree") #{avgFun}
-            h2.sub-header.sidebar-header(title="Average view from top score is based on all reviews on this tree") View From Top Score:
-            .score(title="Average view from top score is based on all reviews on this tree") #{avgView}
-            div.sub-header: a(href= `/reviews/${tree.id}/new`).nav-link Review this Tree!
-            div
-            div.sub-header: a(href= "/trees/new").nav-link Add a new Tree!
-            div
+            h2.sub-header.sidebar-header(title="Difficulty score is an average of all reviews on this tree") Difficulty:
+            .score(title="Difficulty score is an average of all reviews on this tree") #{avgDiff}
+            h2.sub-header.sidebar-header(title="Fun factor score is an average of all reviews on this tree") Fun Factor:
+            .score(title="Fun factor score is an average of all reviews on this tree") #{avgFun}
+            h2.sub-header.sidebar-header(title="View from top score is an average of all reviews on this tree") View From Top:
+            .score(title="View from top score is an average of all reviews on this tree") #{avgView}
+            div.sub-header: a(href= `/reviews/${tree.id}/new`) Review this Tree
+            div.sub-header: a(href= "/trees/new") Add a new Tree
 
         .container__main-content
             div
