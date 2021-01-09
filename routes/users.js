@@ -133,7 +133,6 @@ router.get(
       include: {
         model: db.Tree,
         as: "forestTrees",
-        order: [["createdAt", "DESC"]],
         include: [
           {
             model: db.User,
@@ -144,6 +143,10 @@ router.get(
             as: "reviews",
             required: false,
           },
+          {
+            model: db.ForestConnection,
+            as: "forestConnectionsFromTree",
+          }
         ],
       },
     });
@@ -152,7 +155,11 @@ router.get(
     );
     const wantToClimbTrees = user.forestTrees.filter(
       (tree) => !tree.ForestConnection.climbStatus
-    );
+      );
+      
+    climbedTrees.sort((a, b) => b.ForestConnection.createdAt - a.ForestConnection.createdAt)
+    wantToClimbTrees.sort((a, b) => b.ForestConnection.createdAt - a.ForestConnection.createdAt)
+
     const climberScore = getClimberScore(climbedTrees);
     res.render("Users/single-user", {
       user,

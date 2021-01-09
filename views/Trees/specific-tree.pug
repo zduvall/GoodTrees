@@ -9,17 +9,22 @@ block content
         h1.header= tree.name
         .container
             .sidebar.circled-content
-                h2.sub-header.sidebar-header Climb this tree?
-                div.sidebar-btn-container
+                h2.sub-header.sidebar-header Add To Your Forest
+                div.sidebar-btn-container.sidebar-btn-container-1
                     if (!existingFC)
-                        button.form-btn#mark-climbed-btn(data-userId=locals.curUser.id data-treeId=tree.id) Done
+                        button.form-btn#mark-climbed-btn(data-userId=locals.curUser.id data-treeId=tree.id) Climbed
                         button.form-btn#mark-want-to-climb-btn() Want to
                     else if (existingFC.climbStatus)
-                        button.form-btn#mark-climbed-btn(disabled data-userId=locals.curUser.id data-treeId=tree.id) Done ✓
+                        button.form-btn#mark-climbed-btn(disabled data-userId=locals.curUser.id data-treeId=tree.id) Climbed ✓
                         button.form-btn#mark-want-to-climb-btn() Want to
                     else
-                        button.form-btn#mark-climbed-btn(data-userId=locals.curUser.id data-treeId=tree.id) Done
+                        button.form-btn#mark-climbed-btn(data-userId=locals.curUser.id data-treeId=tree.id) Climbed
                         button.form-btn#mark-want-to-climb-btn(disabled) Want to ✓
+                div.sidebar-btn-container
+                    if (!existingFC)
+                        button.form-btn#mark-remove(disabled) Remove
+                    else
+                        button.form-btn#mark-remove() Remove
                 h2.sub-header.sidebar-header(title="Difficulty score is an average of all reviews on this tree") Difficulty
                 .score(title="Difficulty score is an average of all reviews on this tree") #{avgDiff}
                 h2.sub-header.sidebar-header(title="Fun factor score is an average of all reviews on this tree") Fun Factor
@@ -31,7 +36,7 @@ block content
                         if !existingReview
                             button.form-btn Review This Tree
                         else
-                            button.form-btn Update Your Review
+                            button.form-btn Update Review
 
             .container__main-content.right-side-container
                 .circled-content

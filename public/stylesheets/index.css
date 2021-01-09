@@ -171,12 +171,16 @@ a:hover:not(.navBar-a-tag){
   justify-content: center;
 }
 
+.sidebar-btn-container-1 {
+  margin-bottom: .25rem;
+}
+
 .form-btn {
   color: #f8f6f3 !important;
   text-transform: uppercase;
   text-decoration: none;
   background: #6c9734;
-  padding: .5rem;
+  padding: .4rem;
   border-radius: .5rem;
   display: inline-block;
   border: none;
