@@ -5,11 +5,13 @@ block content
     .create-tree__background.page__background
         h1.header Create Tree
         .form-container
-            +validationErrorSummary(errors)
             form(action="/trees/new" method="post")
                 +csrfToken()
                 +field("Name", "name", tree.name)
                 +field("Closest City/State", "cityState", tree.cityState)
                 +field("Detailed Location", "detLocation", tree.detLocation, "textarea")
                 +field("Description", "description", tree.description, "textarea")
-                button(type="submit" class="form-btn") Create a new Tree
+                div.submit-btn
+                    button(type="submit" class="form-btn") Create a new Tree
+            div
+                +validationErrorSummary(errors)

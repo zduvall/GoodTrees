@@ -173,3 +173,8 @@ button,
   border-radius: 1rem;
   color: #bed3a3;
 }
+
+li {
+  list-style-type: none;
+  color: #ddeed9;
+}
