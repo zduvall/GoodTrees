@@ -23,6 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   ForestConnection.associate = function(models) {
     // associations can be defined here
+    ForestConnection.belongsTo(models.User, { foreignKey: 'userId' });
+    ForestConnection.belongsTo(models.Tree, { foreignKey: 'treeId' });
   };
   return ForestConnection;
 };

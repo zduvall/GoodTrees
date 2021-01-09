@@ -7,9 +7,9 @@ router.post("/",
   asyncHandler(async (req, res) => {
     const {
       climbStatus,
-      favStatus,
       userId,
-      treeId
+      treeId,
+      deleteFC
     } = req.body;
 
     // Check if it already exists and store in variable. Will be object or null
@@ -20,13 +20,16 @@ router.post("/",
       }
     })
 
-    if (existingFC) {
+    if (deleteFC) {
+      await existingFC.destroy()
+      res.json({ existingFC });
       
+    } else if (existingFC) {
       await existingFC.update({
         climbStatus,
       });
-      
       res.json({ existingFC });
+
     } else {
       const newFC = await db.ForestConnection.create({
         climbStatus,
