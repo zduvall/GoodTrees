@@ -34,8 +34,23 @@ nav {
 
 h1 {
   font-size: 2rem;
+  color: #555555;
 }
 
 button {
     cursor: pointer;
+}
+
+body {
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+li {
+  list-style-type: none;
+  color: #849081;
 }

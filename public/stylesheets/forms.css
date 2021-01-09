@@ -3,11 +3,10 @@
   max-width: 800px;
   margin: auto;
   display: flex;
+  flex-direction: column;
   border-radius: 1rem;
-  justify-content: center;
+  align-items: center;
   background-color:rgba(255, 255, 255, 0.733);
-  /* box-shadow: 0 0 1rem .25rem #f8f6f3 inset; */
-  /* box-shadow: .25rem .25rem .25rem #d3c6a7; */
   padding: 1rem;
 }
 
@@ -72,4 +71,17 @@ textarea {
 .login-btn {
   padding-top: 0.5rem;
 }
+
+select, textarea, input {
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.801);
+  border: none;
+  padding: .25rem;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+}
+
 
