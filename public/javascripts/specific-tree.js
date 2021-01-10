@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       userId: userId,
       treeId: treeId,
       deleteFC: deleteOrNot,
-      createdAt: new Date()
     }
     const response = await fetch('/forestconnections', {
       method: 'POST',
