@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     User.hasMany(models.Review, { foreignKey: 'reviewerId' });
     User.hasMany(models.Tree, { foreignKey: 'adderId' });
-    User.hasMany(models.ForestConnection, { foreignKey: 'userId', as: "forestConnectionsFromUser" });
     User.belongsToMany(models.Tree, {
       through: 'ForestConnection',
       otherKey: 'treeId',
