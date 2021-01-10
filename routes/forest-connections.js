@@ -23,14 +23,16 @@ router.post("/",
     if (deleteFC || existingFC) {
       await existingFC.destroy()
       res.json({ existingFC });
-      
-    } 
+
+    }
+    if (!deleteFC) {
       const newFC = await db.ForestConnection.create({
         climbStatus,
         userId,
         treeId
       });
       res.json({ newFC });
+    }
   })
 );
 
