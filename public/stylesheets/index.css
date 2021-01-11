@@ -318,9 +318,19 @@ a:hover:not(.navBar-a-tag){
   padding-top: 3%;
   padding-bottom: 3%;
   text-align: left;
-  background-color: #6c9734;;
+  background-color: #6c9734;
+  border-radius: .5rem;
   color: white;
   font-weight: 500;
+  text-align: center;
+}
+.highest-climbers__table__other-User {
+  text-align: center;
+}
+.highest-climbers__table__curUser {
+  background-color: #b3db7e;
+  border-radius: .5rem;
+  text-align: center;
 }
 .highest-climbers__tree__outercontainer {
   display: flex;
