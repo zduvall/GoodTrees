@@ -26,11 +26,11 @@ block content
                     else
                         button.form-btn#mark-remove() Remove
                 h2.sub-header.sidebar-header(title="Difficulty score is an average of all reviews on this tree") Difficulty
-                .score(title="Difficulty score is an average of all reviews on this tree") #{avgDiff}
+                .score(title="Difficulty score is an average of all reviews on this tree" style=`background: linear-gradient(to right, #b39260 ${100*avgDiff/4}%, rgba(255, 255, 255, 0.479) ${100*avgDiff/4}%);`) #{avgDiff} / 4
                 h2.sub-header.sidebar-header(title="Fun factor score is an average of all reviews on this tree") Fun Factor
-                .score(title="Fun factor score is an average of all reviews on this tree") #{avgFun}
+                .score(title="Fun factor score is an average of all reviews on this tree" style=`background: linear-gradient(to right, #b39260 ${100*avgFun/4}%, rgba(255, 255, 255, 0.479) ${100*avgFun/4}%);`) #{avgFun} / 4
                 h2.sub-header.sidebar-header(title="View from top score is an average of all reviews on this tree") View From Top
-                .score(title="View from top score is an average of all reviews on this tree") #{avgView}
+                .score(title="View from top score is an average of all reviews on this tree" style=`background: linear-gradient(to right, #b39260 ${100*avgView/4}%, rgba(255, 255, 255, 0.479) ${100*avgView/5}%);`) #{avgView} / 4
                 div.sidebar-btn-container
                     form(action=`/reviews/${tree.id}/new`, method="get")
                         if !existingReview
