@@ -10,10 +10,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   const treeListTrees = document.getElementById('tree-list-trees')
 
   const filterTrees = async function () {
+    localStorage.difficulty = diffDropdown.value;
+    localStorage.funFactor = funDropdown.value;
+    localStorage.viewFromTop = viewDropdown.value;
+    
     const body = {
-      difficulty: diffDropdown.value,
-      funFactor: funDropdown.value,
-      viewFromTop: viewDropdown.value,
+      difficulty: localStorage.difficulty,
+      funFactor: localStorage.funFactor,
+      viewFromTop: localStorage.viewFromTop,
     }
 
     const response = await fetch('/filter-trees', {

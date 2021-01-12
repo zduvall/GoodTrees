@@ -4,6 +4,9 @@ append head
     script(src="/javascripts/trees-page.js" type="module" defer) 
 include ../utils.pug
 
+//- mixin option (fieldValue, name, disabledOrNot, selectedOrNot) 
+//-   option(value=fieldValue disabledOrNot selectedOrNot) #{name}
+
 block content
   .trees-page__background.page__background 
     h1.header Find Trees
