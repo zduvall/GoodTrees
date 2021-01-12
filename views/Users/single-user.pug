@@ -25,10 +25,28 @@ block content
         .container__main-content.right-side-container
           div
             h2.sub-header Already Climbed
-            .my-trees__container: +treeListView(climbedTrees)
+            .my-trees__container
+              table.trees-table
+                thead
+                  th.column Tree Name
+                  th.column Tree Location
+                  th.column Tree Creator
+              .scroll
+                table.trees-table
+                  tbody
+                    +treeListView(climbedTrees)
           div
             h2.sub-header Want to Climb
-            .my-trees__container: +treeListView(wantToClimbTrees)
+            .my-trees__container
+              table.trees-table
+                thead
+                  th.column Tree Name
+                  th.column Tree Location
+                  th.column Tree Creator
+              .scroll
+                table.trees-table
+                  tbody
+                    +treeListView(wantToClimbTrees)
       else
         .container__main-content
           if user.id === locals.curUser.id

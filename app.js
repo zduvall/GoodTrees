@@ -11,8 +11,9 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const treesRouter = require("./routes/trees");
 const reviewsRouter = require("./routes/review");
-const forestconnectionsRouter = require("./routes/forest-connections")
 const highestClimbersRouter = require("./routes/highest-climbers");
+const forestconnectionsRouter = require("./routes/api-forest-connections")
+const filterTreesRouter = require("./routes/api-filter-trees")
 const { restoreUser } = require("./auth");
 const { secret } = require("./config/index");
 
@@ -22,7 +23,7 @@ const app = express();
 app.set("view engine", "pug");
 
 app.use(logger("dev"));
-app.use(express.json());
+app.use(express.json()); // reads json payload on req
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
@@ -44,12 +45,14 @@ app.use(restoreUser);
 // create Session table if it doesn't already exist
 store.sync();
 
+// app use all of our router files
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/trees", treesRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/forestconnections", forestconnectionsRouter)
 app.use('/highest-climbers', highestClimbersRouter)
+app.use('/filter-trees', filterTreesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

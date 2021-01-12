@@ -2,8 +2,6 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const { requireAuth } = require("../auth.js");
-//Not sure if we might need express validator for Tree creation form, so just leaving for now
-// const { check, validationResult } = require("express-validator");
 
 const db = require("../db/models");
 const { getTreeAvgScore } = require("./get-scores");
@@ -25,7 +23,6 @@ router.get(
       order: [["createdAt", "DESC"]],
     });
     res.render("Trees/trees-page", { trees });
-    // res.json({trees});
   })
 );
 
