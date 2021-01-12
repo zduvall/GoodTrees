@@ -11,15 +11,11 @@ const {
   loginValidators,
 } = require("./utils");
 
-const { loginUser, logoutUser } = require("../auth.js");
+const { loginUser, logoutUser, requireAuth } = require("../auth.js");
+
 const { getClimberScore } = require("./get-scores");
 
 const router = express.Router();
-
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
-});
 
 // User GET sign-up
 router.get("/sign-up", csrfProtection, (req, res) => {
@@ -127,6 +123,7 @@ router.post("/logout", (req, res) => {
 // show individual user page
 router.get(
   "/:id(\\d+)",
+  requireAuth,
   asyncHandler(async (req, res) => {
     const id = req.params.id;
     const user = await db.User.findByPk(id, {

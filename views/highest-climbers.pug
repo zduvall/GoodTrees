@@ -4,7 +4,7 @@ block content
     .highest-climbers__background.page__background
         h1(class="header") Highest Climbers
         .highest-climbers__container
-            div(class="highest-climbers__table__container")
+            div(class="highest-climbers__table__container circled-content")
                 table(class="highest-climbers__table")
                     thead
                         th Rank
@@ -13,26 +13,26 @@ block content
                     tbody
                         each user, index in users
                             if user.id === locals.curUser.id
-                                tr(style="background: #b3db7e")
-                                    td(class="rank")=index+1
-                                    td: a(href=`/users/${user.id}`)=user.username
-                                    td=user.climberScore
+                                tr
+                                    td.highest-climbers__table__user.highest-climbers__table__curUser(class="rank")=index+1
+                                    td.highest-climbers__table__curUser: a(href=`/users/${user.id}`)=user.username
+                                    td.highest-climbers__table__user.highest-climbers__table__curUser=user.climberScore
                             else
                                 tr
-                                    td(class="rank")=index+1
+                                    td.highest-climbers__table__user(class="rank")=index+1
                                     td: a(href=`/users/${user.id}`)=user.username
-                                    td=user.climberScore
+                                    td.highest-climbers__table__ser=user.climberScore
             div(class="highest-climbers__tree__outercontainer")
-                div(class="highest-climbers__tree__innercontainer")
-                    h3 Highest Climber Score
+                div(class="highest-climbers__tree__innercontainer circled-content")
+                    h3.circled-content Highest Climber Score
                     div(class="highest-climbers__tree__container")
                         each user, index in users
                             if index < 9
                                 a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
                             else if index < 12
                                 a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
-                div(class="highest-climbers__tree__innercontainer")
-                    h3 Total Trees Climbed
+                div(class="highest-climbers__tree__innercontainer circled-content")
+                    h3.circled-content Total Trees Climbed
                     div(class="highest-climbers__tree__container")
                         each user, index in users.sort((a, b) => b.numOfTreesClimbed - a.numOfTreesClimbed)
                             if index < 9

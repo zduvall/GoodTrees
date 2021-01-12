@@ -135,7 +135,7 @@ a:hover:not(.navBar-a-tag){
 }
 .container {
   width: 60%;
-  max-width: 800px;
+  max-width: 820px;
   margin: auto;
   display: flex;
   border-radius: 1rem;
@@ -160,7 +160,7 @@ a:hover:not(.navBar-a-tag){
   flex-wrap: wrap;
   padding: .5rem;
   position: sticky;
-  top: 1em;
+  top: 1rem;
   text-align: center;
 }
 
@@ -212,9 +212,10 @@ a:hover:not(.navBar-a-tag){
   font-weight: 400;
 }
 .score {
-  margin: auto;
-  width: fit-content;
-  padding: 0 0 .5rem 0;
+  margin: 0 .5rem .5rem .5rem;
+  padding: .25rem 0;
+  border-radius: .25rem;
+  background-color: rgba(255, 255, 255, 0.479);
 }
 
 .tree-details {
@@ -249,6 +250,12 @@ a:hover:not(.navBar-a-tag){
 /* Find Trees Page */
 .trees-table {
   width: 100%;
+}
+
+.trees-page__sorting {
+  margin: 0 auto .5rem auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* comment in if want scroll in find trees page */
@@ -312,15 +319,24 @@ a:hover:not(.navBar-a-tag){
   padding: 1rem;
 }
 .highest-climbers__table__container {
-  margin: 3%
+  margin: 3%;
 }
 .highest-climbers__table th{
   padding-top: 3%;
   padding-bottom: 3%;
   text-align: left;
-  background-color: #6c9734;;
+  background-color: #6c9734;
+  border-radius: .5rem;
   color: white;
   font-weight: 500;
+  text-align: center;
+}
+.highest-climbers__table__user {
+  text-align: center;
+}
+.highest-climbers__table__curUser {
+  background-color: #b3db7e;
+  border-radius: .5rem;
 }
 .highest-climbers__tree__outercontainer {
   display: flex;
@@ -328,6 +344,9 @@ a:hover:not(.navBar-a-tag){
   align-items: center;
   width: 60%;
   margin: 2%;
+  position: sticky;
+  top: 1rem;
+  height: fit-content;
 }
 .highest-climbers__tree__innercontainer {
   display: flex;
@@ -335,9 +354,9 @@ a:hover:not(.navBar-a-tag){
   align-items: center;
   width: 100%;
   margin-left: 2%;
-  margin-right: 8%;
+  margin-right: 5%;
   margin-top: 2%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .highest-climbers__tree__container {
   display:grid;

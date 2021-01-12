@@ -1,13 +1,50 @@
 extends ../layout.pug
 
+append head
+    script(src="/javascripts/trees-page.js" type="module" defer) 
 include ../utils.pug
+
+//- mixin option (fieldValue, name, disabledOrNot, selectedOrNot) 
+//-   option(value=fieldValue disabledOrNot selectedOrNot) #{name}
 
 block content
   .trees-page__background.page__background 
     h1.header Find Trees
+    div.container.trees-page__sorting
+      .trees-page__sort-field
+        select#find-trees-difficulty
+          option(selected disabled value=0) Difficulty
+          option(value=0) All
+          option(value=1) Easy
+          option(value=2) Medium
+          option(value=3) Hard
+          option(value=4) Danger Seeker 
+      .trees-page__sort-field
+        select#find-trees-funFactor
+          option(selected disabled value=0) Fun Factor
+          option(value=0) All
+          option(value=1) Boring
+          option(value=2) Okay
+          option(value=3) Enjoyable
+          option(value=4) Amazing 
+      .trees-page__sort-field
+        select#find-trees-viewFromTop
+          option(selected disabled value=0) View From Top
+          option(value=0) All 
+          option(value=1) Dull
+          option(value=2) Good
+          option(value=3) Great
+          option(value=4) Mesmerizing 
     .container
       .container__main-content
         .tree-list-view__container
-          +treeListView(trees)
+          table.trees-table
+            thead
+              th.column Tree Name
+              th.column Tree Location
+              th.column Tree Creator
+          .scroll
+            table.trees-table
+              tbody#tree-list-trees
 
 

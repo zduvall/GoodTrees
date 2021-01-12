@@ -10,7 +10,7 @@ const { getClimberScore } = require('./get-scores')
 const router = express.Router();
 
 //Highest Climbers root page (/highest-climbers/)
-router.get('/', asyncHandler(async (req, res) => {
+router.get('/', requireAuth, asyncHandler(async (req, res) => {
     const users = await db.User.findAll( {
         include: {
             model: db.Tree,

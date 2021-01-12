@@ -18,6 +18,7 @@ const router = express.Router();
 router.get(
   "/:id(\\d+)/new",
   csrfProtection,
+  requireAuth,
   asyncHandler(async (req, res) => {
     
     let review = db.Review.build();
