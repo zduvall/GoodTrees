@@ -18,7 +18,7 @@ module.exports = {
 
     // create filler trees
     const fillerTrees = [];
-    const numFillerTrees = 60; // edit this to edit the number of trees created
+    const numFillerTrees = 200; // edit this to edit the number of trees created
     const numUsers = await db.User.count();
 
     // data for creating random trees
