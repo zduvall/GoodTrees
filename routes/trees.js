@@ -17,6 +17,7 @@ const router = express.Router();
 //GET all trees
 router.get(
   "/",
+  requireAuth,
   asyncHandler(async (req, res) => {
     const trees = await db.Tree.findAll({
       include: ["user"],
@@ -29,6 +30,7 @@ router.get(
 //GET a specific tree
 router.get(
   "/:id(\\d+)",
+  requireAuth,
   asyncHandler(async (req, res) => {
     const treeId = parseInt(req.params.id, 10);
 
