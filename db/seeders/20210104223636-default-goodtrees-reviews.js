@@ -17,7 +17,7 @@ module.exports = {
 
     // create filler reviews
     const fillerReviews = [];
-    const maxFillerReviewsPerTree = 6; // edit this to edit the max # reviews per tree
+    const maxFillerReviewsPerTree = 10; // edit this to edit the max # reviews per tree
     const numUsers = await db.User.count();
     const numTrees = await db.Tree.count();
 

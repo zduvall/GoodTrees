@@ -14,14 +14,14 @@ block content
                         each user, index in users
                             if user.id === locals.curUser.id
                                 tr
-                                    td.highest-climbers__table__curUser(class="rank")=index+1
+                                    td.highest-climbers__table__user.highest-climbers__table__curUser(class="rank")=index+1
                                     td.highest-climbers__table__curUser: a(href=`/users/${user.id}`)=user.username
-                                    td.highest-climbers__table__curUser=user.climberScore
+                                    td.highest-climbers__table__user.highest-climbers__table__curUser=user.climberScore
                             else
                                 tr
-                                    td.highest-climbers__table__other-User(class="rank")=index+1
+                                    td.highest-climbers__table__user(class="rank")=index+1
                                     td: a(href=`/users/${user.id}`)=user.username
-                                    td.highest-climbers__table__other-User=user.climberScore
+                                    td.highest-climbers__table__ser=user.climberScore
             div(class="highest-climbers__tree__outercontainer")
                 div(class="highest-climbers__tree__innercontainer circled-content")
                     h3.circled-content Highest Climber Score

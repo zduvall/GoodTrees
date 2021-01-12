@@ -331,13 +331,12 @@ a:hover:not(.navBar-a-tag){
   font-weight: 500;
   text-align: center;
 }
-.highest-climbers__table__other-User {
+.highest-climbers__table__user {
   text-align: center;
 }
 .highest-climbers__table__curUser {
   background-color: #b3db7e;
   border-radius: .5rem;
-  text-align: center;
 }
 .highest-climbers__tree__outercontainer {
   display: flex;

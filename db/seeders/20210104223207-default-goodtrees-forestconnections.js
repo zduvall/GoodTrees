@@ -17,7 +17,7 @@ module.exports = {
 
     // create filler forest connections (FC's)
     const fillerFCs = [];
-    const maxFillerFCsPerUser = 20; // edit this to edit the max # FC's per user
+    const maxFillerFCsPerUser = 30; // edit this to edit the max # FC's per user
     const numUsers = await db.User.count();
     const numTrees = await db.Tree.count();
 
