@@ -160,7 +160,7 @@ a:hover:not(.navBar-a-tag){
   flex-wrap: wrap;
   padding: .5rem;
   position: sticky;
-  top: 1em;
+  top: 1rem;
   text-align: center;
 }
 
@@ -319,7 +319,7 @@ a:hover:not(.navBar-a-tag){
   padding: 1rem;
 }
 .highest-climbers__table__container {
-  margin: 3%
+  margin: 3%;
 }
 .highest-climbers__table th{
   padding-top: 3%;
@@ -344,6 +344,9 @@ a:hover:not(.navBar-a-tag){
   align-items: center;
   width: 60%;
   margin: 2%;
+  position: sticky;
+  top: 1rem;
+  height: fit-content;
 }
 .highest-climbers__tree__innercontainer {
   display: flex;
@@ -353,7 +356,7 @@ a:hover:not(.navBar-a-tag){
   margin-left: 2%;
   margin-right: 8%;
   margin-top: 2%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .highest-climbers__tree__container {
   display:grid;
