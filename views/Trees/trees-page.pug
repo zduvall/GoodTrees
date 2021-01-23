@@ -13,7 +13,7 @@ block content
     div.container.trees-page__sorting
       .trees-page__sort-field
         select#find-trees-difficulty
-          option(selected disabled value=0) Difficulty
+          option(selected disabled value=-1) Difficulty
           option(value=0) All
           option(value=1) Easy
           option(value=2) Medium
@@ -21,7 +21,7 @@ block content
           option(value=4) Danger Seeker 
       .trees-page__sort-field
         select#find-trees-funFactor
-          option(selected disabled value=0) Fun Factor
+          option(selected disabled value=-1) Fun Factor
           option(value=0) All
           option(value=1) Boring
           option(value=2) Okay
@@ -29,7 +29,7 @@ block content
           option(value=4) Amazing 
       .trees-page__sort-field
         select#find-trees-viewFromTop
-          option(selected disabled value=0) View From Top
+          option(selected disabled value=-1) View From Top
           option(value=0) All 
           option(value=1) Dull
           option(value=2) Good
