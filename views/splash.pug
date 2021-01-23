@@ -17,8 +17,9 @@ html(lang="en")
           div(class="sign-up")
             a(class="splash-page-link" href=`/users/${locals.curUser.id}`) My Forest
             a(class="splash-page-link" href="/trees") Find Trees
-            form(action="/users/logout" method="post")
-              button(type="submit" class="splash-page-link") Logout
+            form(action="/users/logout" method="post" id="logoutForm")
+              <a class="splash-page-link" href="javascript:;" onclick="document.getElementById('logoutForm').submit();">Logout</a>
+              
         else
           div(class="sign-up")     
               a(class="splash-page-link" href="/users/login") Log In
