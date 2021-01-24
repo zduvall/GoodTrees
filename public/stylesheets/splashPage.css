@@ -183,5 +183,7 @@ button,
 
 li {
   list-style-type: none;
-  color: #ddeed9;
+  color: #dafad0;
+  background-color: rgba(112, 112, 112, 0.452);
+  border-radius: .25rem;
 }
