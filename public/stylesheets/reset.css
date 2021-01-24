@@ -52,5 +52,7 @@ img {
 
 li {
   list-style-type: none;
-  color: #849081;
+  color: #5a6e53;
+  background-color: rgba(255, 255, 255, 0.349);
+  border-radius: .25rem;
 }

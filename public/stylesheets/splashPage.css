@@ -169,12 +169,21 @@ button,
   text-shadow: none;
 }
 
+
 .splash-page-link:hover {
   border-radius: 1rem;
   color: #bed3a3;
 }
 
+#logoutForm {
+  padding: .75rem 0;
+  border-radius: 1rem;
+  margin: .5rem 0;
+}
+
 li {
   list-style-type: none;
-  color: #ddeed9;
+  color: #dafad0;
+  background-color: rgba(112, 112, 112, 0.452);
+  border-radius: .25rem;
 }
