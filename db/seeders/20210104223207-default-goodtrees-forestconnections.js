@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require('../models/index')
+const db = require('../models/index');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -21,23 +21,23 @@ module.exports = {
     const numUsers = await db.User.count();
     const numTrees = await db.Tree.count();
 
-    for (let userId = 2; userId <= numUsers; userId++) { // start at 2, so our user 'Newb' never has any trees added
+    for (let userId = 2; userId <= numUsers; userId++) {
+      // start at 2, so our user 'Newb' never has any trees added
 
-      let numFillerFCs = Math.floor(Math.random() * maxFillerFCsPerUser)
+      let numFillerFCs = Math.floor(Math.random() * maxFillerFCsPerUser);
       let set = new Set(); // this is used below to make sure we don't get the same treeId twice for any one user
 
       for (let i = 0; i < numFillerFCs; i++) {
-
         const climbStatus = Math.round(Math.random()) === 0 ? true : false;
         const favStatus = Math.round(Math.random()) === 0 ? true : false;
 
         let treeId = null;
         let randTreeId = Math.ceil(Math.random() * numTrees);
         while (set.has(randTreeId)) {
-          randTreeId = Math.ceil(Math.random() * numTrees)
+          randTreeId = Math.ceil(Math.random() * numTrees);
         }
-        set.add(randTreeId)
-        treeId = randTreeId
+        set.add(randTreeId);
+        treeId = randTreeId;
 
         fillerFCs.push({
           climbStatus: climbStatus,
@@ -45,38 +45,66 @@ module.exports = {
           userId: userId,
           treeId: treeId,
           createdAt: new Date(),
-          updatedAt: new Date()
-        })
+          updatedAt: new Date(),
+        });
       }
     }
 
-    return queryInterface.bulkInsert('ForestConnections', [
-      {
-        climbStatus: true, favStatus: true, userId: 2, treeId: 1,
-        createdAt: new Date(), updatedAt: new Date()
-      },
-      {
-        climbStatus: false, favStatus: true, userId: 2, treeId: 2,
-        createdAt: new Date(), updatedAt: new Date()
-      },
-      {
-        climbStatus: true, favStatus: false, userId: 2, treeId: 3,
-        createdAt: new Date(), updatedAt: new Date()
-      },
-      {
-        climbStatus: false, favStatus: true, userId: 2, treeId: 4,
-        createdAt: new Date(), updatedAt: new Date()
-      },
-      {
-        climbStatus: true, favStatus: true, userId: 2, treeId: 5,
-        createdAt: new Date(), updatedAt: new Date()
-      },
-      {
-        climbStatus: true, favStatus: true, userId: 2, treeId: 6,
-        createdAt: new Date(), updatedAt: new Date()
-      },
-      ...fillerFCs
-    ], {});
+    return queryInterface.bulkInsert(
+      'ForestConnections',
+      [
+        {
+          climbStatus: true,
+          favStatus: true,
+          userId: 2,
+          treeId: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          climbStatus: false,
+          favStatus: true,
+          userId: 2,
+          treeId: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          climbStatus: true,
+          favStatus: false,
+          userId: 2,
+          treeId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          climbStatus: false,
+          favStatus: true,
+          userId: 2,
+          treeId: 4,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          climbStatus: true,
+          favStatus: true,
+          userId: 2,
+          treeId: 5,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          climbStatus: true,
+          favStatus: true,
+          userId: 2,
+          treeId: 6,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        ...fillerFCs,
+      ],
+      {}
+    );
   },
 
   down: (queryInterface, Sequelize) => {
@@ -88,5 +116,5 @@ module.exports = {
       return queryInterface.bulkDelete('People', null, {});
     */
     return queryInterface.bulkDelete('ForestConnections', null, {});
-  }
+  },
 };
