@@ -36,6 +36,6 @@ block content
                     div(class="highest-climbers__tree__container")
                         each user, index in users.sort((a, b) => b.numOfTreesClimbed - a.numOfTreesClimbed)
                             if index < 9
-                                a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${user.username} ${user.numOfTreesClimbed}`
+                                a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${user.username}: ${user.numOfTreesClimbed}`
                             else if index < 12
-                                a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${user.username} ${user.numOfTreesClimbed}`
+                                a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${user.username}: ${user.numOfTreesClimbed}`
