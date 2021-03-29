@@ -43,7 +43,6 @@
   align-self: center;
 }
 .nav-logout-btn {
-  /* background-color: #555555; */
   color: black;
   align-self: flex-end;
   font-family: 'Raleway', sans-serif;
@@ -171,6 +170,16 @@ a:hover:not(.navBar-a-tag) {
 }
 
 .sidebar-btn-container-1 {
+  margin-bottom: 0.25rem;
+}
+
+.flex-dir-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btm-25rem {
   margin-bottom: 0.25rem;
 }
 
@@ -319,7 +328,7 @@ a:hover:not(.navBar-a-tag) {
   .highest-climbers__container {
     flex-direction: column-reverse;
     align-items: center;
-    width: 29rem
+    width: 29rem;
   }
 }
 
@@ -382,7 +391,7 @@ a:hover:not(.navBar-a-tag) {
 }
 .highest-climbers__tree__treetop,
 .highest-climbers__tree__treetrunk {
-  font-size: .6rem;
+  font-size: 0.6rem;
   height: 2rem;
   text-decoration: none;
   display: flex;
