@@ -42,3 +42,5 @@ mixin reviewListView(review)
     div.review-list__description
       p.review-list__description__title Description
       p= review.reviewText
+    form(action=`/reviews/${review.treeId}/new`, method="get")
+      button.form-btn Update Review
