@@ -131,18 +131,9 @@ router.delete(
 
     const treeToDelete = await db.Tree.findByPk(treeId);
 
-    console.log('----------- here\'s the name -----------',treeToDelete.name);
+    await treeToDelete.destroy();
 
-    console.log(treeToDelete.destroy());
-
-    // await Tree.destroy({
-    //   where: {
-    //     id: treeId,
-    //   },
-    // });
-
-    // res.redirect(`/users/${res.locals.curUser.id}`);
-    // return;
+    return res.json(`/users/${res.locals.curUser.id}`);
   })
 );
 

@@ -68,21 +68,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const treeIdDelete = deleteTreeBtn.getAttribute('data-treeId');
 
   deleteTreeBtn.addEventListener('click', async (event) => {
-    console.log('clicked!!!!');
+    const proceed = window.confirm(
+      'Are you sure you want to delete this tree? It will be removed from all forests, and all associated reviews will be lost.'
+    );
 
-    await fetch(`/trees/${treeIdDelete}`, {
-      method: 'DELETE',
-    });
+    if (proceed) {
+      await fetch(`/trees/${treeIdDelete}`, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json())
+        .then((res) => (window.location = res));
+    }
   });
-  // deleteTreeBtn.addEventListener(
-  //   'click',
-  //   asyncHandler(async (event) => {
-  //     console.log('clicked!!!!');
-
-  //     const response = await fetch(`/trees/${treeIdDelete}`, {
-  //       method: 'DELETE',
-  //     })
-  //     // }).then((res) => res.json());
-  //   })
-  // );
 });
