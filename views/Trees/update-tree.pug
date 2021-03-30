@@ -1,0 +1,18 @@
+extends ../layout.pug
+include ../utils.pug
+
+block content
+  .create-tree__background.page__background
+    h1.header Update Tree
+    .form-container
+      form(method="POST" action=`/trees/update`)
+        +csrfToken()
+        input(type="hidden" name="treeId" value=treeToUpdate.id)
+        +field("Name", "name", treeToUpdate.name)
+        +field("Closest City/State", "cityState", treeToUpdate.cityState)
+        +field("Detailed Location", "detLocation", treeToUpdate.detLocation, "textarea")
+        +field("Description", "description", treeToUpdate.description, "textarea")
+        div.submit-btn
+          button(type="submit" class="form-btn") Update Tree
+      div
+        +validationErrorSummary(errors)

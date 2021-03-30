@@ -33,16 +33,15 @@ block content
                 .score(title="View from top score is an average of all reviews on this tree" style=`background: linear-gradient(to right, #b39260 ${100*avgView/4}%, rgba(255, 255, 255, 0.479) ${100*avgView/5}%);`) #{avgView} / 4
                 div.sidebar-btn-container
                     div.flex-dir-col
-                        form.btm-25rem(action=`/reviews/${tree.id}/new`, method="get")
+                        if curUser.id == tree.adderId
+                            button.form-btn.btm-25rem#delete-tree(data-treeId=tree.id) Delete Tree
+                            form.btm-25rem(action=`/trees/${tree.id}/update`, method="get")
+                                button.form-btn Update Tree
+                        form(action=`/reviews/${tree.id}/new`, method="get")
                             if !existingReview
                                 button.form-btn Review Tree
                             else
                                 button.form-btn Update Review
-                        if curUser.id == tree.adderId
-                            button.form-btn#delete-tree(data-treeId=tree.id) Delete Tree
-                            //- form.btm-25rem(method="get", action=`/trees/${tree.id}/delete`)
-                            //-     +csrfToken()
-                            //-     input(type="hidden" name="treeId" value=tree.id)
 
             .container__main-content.right-side-container
                 .circled-content

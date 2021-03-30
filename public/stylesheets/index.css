@@ -180,7 +180,7 @@ a:hover:not(.navBar-a-tag) {
 }
 
 .btm-25rem {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.25rem !important;
 }
 
 .form-btn {
