@@ -37,12 +37,10 @@ block content
                             button.form-btn.btm-25rem#delete-tree(data-treeId=tree.id) Delete Tree
                             form.btm-25rem(action=`/trees/${tree.id}/update`, method="get")
                                 button.form-btn Update Tree
-                        form(action=`/reviews/${tree.id}/new`, method="get")
-                            if !existingReview
+                        if !existingReview
+                            form(action=`/reviews/${tree.id}/new`, method="get")
                                 button.form-btn Review Tree
-                            else
-                                button.form-btn Update Review
-
+                            
             .container__main-content.right-side-container
                 .circled-content
                     div
@@ -60,4 +58,4 @@ block content
                 div
                 .review-list__container
                     each review in tree.reviews
-                        +reviewListView(review)
+                        +reviewListView(review, ownedTree = locals.curUser.id === review.reviewerId)
