@@ -63,21 +63,42 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
   );
 
-  // code for delete
+  // code for delete tree
   const deleteTreeBtn = document.getElementById('delete-tree');
-  const treeIdDelete = deleteTreeBtn.getAttribute('data-treeId');
+  if (deleteTreeBtn) {
+    const treeIdDelete = deleteTreeBtn.getAttribute('data-treeId');
 
-  deleteTreeBtn.addEventListener('click', async (event) => {
-    const proceed = window.confirm(
-      'Are you sure you want to delete this tree? It will be removed from all forests, and all associated reviews will be lost.'
-    );
+    deleteTreeBtn.addEventListener('click', async (event) => {
+      const proceed = window.confirm(
+        'Are you sure you want to delete this tree? It will be removed from all forests, and all associated reviews will be lost.'
+      );
 
-    if (proceed) {
-      await fetch(`/trees/${treeIdDelete}`, {
-        method: 'DELETE',
-      })
-        .then((res) => res.json())
-        .then((res) => (window.location = res));
-    }
-  });
+      if (proceed) {
+        await fetch(`/trees/${treeIdDelete}`, {
+          method: 'DELETE',
+        })
+          .then((res) => res.json())
+          .then((res) => (window.location = res));
+      }
+    });
+  }
+
+  // code for delete review
+  const deleteReviewBtn = document.getElementById('delete-review');
+  if (deleteReviewBtn) {
+    const reviewerId = deleteReviewBtn.getAttribute('data-reviewerId');
+    const treeId = deleteReviewBtn.getAttribute('data-treeId');
+
+    deleteReviewBtn.addEventListener('click', async (event) => {
+      const proceed = window.confirm(
+        'Are you sure you want to delete this review?'
+      );
+
+      if (proceed) {
+        await fetch(`/reviews/${reviewerId}/${treeId}`, {
+          method: 'DELETE',
+        }).then((res) => window.location.reload());
+      }
+    });
+  }
 });
