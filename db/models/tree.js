@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Tree = sequelize.define(
-    "Tree",
+    'Tree',
     {
       name: {
         type: DataTypes.STRING(30),
@@ -25,25 +25,35 @@ module.exports = (sequelize, DataTypes) => {
       adderId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: { model: "Users" },
+        references: { model: 'Users' },
       },
     },
     {}
   );
   Tree.associate = function (models) {
-    Tree.belongsTo(models.User, { foreignKey: "adderId", as: "user" });
-    Tree.hasMany(models.Review, { foreignKey: "treeId", as: "reviews" });
+    Tree.belongsTo(models.User, { foreignKey: 'adderId', as: 'user' });
     Tree.belongsToMany(models.User, {
-      through: "ForestConnection",
-      otherKey: "userId",
-      foreignKey: "treeId",
-      as: "forestUsers",
+      through: 'ForestConnection',
+      otherKey: 'userId',
+      foreignKey: 'treeId',
+      as: 'forestUsers',
+    });
+    Tree.hasMany(models.ForestConnection, {
+      foreignKey: 'treeId',
+      onDelete: 'cascade',
+      hooks: true,
     });
     Tree.belongsToMany(models.User, {
-      through: "Review",
-      otherKey: "reviewerId",
-      foreignKey: "treeId",
-      as: "reviewAuthors",
+      through: 'Review',
+      otherKey: 'reviewerId',
+      foreignKey: 'treeId',
+      as: 'reviewAuthors',
+    });
+    Tree.hasMany(models.Review, {
+      foreignKey: 'treeId',
+      as: 'reviews',
+      onDelete: 'cascade',
+      hooks: true,
     });
   };
   return Tree;

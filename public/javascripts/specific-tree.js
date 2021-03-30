@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
   // asyncHandler
   const asyncHandler = (handler) => (req, res, next) =>
-    handler(req, res, next).catch((err) => next(err));
+    handler(req, res, next).catch((err) => console.log(err));
 
   // code for forest connections
   const markClimbedBtn = document.getElementById('mark-climbed-btn');
@@ -65,20 +65,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // code for delete
   const deleteTreeBtn = document.getElementById('delete-tree');
-  const treeId = deleteTreeBtn.getAttribute('data-treeId');
+  const treeIdDelete = deleteTreeBtn.getAttribute('data-treeId');
 
-  deleteTreeBtn.addEventListener(
-    'click',
-    asyncHandler(async (event) => {
-      console.log('clicked!!!!');
+  deleteTreeBtn.addEventListener('click', async (event) => {
+    console.log('clicked!!!!');
 
-      const response = await fetch('/trees/delete', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(treeId),
-      }).then((res) => res.json());
-    })
-  );
+    await fetch(`/trees/${treeIdDelete}`, {
+      method: 'DELETE',
+    });
+  });
+  // deleteTreeBtn.addEventListener(
+  //   'click',
+  //   asyncHandler(async (event) => {
+  //     console.log('clicked!!!!');
+
+  //     const response = await fetch(`/trees/${treeIdDelete}`, {
+  //       method: 'DELETE',
+  //     })
+  //     // }).then((res) => res.json());
+  //   })
+  // );
 });

@@ -123,26 +123,26 @@ router.post(
 );
 
 // delete tree
-router.post(
-  '/delete',
-  // csrfProtection,
+router.delete(
+  '/:id(\\d+)',
   requireAuth,
   asyncHandler(async (req, res) => {
-    console.log('----------------- hit delete route!!! -----------------');
+    const treeId = parseInt(req.params.id, 10);
 
-    // const treeId = parseInt(req.params.treeId, 10);
+    const treeToDelete = await db.Tree.findByPk(treeId);
 
-    // const treeToDelete = await db.Tree.findOne({
+    console.log('----------- here\'s the name -----------',treeToDelete.name);
+
+    console.log(treeToDelete.destroy());
+
+    // await Tree.destroy({
     //   where: {
-    //     treeId,
+    //     id: treeId,
     //   },
     // });
 
-    // console.log(treeToDelete.name);
-    // await treeToDelete.destroy();
-
     // res.redirect(`/users/${res.locals.curUser.id}`);
-    return;
+    // return;
   })
 );
 
