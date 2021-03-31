@@ -4,25 +4,29 @@
 }
 
 .trees-page__background {
-  background-image: url("/forests/92833.jpg");
+  background-image: url('/forests/92833.jpg');
 }
 
 .specific-tree__background {
-  background-image: url("/forests/128782.jpg");
+  background-image: url('/forests/128782.jpg');
 }
 
 .create-tree__background {
-  background-image: url("/forests/128836.jpg");
+  background-image: url('/forests/128836.jpg');
 }
 
 .single-user__background {
-  background-image: url("/forests/128801.jpg");
+  background-image: url('/forests/128801.jpg');
 }
 
 .create-review__background {
-  background-image: url("/forests/128789.jpg");
+  background-image: url('/forests/128789.jpg');
 }
 
 .highest-climbers__background {
-  background-image: url("/forests/128808.jpg");
+  background-image: url('/forests/128808.jpg');
+}
+
+.page-not-found__background {
+  background-image: url('/forests/fog-page-not-found.jpg');
 }

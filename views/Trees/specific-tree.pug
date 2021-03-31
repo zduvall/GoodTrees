@@ -34,9 +34,9 @@ block content
                 div.sidebar-btn-container
                     div.flex-dir-col
                         if curUser.id == tree.adderId
-                            button.form-btn.btm-25rem#delete-tree(data-treeId=tree.id) Delete Tree
                             form.btm-25rem(action=`/trees/${tree.id}/update`, method="get")
                                 button.form-btn Update Tree
+                            button.form-btn.btm-25rem#delete-tree(data-treeId=tree.id) Delete Tree
                         if !existingReview
                             form(action=`/reviews/${tree.id}/new`, method="get")
                                 button.form-btn Review Tree
