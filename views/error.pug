@@ -1,0 +1,10 @@
+extends ./layout.pug
+
+append head
+    script(src="/javascripts/specific-tree.js" type="module" defer) 
+
+block content
+  .page-not-found__background.page__background
+    .page-not-found
+      h1.header Page not found!
+      h2.header Please use the navigation bar to return to the site.

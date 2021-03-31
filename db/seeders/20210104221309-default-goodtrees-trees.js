@@ -274,7 +274,7 @@ module.exports = {
       },
       {
         name: 'Treebeard', cityState: 'Fangorn, OR', detLocation: 'On the Pechanga Reservation.',
-        description: 'He is an Ent and is said by Gandalf to be "the oldest living thing that still walks beneath the Sun upon this Middle-earth."',
+        description: 'Treebeard is an Ent, said by Gandalf to be "the oldest living thing that still walks beneath the Sun upon this Middle-earth."',
         adderId: 4, createdAt: new Date(), updatedAt: new Date()
       },
       {

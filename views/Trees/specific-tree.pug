@@ -32,12 +32,15 @@ block content
                 h2.sub-header.sidebar-header(title="View from top score is an average of all reviews on this tree") View From Top
                 .score(title="View from top score is an average of all reviews on this tree" style=`background: linear-gradient(to right, #b39260 ${100*avgView/4}%, rgba(255, 255, 255, 0.479) ${100*avgView/5}%);`) #{avgView} / 4
                 div.sidebar-btn-container
-                    form(action=`/reviews/${tree.id}/new`, method="get")
+                    div.flex-dir-col
+                        if curUser.id == tree.adderId
+                            form.btm-25rem(action=`/trees/${tree.id}/update`, method="get")
+                                button.form-btn Update Tree
+                            button.form-btn.btm-25rem.delete-btn#delete-tree(data-treeId=tree.id) Delete Tree
                         if !existingReview
-                            button.form-btn Review This Tree
-                        else
-                            button.form-btn Update Review
-
+                            form(action=`/reviews/${tree.id}/new`, method="get")
+                                button.form-btn Review Tree
+                            
             .container__main-content.right-side-container
                 .circled-content
                     div
@@ -55,4 +58,4 @@ block content
                 div
                 .review-list__container
                     each review in tree.reviews
-                        +reviewListView(review)
+                        +reviewListView(review, ownedTree = locals.curUser.id === review.reviewerId)

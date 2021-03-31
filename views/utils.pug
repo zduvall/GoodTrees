@@ -25,7 +25,7 @@ mixin treeListView(trees)
 mixin csrfToken()
   input(type="hidden" name="_csrf" value=csrfToken)
 
-mixin reviewListView(review)
+mixin reviewListView(review, ownedTree)
   div.review-list__table.circled-content
     table
       thead
@@ -42,3 +42,8 @@ mixin reviewListView(review)
     div.review-list__description
       p.review-list__description__title Description
       p= review.reviewText
+    if ownedTree
+      .sidebar-btn-container
+        form(action=`/reviews/${review.treeId}/new`, method="get")
+          button.form-btn Update Review
+        button.form-btn.delete-btn#delete-review(data-treeId=review.treeId data-reviewerId=review.reviewerId) Delete Review

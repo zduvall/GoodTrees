@@ -43,7 +43,6 @@
   align-self: center;
 }
 .nav-logout-btn {
-  /* background-color: #555555; */
   color: black;
   align-self: flex-end;
   font-family: 'Raleway', sans-serif;
@@ -174,6 +173,16 @@ a:hover:not(.navBar-a-tag) {
   margin-bottom: 0.25rem;
 }
 
+.flex-dir-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btm-25rem {
+  margin-bottom: 0.25rem !important;
+}
+
 .form-btn {
   color: #f8f6f3 !important;
   text-transform: uppercase;
@@ -185,6 +194,10 @@ a:hover:not(.navBar-a-tag) {
   border: none;
   transition: all 0.4s ease 0s;
   margin: 0 0.08rem;
+}
+
+.delete-btn {
+  background: #973f34;
 }
 
 .form-btn:hover:enabled {
@@ -319,7 +332,7 @@ a:hover:not(.navBar-a-tag) {
   .highest-climbers__container {
     flex-direction: column-reverse;
     align-items: center;
-    width: 29rem
+    width: 29rem;
   }
 }
 
@@ -382,7 +395,7 @@ a:hover:not(.navBar-a-tag) {
 }
 .highest-climbers__tree__treetop,
 .highest-climbers__tree__treetrunk {
-  font-size: .6rem;
+  font-size: 0.6rem;
   height: 2rem;
   text-decoration: none;
   display: flex;
@@ -463,4 +476,14 @@ a.highest-climbers__tree__treetrunk:hover {
   grid-area: user12;
   background: #b39260;
   border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* page not found */
+.page-not-found {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

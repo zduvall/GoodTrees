@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px;
-  font-family: "Raleway", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -38,7 +38,7 @@ h1 {
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 body {
@@ -54,5 +54,9 @@ li {
   list-style-type: none;
   color: #5a6e53;
   background-color: rgba(255, 255, 255, 0.349);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
+}
+
+*:focus {
+  outline: none;
 }

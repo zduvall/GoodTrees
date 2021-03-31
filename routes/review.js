@@ -1,40 +1,37 @@
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const { check, validationResult } = require("express-validator");
-const { requireAuth } = require("../auth.js");
-//Not sure if we might need express validator for Tree creation form, so just leaving for now
-// const { check, validationResult } = require("express-validator");
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const { validationResult } = require('express-validator');
+const { requireAuth } = require('../auth.js');
 
-const db = require("../db/models");
+const db = require('../db/models');
 
 const {
   csrfProtection,
   asyncHandler,
   createReviewValidators,
-} = require("./utils");
+} = require('./utils');
 
 const router = express.Router();
 
 router.get(
-  "/:id(\\d+)/new",
+  '/:id(\\d+)/new',
   csrfProtection,
   requireAuth,
   asyncHandler(async (req, res) => {
-    
     let review = db.Review.build();
     const treeId = parseInt(req.params.id, 10);
     const tree = await db.Tree.findByPk(treeId);
-    
+
     const existingReview = await db.Review.findOne({
       where: {
         treeId,
-        reviewerId: res.locals.curUser.dataValues.id
-      }
+        reviewerId: res.locals.curUser.dataValues.id,
+      },
     });
 
     if (existingReview) review = existingReview;
 
-    res.render("Trees/create-review", {
+    res.render('Trees/create-review', {
       tree,
       review,
       csrfToken: req.csrfToken(),
@@ -44,7 +41,7 @@ router.get(
 
 // create or update review
 router.post(
-  "/new",
+  '/new',
   csrfProtection,
   createReviewValidators,
   requireAuth,
@@ -54,8 +51,8 @@ router.post(
     const existingReview = await db.Review.findOne({
       where: {
         treeId,
-        reviewerId: res.locals.curUser.dataValues.id
-      }
+        reviewerId: res.locals.curUser.dataValues.id,
+      },
     });
 
     const validatorErrors = validationResult(req);
@@ -70,7 +67,6 @@ router.post(
     });
 
     if (validatorErrors.isEmpty()) {
-
       // update if already exists
       if (existingReview) {
         await existingReview.update({
@@ -89,15 +85,38 @@ router.post(
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       const tree = await db.Tree.findByPk(treeId);
-      res.render("Trees/create-review", {
-        title: "Create A New Review",
+      res.render('Trees/create-review', {
+        title: 'Create A New Review',
         tree,
         review,
         errors,
         csrfToken: req.csrfToken(),
       });
     }
-
   })
 );
+
+// delete review
+router.delete(
+  '/:reviewerId(\\d+)/:treeId(\\d+)',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const reviewerId = parseInt(req.params.reviewerId, 10);
+    const treeId = parseInt(req.params.treeId, 10);
+
+    const reviewToDelete = await db.Review.findOne({
+      where: {
+        reviewerId,
+        treeId,
+      },
+    });
+
+    console.log(reviewToDelete.reviewText);
+
+    await reviewToDelete.destroy();
+
+    return res.json('done');
+  })
+);
+
 module.exports = router;
