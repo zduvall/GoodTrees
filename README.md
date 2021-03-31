@@ -4,7 +4,7 @@
 
 ![Welcome to Good Trees](https://good-trees.s3-us-west-1.amazonaws.com/GoodTrees-preview.png)
 
-Logged-in users can create, update, and delete trees and reviews as well as add trees to their own forests (under the tags `Climbed` or `Want to Climb`). They can also compare their climbing score to other climbers on the [highest climber](https://goodtrees.herokuapp.com/highest-climbers) page.
+Logged-in users can create, update, and delete trees and reviews as well as add/remove trees to/from their own forests (under the tags `Climbed` or `Want to Climb`). Users can also compare their climbing score to other climbers on the [highest climber](https://goodtrees.herokuapp.com/highest-climbers) page.
 
 Try the live site [here](https://goodtrees.herokuapp.com/).
 

@@ -46,4 +46,4 @@ mixin reviewListView(review, ownedTree)
       .sidebar-btn-container
         form(action=`/reviews/${review.treeId}/new`, method="get")
           button.form-btn Update Review
-        button.form-btn#delete-review(data-treeId=review.treeId data-reviewerId=review.reviewerId) Delete Review
+        button.form-btn.delete-btn#delete-review(data-treeId=review.treeId data-reviewerId=review.reviewerId) Delete Review

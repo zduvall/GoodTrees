@@ -196,6 +196,10 @@ a:hover:not(.navBar-a-tag) {
   margin: 0 0.08rem;
 }
 
+.delete-btn {
+  background: #973f34;
+}
+
 .form-btn:hover:enabled {
   background: #434343;
   letter-spacing: 1px;

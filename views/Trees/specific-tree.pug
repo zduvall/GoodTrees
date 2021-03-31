@@ -36,7 +36,7 @@ block content
                         if curUser.id == tree.adderId
                             form.btm-25rem(action=`/trees/${tree.id}/update`, method="get")
                                 button.form-btn Update Tree
-                            button.form-btn.btm-25rem#delete-tree(data-treeId=tree.id) Delete Tree
+                            button.form-btn.btm-25rem.delete-btn#delete-tree(data-treeId=tree.id) Delete Tree
                         if !existingReview
                             form(action=`/reviews/${tree.id}/new`, method="get")
                                 button.form-btn Review Tree
