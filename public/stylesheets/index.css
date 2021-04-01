@@ -441,7 +441,6 @@ a.highest-climbers__tree__treetrunk:hover {
 
 .user1 {
   white-space: nowrap;
-  /* margin-top: -10px; */
   grid-area: user1;
   color: white;
   font-size: 0.85rem;
@@ -456,7 +455,6 @@ a.highest-climbers__tree__treetrunk:hover {
 }
 .user3 {
   white-space: nowrap;
-  /* margin-top: -10px; */
   margin-right: 40px;
   grid-area: user3;
   font-size: 0.75rem;
@@ -479,14 +477,12 @@ a.highest-climbers__tree__treetrunk:hover {
 }
 .user7 {
   white-space: nowrap;
-  /* margin-top: -8px; */
   margin-right: 15px;
   grid-area: user7;
   color: white;
 }
 .user8 {
   white-space: nowrap;
-  /* margin-top: -15px; */
   margin-right: 15px;
   grid-area: user8;
   color: white;
@@ -500,25 +496,19 @@ a.highest-climbers__tree__treetrunk:hover {
 }
 .user10 {
   white-space: nowrap;
-  /* margin-top: -12px; */
   grid-area: user10;
   color: white;
-
-  /* background: #b39260; */
 }
 .user11 {
   white-space: nowrap;
   grid-area: user11;
   color: white;
-
-  /* background: #b39260; */
 }
 .user12 {
   white-space: nowrap;
   grid-area: user12;
   color: white;
   background-color: rgba(255, 255, 255, 0);
-  /* background: #b39260; */
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
