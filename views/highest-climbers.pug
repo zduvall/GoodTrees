@@ -25,17 +25,23 @@ block content
             div(class="highest-climbers__tree__outercontainer")
                 div(class="highest-climbers__tree__innercontainer circled-content")
                     h3.circled-content Highest Climber Score
-                    div(class="highest-climbers__tree__container")
-                        each user, index in users
-                            if index < 9
-                                a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
-                            else if index < 12
-                                a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${index+1}. ${user.username}`
-                div(class="highest-climbers__tree__innercontainer circled-content")
+                    div(class="background-image-tree")
+                        div(class="highest-climbers__tree__container")
+                            each user, index in users 
+                                if index < 9
+                                    a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)
+                                        span(class='tree-podium-text')=`${index+1}. ${user.username}`
+                                else if index < 10
+                                    a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)
+                                        span(class='tree-podium-text')=`${index+1}. ${user.username}`
+                div(class="total-trees__tree__innercontainer circled-content")
                     h3.circled-content Total Trees Climbed
-                    div(class="highest-climbers__tree__container")
-                        each user, index in users.sort((a, b) => b.numOfTreesClimbed - a.numOfTreesClimbed)
-                            if index < 9
-                                a(class=`user${index + 1} highest-climbers__tree__treetop` href=`/users/${user.id}`)=`${user.username}: ${user.numOfTreesClimbed}`
-                            else if index < 12
-                                a(class=`user${index + 1} highest-climbers__tree__treetrunk` href=`/users/${user.id}`)=`${user.username}: ${user.numOfTreesClimbed}`
+                    div(class="background-image-fall-tree")
+                        div(class="total-trees__tree__container")
+                            each user, index in users.sort((a, b) => b.numOfTreesClimbed - a.numOfTreesClimbed)
+                                if index < 9
+                                    a(class=`user${index + 1}a total-trees__tree__treetop` href=`/users/${user.id}`)
+                                        span(class='tree-podium-text2')=`${user.username}: ${user.numOfTreesClimbed}`
+                                else if index < 10
+                                    a(class=`user${index + 1}a total-trees__tree__treetrunk` href=`/users/${user.id}`)
+                                        span(class='tree-podium-text2')=`${user.username}: ${user.numOfTreesClimbed}`

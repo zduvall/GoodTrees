@@ -30,3 +30,21 @@
 .page-not-found__background {
   background-image: url('/forests/fog-page-not-found.jpg');
 }
+
+.background-image-tree {
+  height: 275px;
+  width: 100%;
+  background-image: url("/forests/tree2.png");
+  background-size: 127%;
+  background-repeat: no-repeat;
+  background-position: center top; 
+}
+
+.background-image-fall-tree {
+  height: 275px;
+  width: 95%;
+  background-image: url("/forests/fall-tree.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center top; 
+}
