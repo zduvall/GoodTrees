@@ -1,6 +1,6 @@
 # [Good-Trees](https://goodtrees.herokuapp.com/)
 
-[Good-Trees](https://goodtrees.herokuapp.com/), where climbers find Good Trees to climb, for those who love the climb and the view from the top. A full-stack group project by [Andre Grant](https://github.com/IamDgrant), [Gabriel Gutierrez](https://github.com/OptimumMars), [Tommy Chen](https://github.com/btcblade), and [Zachary Duvall](https://github.com/zduvall).
+[Good-Trees](https://goodtrees.herokuapp.com/), where climbers find Good Trees to climb... for those who love the climb and the view from the top. A full-stack group project by [Andre Grant](https://github.com/IamDgrant), [Gabriel Gutierrez](https://github.com/OptimumMars), [Tommy Chen](https://github.com/btcblade), and [Zachary Duvall](https://github.com/zduvall).
 
 ![Welcome to Good Trees](https://good-trees.s3-us-west-1.amazonaws.com/GoodTrees-preview.png)
 
