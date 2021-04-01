@@ -4,14 +4,14 @@
 }
 .good {
   font-size: 1.5rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 100;
   color: black;
   text-decoration: none;
 }
 .tree {
   font-size: 1.5rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 500;
   color: #6c9734;
   text-decoration: none;
@@ -26,7 +26,7 @@
   margin: auto;
   align-items: center;
   width: 100%;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: black;
 }
 .nav-link {
@@ -45,7 +45,7 @@
 .nav-logout-btn {
   color: black;
   align-self: flex-end;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   background: none;
   border: none;
   padding: 0;
@@ -62,7 +62,7 @@
   column-gap: 5%;
   margin-top: 2%;
   width: 100%;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 .footer-about > h5 {
   margin-bottom: 5%;
@@ -317,7 +317,7 @@ a:hover:not(.navBar-a-tag) {
 .highest-climbers__page {
   display: flex;
   flex-direction: row;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 .highest-climbers__container {
   width: 51rem;
@@ -379,24 +379,37 @@ a:hover:not(.navBar-a-tag) {
   width: 100%;
   margin: 0 0 3% 0;
 }
+
 .highest-climbers__tree__container {
   display: grid;
   grid-template-areas:
-    '. . user1 . . '
-    '. user2 user3 user4 .'
-    'user5 user6 user7 user8 user9'
-    '. . user10 . .'
-    '. . user11 . .'
-    '. . user12 . .';
-  grid-auto-columns: 5rem;
+    ". . user1 . ."
+    ". user2 . . ."
+    ". . . user3 ."
+    ". user4 . . ."
+    ". . . user5 ."
+    ". user6 . . ."
+    ". . . user7 ."
+    ". user8 . user9 ."
+    ". . user10 . .";
+  /* ". . user1 . . "
+    ". user2 user3 user4 ."
+    "user5 user6 user7 user8 user9"
+    ". . user10 . ."
+    ". . user11 . ."
+    ". . user12 . ."; */
+  grid-auto-columns: 4.5rem;
   justify-content: center;
   width: 100%;
-  margin: 3%;
+  margin-top: 10%;
+  margin-left: 2%;
 }
+
 .highest-climbers__tree__treetop,
 .highest-climbers__tree__treetrunk {
   font-size: 0.6rem;
-  height: 2rem;
+  font-weight: bold;
+  height: auto;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -408,74 +421,259 @@ a:hover:not(.navBar-a-tag) {
   border-radius: 0.5rem;
 }
 
-.highest-climbers__tree__treetop a {
-  background-color: red;
-}
 .highest-climbers__container h3 {
   text-align: center;
   font-size: 1.2rem;
 }
 a.highest-climbers__tree__treetop:hover {
-  background-color: #6c9734;
+  background-color: transparent;
   transition: none;
   border-radius: none;
   letter-spacing: 0;
 }
+
 a.highest-climbers__tree__treetrunk:hover {
-  background-color: #6b522c;
+  background-color: transparent;
   transition: none;
   border-radius: none;
   letter-spacing: 0;
 }
 
 .user1 {
+  white-space: nowrap;
+  /* margin-top: -10px; */
   grid-area: user1;
-  background: #e2f0d0;
+  color: white;
+  font-size: 0.85rem;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user2 {
+  white-space: nowrap;
+  margin-top: 5px;
+  margin-left: 40px;
   grid-area: user2;
-  background: #e2f0d0;
+  font-size: 0.75rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user3 {
+  white-space: nowrap;
+  /* margin-top: -10px; */
+  margin-right: 40px;
   grid-area: user3;
-  background: #e2f0d0;
+  font-size: 0.75rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user4 {
+  white-space: nowrap;
   grid-area: user4;
-  background: #e2f0d0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user5 {
+  white-space: nowrap;
   grid-area: user5;
-  background: #e2f0d0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user6 {
+  white-space: nowrap;
   grid-area: user6;
-  background: #e2f0d0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user7 {
+  white-space: nowrap;
+  /* margin-top: -8px; */
+  margin-right: 15px;
   grid-area: user7;
-  background: #e2f0d0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user8 {
+  white-space: nowrap;
+  /* margin-top: -15px; */
+  margin-right: 15px;
   grid-area: user8;
-  background: #e2f0d0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user9 {
+  margin-top: 8px;
+  white-space: nowrap;
+  margin-left: 20px;
   grid-area: user9;
-  background: #e2f0d0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .user10 {
+  white-space: nowrap;
+  /* margin-top: -12px; */
   grid-area: user10;
-  background: #b39260;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+  /* background: #b39260; */
 }
 .user11 {
+  white-space: nowrap;
   grid-area: user11;
-  background: #b39260;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+  /* background: #b39260; */
 }
 .user12 {
+  white-space: nowrap;
   grid-area: user12;
-  background: #b39260;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  /* background: #b39260; */
   border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.total-trees__tree__innercontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 3% 0;
+}
+
+.total-trees__tree__container {
+  display: grid;
+  grid-template-areas:
+    ". . user1 . ."
+    ". user2 . . ."
+    ". . . user3 ."
+    ". user4 . . ."
+    ". . . user5 ."
+    ". user6 . . ."
+    ". . . user7 ."
+    ". user8 . user9 ."
+    ". . user10 . .";
+  /* ". . user1 . . "
+    ". user2 user3 user4 ."
+    "user5 user6 user7 user8 user9"
+    ". . user10 . ."
+    ". . user11 . ."
+    ". . user12 . ."; */
+  grid-auto-columns: 4.5rem;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10%;
+  margin-left: 2%;
+}
+
+.total-trees__tree__treetop,
+.total-trees__tree__treetrunk {
+  font-size: 0.6rem;
+  font-weight: bold;
+  height: auto;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+.total-trees__tree__treetop {
+  border-radius: 0.5rem;
+}
+
+.highest-climbers__container h3 {
+  text-align: center;
+  font-size: 1.2rem;
+}
+a.total-trees__tree__treetop:hover {
+  background-color: transparent;
+  transition: none;
+  border-radius: none;
+  letter-spacing: 0;
+}
+
+a.total-trees__tree__treetrunk:hover {
+  background-color: transparent;
+  transition: none;
+  border-radius: none;
+  letter-spacing: 0;
+}
+
+.user1a {
+  white-space: nowrap;
+  /* margin-top: -10px; */
+  grid-area: user1;
+  color: white;
+  font-size: 0.85rem;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user2a {
+  white-space: nowrap;
+  margin-top: 5px;
+  margin-left: 40px;
+  grid-area: user2;
+  font-size: 0.75rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user3a {
+  white-space: nowrap;
+  /* margin-top: -15px; */
+  margin-right: 40px;
+  grid-area: user3;
+  font-size: 0.75rem;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user4a {
+  white-space: nowrap;
+  grid-area: user4;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user5a {
+  margin-top: 2px;
+  white-space: nowrap;
+  margin-right: 28px;
+  grid-area: user5;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user6a {
+  white-space: nowrap;
+  /* margin-top: -10px; */
+  grid-area: user6;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user7a {
+  white-space: nowrap;
+  margin-right: 15px;
+  grid-area: user7;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user8a {
+  white-space: nowrap;
+  /* margin-top: -15px; */
+  margin-right: 15px;
+  grid-area: user8;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user9a {
+  white-space: nowrap;
+  margin-top: 15px;
+  margin-left: 20px;
+  grid-area: user9;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
+}
+.user10a {
+  white-space: nowrap;
+  margin-top: -5rpx;
+  grid-area: user10;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 
 /* page not found */
