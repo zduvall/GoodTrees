@@ -10,6 +10,11 @@ Try the live site [here](https://goodtrees.herokuapp.com/).
 
 Visit the [site wiki](https://github.com/zduvall/GoodTrees/wiki) to see the database schema, routes, user stories, and feature list (current and planned).
 
+[![Contributors](https://img.shields.io/github/contributors/zduvall/GoodTrees)](https://www.github.com/zduvall/GoodTrees/contributors)
+[![Open Issues](https://img.shields.io/github/issues/zduvall/GoodTrees)](https://www.github.com/zduvall/GoodTrees/issues)
+[![Forks](https://img.shields.io/github/forks/zduvall/GoodTrees)](https://www.github.com/zduvall/GoodTrees/forks)
+[![Stars](https://img.shields.io/github/stars/zduvall/GoodTrees)](https://www.github.com/zduvall/GoodTrees/stars)
+
 ## Tech Stack
 
 ### [Good Trees](https://goodtrees.herokuapp.com/) uses the following tools, frameworks, and key packages:
